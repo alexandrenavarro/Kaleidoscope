@@ -474,6 +474,7 @@ KEYMAPS(
 
 #error "No default keymap defined. You should make sure that you have a line like '#define PRIMARY_KEYMAP_QWERTY' in your sketch"
 
+
 #endif
 
   [FUNCTION] =  KEYMAP_STACKED
