@@ -187,10 +187,10 @@ enum {
   *
   */
 
-#define PRIMARY_KEYMAP_QWERTY
+//#define PRIMARY_KEYMAP_QWERTY
 // #define PRIMARY_KEYMAP_DVORAK
 // #define PRIMARY_KEYMAP_COLEMAK
-// #define PRIMARY_KEYMAP_CUSTOM
+ #define PRIMARY_KEYMAP_CUSTOM
 
 
 /* This comment temporarily turns off astyle's indent enforcement
@@ -253,18 +253,18 @@ KEYMAPS(
 #elif defined (PRIMARY_KEYMAP_CUSTOM)
   // Edit this keymap to make a custom layout
   [PRIMARY] = KEYMAP_STACKED
-  (___,          Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
-   Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_Tab,
-   Key_PageUp,   Key_A, Key_S, Key_D, Key_F, Key_G,
-   Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
-   Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
+  (___,                   Key_Insert, Key_Quote, ___, Key_5, Key_Minus, Key_Enter,
+   Key_RightBracket,      Key_B, Key_2, Key_P, Key_O, Key_7, Key_Tab,
+   Key_Z,                 Key_Q, Key_U, Key_I, Key_E, Key_M,
+   Key_Equals,            Key_0, Key_Y, Key_X, ___, Key_K, Key_Period,
+   Key_LeftShift, Key_Backspace, Key_LeftControl, Key_LeftAlt,
    ShiftToLayer(FUNCTION),
 
-   M(MACRO_ANY),  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
-   Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
-                  Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
-   Key_RightAlt,  Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
-   Key_RightShift, Key_LeftAlt, Key_Spacebar, Key_RightControl,
+   Key_Slash,     ___,             ___,   Key_6,     ___,           Key_Backslash, ___,
+   Key_3,         Key_LeftBracket, Key_V, Key_D,     Key_L,         Key_J,         Key_W,
+                  Key_C,           Key_T, Key_S,     Key_R,         Key_N,         Key_Semicolon,
+   ___,           Key_4,           Key_A, Key_G,     Key_H,         Key_F,         Key_9,
+   Key_LeftGui, Key_Enter, Key_Spacebar, Key_RightShift,
    ShiftToLayer(FUNCTION)),
 
 #else
@@ -298,9 +298,9 @@ KEYMAPS(
    ___, Key_Delete, ___, ___,
    ___,
 
-   Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
-   Consumer_PlaySlashPause,    Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
-                               Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,              Key_RightArrow,  ___,              ___,
+   Key_F12,                    Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
+   Key_PcApplication,          Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
+                               Key_Home,               Key_LeftArrow,            Key_DownArrow,            Key_UpArrow,     Key_RightArrow,   Key_End,
    Key_PcApplication,          Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,             Key_Backslash,    Key_Pipe,
    ___, ___, Key_Enter, ___,
    ___)
