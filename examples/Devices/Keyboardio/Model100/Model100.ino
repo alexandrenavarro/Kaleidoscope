@@ -9,7 +9,7 @@
 
 // Interval duration between step of a macro (needed on windows if bepo-pkl is used for layout to let time to process key codes events)
 // It should be removed when bepo will be included by default in windows 11 23H2 (to be tested)
-#define INTERVAL 40
+#define INTERVAL 0
 
 // The Kaleidoscope core
 #include "Kaleidoscope.h"
@@ -345,11 +345,7 @@ enum { MACRO_0,
   *
   */
 
-enum {
-  PRIMARY,
-  NUMPAD,
-  FUNCTION,
-};  // layers
+enum { PRIMARY, FUNCTION, CUT, NUMPAD, WM}; // layers
 
 
 /**
@@ -431,19 +427,19 @@ KEYMAPS(
 #elif defined (PRIMARY_KEYMAP_CUSTOM)
   // Edit this keymap to make a custom layout
   [PRIMARY] = KEYMAP_STACKED
-  (___,                   Key_Insert, Key_Quote, ___, Key_5, Key_Minus, Key_Enter,
-   Key_RightBracket,      Key_B, Key_2, Key_P, Key_O, Key_7, Key_Tab,
-   Key_Z,                 Key_Q, Key_U, Key_I, Key_E, Key_M,
-   Key_Equals,            Key_0, Key_Y, Key_X, ___, Key_K, Key_Period,
-   Key_LeftShift, Key_Backspace, Key_LeftControl, Key_LeftAlt,
-   ShiftToLayer(FUNCTION),
+  (___,                                    Key_Insert,                                     Key_Quote,                              ___,                                    Key_5,                                  Key_Minus,                                   Key_Enter,
+   Key_RightBracket,                       Key_B,                                          Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                       Key_Tab,
+   Key_Z,                                  Key_Q,                                          Key_U,                                  Key_I,                                  Key_E,                                  Key_M,
+   Key_Equals,                             Key_0,                                          Key_Y,                                  Key_X,                                  ___,                                    Key_K,                                       Key_Period,
+   OSM(LeftShift),                         Key_Backspace,                                  OSM(LeftControl),                       OSM(LeftAlt),
+   Key_Escape,
 
-   Key_Slash,     ___,             ___,   Key_6,     ___,           Key_Backslash, ___,
-   Key_3,         Key_LeftBracket, Key_V, Key_D,     Key_L,         Key_J,         Key_W,
-                  Key_C,           Key_T, Key_S,     Key_R,         Key_N,         Key_Semicolon,
-   ___,           Key_4,           Key_A, Key_G,     Key_H,         Key_F,         Key_9,
-   Key_LeftGui, Key_Enter, Key_Spacebar, Key_RightShift,
-   ShiftToLayer(FUNCTION)),
+   Key_Slash,                              ___,                                            ___,                                    Key_6,                                  ___,                                    Key_Backslash,                               ___,
+   Key_3,                                  Key_LeftBracket,                                Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                       Key_W,
+                                           Key_C,                                          Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                       Key_Semicolon,
+   ___,                                    Key_4,                                          Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                       Key_9,
+   OSM(LeftGui),                           Key_Enter,                                      Key_Spacebar,                           OSM(LeftShift),
+   M(MACRO_ALT_SPACE)),
 
 #else
 
@@ -453,35 +449,67 @@ KEYMAPS(
 
 
 
-  [NUMPAD] =  KEYMAP_STACKED
-  (___, ___, ___, ___, ___, ___, ___,
-   ___, ___, ___, ___, ___, ___, ___,
-   ___, ___, ___, ___, ___, ___,
-   ___, ___, ___, ___, ___, ___, ___,
+  [FUNCTION] =  KEYMAP_STACKED
+  (M(MACRO_CTRL_P),                        Key_F1,                                         Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                      M(MACRO_CTRL_A),
+   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                                M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_W),                        M(MACRO_ALT_F4),                             M(MACRO_CTRL_H),
+   Key_Delete,                             M(MACRO_CTRL_Z),                                M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
+   M(MACRO_CTRL_DIVIDE),                   M(MACRO_ALT_LEFT),                              M(MACRO_ALT_DOWN),                      M(MACRO_ALT_UP),                        M(MACRO_ALT_RIGHT),                     Key_F4,                                      M(MACRO_ALT_F7),
+   Key_LeftShift,                          Key_Backspace,                                  Key_LeftControl,                        Key_LeftAlt,
+   ___,
+
+   Key_F12,                                Key_F6,                                         Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                     Key_F11,
+   Key_PcApplication,                      M(MACRO_CTRL_HOME),                             M(MACRO_CTRL_PAGE_UP),                  Key_PageDown,                           Key_PageUp,                             M(MACRO_CTRL_PAGE_DOWN),                     M(MACRO_CTRL_END),
+                                           Key_Home,                                       Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                              Key_End,
+   M(MACRO_CTRL_INSERT),                   M(MACRO_CTRL_LEFT_LEFT_LEFT_LEFT),              M(MACRO_CTRL_LEFT),                     M(MACRO_CTRL_DOWN),                     M(MACRO_CTRL_UP),                       M(MACRO_CTRL_RIGHT),                         M(MACRO_CTRL_RIGHT_RIGHT_RIGHT_RIGHT),
+   ___,                                    M(MACRO_CTRL_ENTER),                            M(MACRO_CTRL_SPACE),                    ___,
+   M(MACRO_ALT_1)),
+
+  [CUT] =  KEYMAP_STACKED
+  (M(MACRO_ALT_INSERT),                    M(MACRO_ALT_F1),                                M(MACRO_ALT_F2),                        M(MACRO_ALT_F3),                        M(MACRO_ALT_F4),                        M(MACRO_ALT_F5),                             M(MACRO_ALT_ENTER),
+   Key_Home,                               Key_LeftArrow,                                  Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,                                     M(MACRO_ALT_TAB),
+   M(MACRO_ALT_0),                         M(MACRO_ALT_1),                                 M(MACRO_ALT_2),                         M(MACRO_ALT_3),                         M(MACRO_ALT_4),                         M(MACRO_ALT_5),
+   Key_Home,                               Key_LeftArrow,                                  Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,                                     ___,
    ___, ___, ___, ___,
    ___,
 
-   ___,                    ___, Key_7, Key_8,      Key_9,              Key_KeypadSubtract, ___,
-   ___,                    ___, Key_4, Key_5,      Key_6,              Key_KeypadAdd,      ___,
-                           ___, Key_1, Key_2,      Key_3,              Key_Equals,         ___,
-   ___,                    ___, Key_0, Key_Period, Key_KeypadMultiply, Key_KeypadDivide,   Key_Enter,
-   ___, ___, ___, ___,
+   M(MACRO_ALT_F12),                       M(MACRO_ALT_F6),                                M(MACRO_ALT_F7),                        M(MACRO_ALT_F8),                        M(MACRO_ALT_F9),                        M(MACRO_ALT_F10),                            M(MACRO_ALT_F11),
+   M(MACRO_ALT_GR_COMMA),                  ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+                                           M(MACRO_SHIFT_HOME_CTRL_X),                     Key_Backspace,                          M(MACRO_SHIFT_DOWN_CTRL_X),             M(MACRO_SHIFT_UP_CTRL_X),               Key_Delete,                                  M(MACRO_SHIFT_END_CTRL_X),
+   M(MACRO_ALT_INSERT),                    M(MACRO_SHIFT_CTRL_LEFT_LEFT_LEFT_LEFT_X),      M(MACRO_SHIFT_CTRL_LEFT_X),             M(MACRO_SHIFT_CTRL_DOWN_X),             M(MACRO_SHIFT_CTRL_UP_X),               M(MACRO_SHIFT_CTRL_RIGHT_X),                 M(MACRO_SHIFT_CTRL_RIGHT_RIGHT_RIGHT_RIGHT_X),
+   ___,                                    M(MACRO_ALT_ENTER),                             Key_Space,                              ___,
    ___),
 
-  [FUNCTION] =  KEYMAP_STACKED
-  (___,      Key_F1,           Key_F2,      Key_F3,     Key_F4,        Key_F5,           Key_CapsLock,
-   Key_Tab,  ___,              Key_mouseUp, ___,        Key_mouseBtnR, Key_mouseWarpEnd, Key_mouseWarpNE,
-   Key_Home, Key_mouseL,       Key_mouseDn, Key_mouseR, Key_mouseBtnL, Key_mouseWarpNW,
-   Key_End,  Key_PrintScreen,  Key_Insert,  ___,        Key_mouseBtnM, Key_mouseWarpSW,  Key_mouseWarpSE,
-   ___, Key_Delete, ___, ___,
+  [NUMPAD] =  KEYMAP_STACKED
+  (___,                                    ___,                                            M(MACRO_ALT_GR_2),                      M(MACRO_ALT_GR_3),                      M(MACRO_ALT_GR_4),                      M(MACRO_ALT_GR_5),                           ___,
+   M(MACRO_ALT_GR_DOLLAR),                 M(MACRO_ALT_GR_B),                              ___,                                    M(MACRO_ALT_GR_P),                      M(MACRO_ALT_GR_Y),                      M(MACRO_ALT_GR_X),                           M(MACRO_ALT_GR_K),
+   M(MACRO_CTRL_G),                        M(MACRO_1),                                     M(MACRO_2),                             M(MACRO_3),                             M(MACRO_4),                             M(MACRO_5),
+   ___,                                    M(MACRO_ALT_GR_A_AIGU),                         M(MACRO_ALT_GR_E),                      M(MACRO_ALT_GR_I),                      ___,                                    ___,                                         ___,
+   ___,                                    Key_Backspace,                                  ___,                                    ___,
    ___,
 
-   Key_F12,                    Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
-   Key_PcApplication,          Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
-                               Key_Home,               Key_LeftArrow,            Key_DownArrow,            Key_UpArrow,     Key_RightArrow,   Key_End,
-   Key_PcApplication,          Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,             Key_Backslash,    Key_Pipe,
-   ___, ___, Key_Enter, ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+                                           M(MACRO_6),                                     M(MACRO_7),                             M(MACRO_8),                             M(MACRO_9),                             M(MACRO_0),                                  ___,
+   ___,                                    M(MACRO_SHIFT_PERCENT),                         ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,
+   ___),
+
+  [WM] =  KEYMAP_STACKED
+  (___,                                    M(MACRO_CTRL_F1),                               M(MACRO_CTRL_F2),                       M(MACRO_CTRL_F3),                       M(MACRO_CTRL_F4),                       M(MACRO_CTRL_F5),                            M(MACRO_SUPER_ALT_6),
+   M(MACRO_SUPER_ALT_0),                   M(MACRO_SUPER_ALT_1),                           M(MACRO_SUPER_ALT_2),                   M(MACRO_SUPER_ALT_3),                   M(MACRO_SUPER_ALT_4),                   M(MACRO_SUPER_ALT_5),                        M(MACRO_SUPER_6),
+   M(MACRO_SUPER_0),                       M(MACRO_SUPER_1),                               M(MACRO_SUPER_2),                       M(MACRO_SUPER_3),                       M(MACRO_SUPER_4),                       M(MACRO_SUPER_5),
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___, ___, ___, ___,
+   ___,
+
+   M(MACRO_CTRL_F12),                      M(MACRO_CTRL_F6),                               M(MACRO_CTRL_F7),                       M(MACRO_CTRL_F8),                       M(MACRO_CTRL_F8),                       M(MACRO_CTRL_F10),                           M(MACRO_CTRL_F11),
+   ___,                                    M(MACRO_SUPER_SHIFT_PAGE_DOWN),                 M(MACRO_SUPER_PAGE_DOWN),               M(MACRO_SUPER_ALT_SHIFT_DOWN),          M(MACRO_SUPER_ALT_SHIFT_UP),            M(MACRO_SUPER_END),                          M(MACRO_ALT_F4),
+                                           M(MACRO_SUPER_EQUALS),                          M(MACRO_SUPER_SHIFT_LEFT),              M(MACRO_SUPER_SHIFT_DOWN),              M(MACRO_SUPER_SHIFT_UP),                M(MACRO_SUPER_SHIFT_RIGHT),                  M(MACRO_SUPER_SHIFT_PAGE_UP),
+   ___,                                    ___,                                            M(MACRO_SUPER_LEFT),                    M(MACRO_SUPER_DOWN),                    M(MACRO_SUPER_UP),                      M(MACRO_SUPER_RIGHT),                        M(MACRO_SUPER_A),
+   ___,                                    M(MACRO_CTRL_ALT_DELETE),                       Key_Space,                              ___,
+
    ___)
+
 ) // KEYMAPS(
 
 /* Re-enable astyle's indent enforcement */
@@ -803,7 +831,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_ALT_GR_A_AIGU:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(Z), U(RightAlt));
+      return MACRO(I(INTERVAL), D(RightAlt), T(W), U(RightAlt));
     }
     break;
 
@@ -971,13 +999,13 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_B:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(Q), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(B), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_C:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(H), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(C), U(LeftControl));
     }
     break;
 
@@ -1013,7 +1041,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_E:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(E), U(LeftControl));
     }
     break;
 
@@ -1055,7 +1083,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_F:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(Slash), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(F), U(LeftControl));
     }
     break;
 
@@ -1133,25 +1161,25 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_G:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(Comma), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(G), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_H:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(Period), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(H), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_I:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(S), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(I), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_K:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(B), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(K), U(LeftControl));
     }
     break;
 
@@ -1181,7 +1209,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_L:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(O), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(L), U(LeftControl));
     }
     break;
 
@@ -1229,19 +1257,19 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_N:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(Semicolon), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(N), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_O:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(T), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(O), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_P:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(E), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(P), U(LeftControl));
     }
     break;
 
@@ -1307,7 +1335,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_S:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(K), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(S), U(LeftControl));
     }
     break;
 
@@ -1331,13 +1359,13 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_T:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(J), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(T), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_U:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(S), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(U), U(LeftControl));
     }
     break;
 
@@ -1349,25 +1377,25 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_V:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(U), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(V), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_W:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(RightBracket), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(Z), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_Z:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(LeftBracket), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), T(W), U(LeftControl));
     }
     break;
 
@@ -1385,67 +1413,67 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_SHIFT_CTRL_DOWN_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(DownArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(DownArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_CTRL_END_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(End), U(LeftControl), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(End), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_CTRL_HOME_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(Home), U(LeftControl), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(Home), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_CTRL_LEFT_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(LeftArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(LeftArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_CTRL_LEFT_LEFT_LEFT_LEFT_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(LeftArrow), T(LeftArrow), T(LeftArrow), T(LeftArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(LeftArrow), T(LeftArrow), T(LeftArrow), T(LeftArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_CTRL_RIGHT_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(RightArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(RightArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_CTRL_RIGHT_RIGHT_RIGHT_RIGHT_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(RightArrow), T(RightArrow), T(RightArrow), T(RightArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(RightArrow), T(RightArrow), T(RightArrow), T(RightArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_CTRL_UP_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(UpArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(UpArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_DOWN_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(DownArrow), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), T(DownArrow), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_END_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(End), U(LeftShift), D(LeftControl), T(C), U(LeftControl), T(Space), T(Space), T(Backspace), T(Backspace));
+      return MACRO(I(INTERVAL), D(LeftShift), T(End), U(LeftShift), D(LeftControl), T(X), U(LeftControl), T(Space), T(Space), T(Backspace), T(Backspace));
     }
     break;
 
   case MACRO_SHIFT_HOME_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(Home), U(LeftShift), D(LeftControl), T(C), U(LeftControl), T(Space), T(Backspace));
+      return MACRO(I(INTERVAL), D(LeftShift), T(Home), U(LeftShift), D(LeftControl), T(X), U(LeftControl), T(Space), T(Backspace));
     }
     break;
 
@@ -1457,19 +1485,19 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_SHIFT_PG_DOWN_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(PageDown), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), T(PageDown), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_PG_UP_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(PageUp), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), T(PageUp), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_UP_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(UpArrow), U(LeftShift), D(LeftControl), T(C), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftShift), T(UpArrow), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
@@ -1620,7 +1648,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_SUPER_B:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), T(Q), U(LeftGui));
+      return MACRO(I(INTERVAL), D(LeftGui), T(B), U(LeftGui));
     }
     break;
 
@@ -1975,6 +2003,21 @@ KALEIDOSCOPE_INIT_PLUGINS(
 void setup() {
   // First, call Kaleidoscope's internal setup function
   Kaleidoscope.setup();
+
+  //Qukeys
+  QUKEYS(
+       kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(CUT)),
+       kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
+       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
+       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(WM))
+  )
+
+  Qukeys.setHoldTimeout(180);
+  Qukeys.setMaxIntervalForTapRepeat(150);
+
+  //OneShot
+  OneShot.setTimeout(1000);
+
 
   // Add colormap overlays for all keys of the numpad. This makes sure that
   // all keys of the numpad light up once the numpad layer is active.
