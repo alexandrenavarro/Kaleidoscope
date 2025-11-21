@@ -345,7 +345,7 @@ enum { MACRO_0,
   *
   */
 
-enum { PRIMARY, FUNCTION, CUT, NUMPAD, WM}; // layers
+enum { PRIMARY, FUNCTION, CUT, NUMPAD, SYMBOL, WM}; // layers
 
 
 /**
@@ -431,15 +431,15 @@ KEYMAPS(
    Key_RightBracket,                       Key_B,                                          Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                       Key_Tab,
    Key_Z,                                  Key_Q,                                          Key_U,                                  Key_I,                                  Key_E,                                  Key_M,
    Key_Equals,                             Key_0,                                          Key_Y,                                  Key_X,                                  ___,                                    Key_K,                                       Key_Period,
-   OSM(LeftShift),                         Key_Backspace,                                  OSM(LeftControl),                       OSM(LeftAlt),
-   Key_Escape,
+   OSM(LeftShift),                         LT(CUT, Backspace),                             OSM(LeftControl),                       OSM(LeftAlt),
+   LT(FUNCTION, Escape),
 
    Key_Slash,                              ___,                                            ___,                                    Key_6,                                  ___,                                    Key_Backslash,                               ___,
    Key_3,                                  Key_LeftBracket,                                Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                       Key_W,
                                            Key_C,                                          Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                       Key_Semicolon,
    ___,                                    Key_4,                                          Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                       Key_9,
-   OSM(LeftGui),                           Key_Enter,                                      Key_Spacebar,                           OSM(LeftShift),
-   M(MACRO_ALT_SPACE)),
+   OSM(LeftGui),                           LT(NUMPAD, Enter),                              LT(SYMBOL, Spacebar),                   OSM(LeftShift),
+   LALT(Key_Spacebar)),
 
 #else
 
@@ -480,6 +480,21 @@ KEYMAPS(
    ___),
 
   [NUMPAD] =  KEYMAP_STACKED
+  (___,                                    ___,                                            M(MACRO_ALT_GR_2),                      M(MACRO_ALT_GR_3),                      M(MACRO_ALT_GR_4),                      M(MACRO_ALT_GR_5),                           ___,
+   M(MACRO_ALT_GR_DOLLAR),                 M(MACRO_ALT_GR_B),                              ___,                                    M(MACRO_ALT_GR_P),                      M(MACRO_ALT_GR_Y),                      M(MACRO_ALT_GR_X),                           M(MACRO_ALT_GR_K),
+   M(MACRO_CTRL_G),                        M(MACRO_1),                                     M(MACRO_2),                             M(MACRO_3),                             M(MACRO_4),                             M(MACRO_5),
+   ___,                                    M(MACRO_ALT_GR_A_AIGU),                         M(MACRO_ALT_GR_E),                      M(MACRO_ALT_GR_I),                      ___,                                    ___,                                         ___,
+   ___,                                    Key_Backspace,                                  ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+                                           M(MACRO_6),                                     M(MACRO_7),                             M(MACRO_8),                             M(MACRO_9),                             M(MACRO_0),                                  ___,
+   ___,                                    M(MACRO_SHIFT_PERCENT),                         ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,
+   ___),
+
+  [SYMBOL] =  KEYMAP_STACKED
   (___,                                    ___,                                            M(MACRO_ALT_GR_2),                      M(MACRO_ALT_GR_3),                      M(MACRO_ALT_GR_4),                      M(MACRO_ALT_GR_5),                           ___,
    M(MACRO_ALT_GR_DOLLAR),                 M(MACRO_ALT_GR_B),                              ___,                                    M(MACRO_ALT_GR_P),                      M(MACRO_ALT_GR_Y),                      M(MACRO_ALT_GR_X),                           M(MACRO_ALT_GR_K),
    M(MACRO_CTRL_G),                        M(MACRO_1),                                     M(MACRO_2),                             M(MACRO_3),                             M(MACRO_4),                             M(MACRO_5),
@@ -2006,10 +2021,7 @@ void setup() {
 
   //Qukeys
   QUKEYS(
-       kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(CUT)),
-       kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
-       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
-       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(WM))
+       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(WM)) // Need because LT(WM, LALT(Spacebar)) does not work with macro
   )
 
   Qukeys.setHoldTimeout(180);
