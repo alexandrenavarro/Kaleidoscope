@@ -450,7 +450,7 @@ KEYMAPS(
 #elif defined (PRIMARY_KEYMAP_BEPO)
   // Edit this bepo keymap from azerty layout
   [PRIMARY] = KEYMAP_STACKED
-  (Key_LEDEffectNext,                      Key_Insert,                                     Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_5,                                  Key_Minus,                                   Key_Enter,
+  (Key_LEDEffectNext,                      Key_Insert,                                     Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_5,                                  Key_Minus,                                   Key_Delete,
    Key_RightBracket,                       Key_B,                                          Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                       Key_Tab,
    Key_Z,                                  Key_Q,                                          Key_U,                                  Key_I,                                  Key_E,                                  Key_M,
    Key_Equals,                             Key_0,                                          Key_Y,                                  Key_X,                                  TOPSY(Comma),                           Key_K,                                       Key_Period,
@@ -473,10 +473,10 @@ KEYMAPS(
 
 
   [FUNCTION] =  KEYMAP_STACKED
-  (M(MACRO_CTRL_P),                        Key_F1,                                         Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                      M(MACRO_CTRL_A),
-   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                                M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_W),                        M(MACRO_ALT_F4),                             M(MACRO_CTRL_H),
-   Key_Delete,                             M(MACRO_CTRL_Z),                                M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
-   M(MACRO_CTRL_DIVIDE),                   M(MACRO_ALT_LEFT),                              M(MACRO_ALT_DOWN),                      M(MACRO_ALT_UP),                        M(MACRO_ALT_RIGHT),                     Key_F4,                                      M(MACRO_ALT_F7),
+  (LCTRL(Key_P),                           Key_F1,                                         Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                      LCTRL(Key_Delete),
+   LCTRL(Key_N),                           LCTRL(Key_S),                                   LCTRL(Key_T),                           LCTRL(Key_L),                           LCTRL(Key_Z),                           LALT(Key_Z),                                 LCTRL(Key_Tab),
+   LCTRL(Key_Q),                           LCTRL(Key_W),                                   LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
+   M(MACRO_CTRL_DIVIDE),                   M(MACRO_ALT_LEFT),                              M(MACRO_ALT_DOWN),                      M(MACRO_ALT_UP),                        M(MACRO_ALT_RIGHT),                     LCTRL(Key_B),                                LALT(Key_F7),
    Key_LeftShift,                          Key_Backspace,                                  LCTRL(Key_Enter),                       Key_LeftAlt,
    ___,
 
@@ -484,7 +484,7 @@ KEYMAPS(
    Key_PcApplication,                      M(MACRO_CTRL_HOME),                             M(MACRO_CTRL_PAGE_UP),                  Key_PageDown,                           Key_PageUp,                             M(MACRO_CTRL_PAGE_DOWN),                     M(MACRO_CTRL_END),
                                            Key_Home,                                       Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                              Key_End,
    M(MACRO_CTRL_INSERT),                   M(MACRO_CTRL_LEFT_LEFT_LEFT_LEFT),              M(MACRO_CTRL_LEFT),                     M(MACRO_CTRL_DOWN),                     M(MACRO_CTRL_UP),                       M(MACRO_CTRL_RIGHT),                         M(MACRO_CTRL_RIGHT_RIGHT_RIGHT_RIGHT),
-   ___,                                    M(MACRO_CTRL_ENTER),                            M(MACRO_CTRL_SPACE),                    ___,
+   ___,                                    ___,                                            LCTRL(Key_Spacebar),                    ___,
    M(MACRO_ALT_1)),
 
   [CUT] =  KEYMAP_STACKED
