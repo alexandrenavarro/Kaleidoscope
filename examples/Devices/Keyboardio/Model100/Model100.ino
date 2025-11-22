@@ -104,6 +104,9 @@
 // Support for the GeminiPR Stenography protocol
 #include "Kaleidoscope-Steno.h"
 
+// Support for TopsyTurvy
+#include "Kaleidoscope-TopsyTurvy.h"
+
 /** This 'enum' is a list of all the macros used by the Model 100's firmware
   * The names aren't particularly important. What is important is that each
   * is unique.
@@ -427,18 +430,18 @@ KEYMAPS(
 #elif defined (PRIMARY_KEYMAP_CUSTOM)
   // Edit this keymap to make a custom layout
   [PRIMARY] = KEYMAP_STACKED
-  (___,                                    Key_Insert,                                     Key_Quote,                              ___,                                    Key_5,                                  Key_Minus,                                   Key_Enter,
+  (Key_LEDEffectNext,                      Key_Insert,                                     Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_5,                                  Key_Minus,                                   Key_Enter,
    Key_RightBracket,                       Key_B,                                          Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                       Key_Tab,
    Key_Z,                                  Key_Q,                                          Key_U,                                  Key_I,                                  Key_E,                                  Key_M,
-   Key_Equals,                             Key_0,                                          Key_Y,                                  Key_X,                                  ___,                                    Key_K,                                       Key_Period,
-   OSM(LeftShift),                         LT(CUT, Backspace),                             OSM(LeftControl),                       OSM(LeftAlt),
-   LT(FUNCTION, Escape),
+   Key_Equals,                             Key_0,                                          Key_Y,                                  Key_X,                                  TOPSY(Comma),                           Key_K,                                       Key_Period,
+   OSM(LeftShift),                         Key_Backspace,                                  OSM(LeftControl),                       OSM(LeftAlt),
+   Key_Escape,
 
-   Key_Slash,                              ___,                                            ___,                                    Key_6,                                  ___,                                    Key_Backslash,                               ___,
+   Key_Slash,                              RALT(Key_0),                                    LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_Backslash,                               LSHIFT(Key_Quote),
    Key_3,                                  Key_LeftBracket,                                Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                       Key_W,
                                            Key_C,                                          Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                       Key_Semicolon,
-   ___,                                    Key_4,                                          Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                       Key_9,
-   OSM(LeftGui),                           LT(NUMPAD, Enter),                              LT(SYMBOL, Spacebar),                   OSM(LeftShift),
+   Key_8,                                  Key_4,                                          Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                       Key_9,
+   OSM(LeftGui),                           Key_Enter,                                      Key_Spacebar,                           OSM(LeftShift),
    LALT(Key_Spacebar)),
 
 #else
@@ -495,17 +498,17 @@ KEYMAPS(
    ___),
 
   [SYMBOL] =  KEYMAP_STACKED
-  (___,                                    ___,                                            M(MACRO_ALT_GR_2),                      M(MACRO_ALT_GR_3),                      M(MACRO_ALT_GR_4),                      M(MACRO_ALT_GR_5),                           ___,
-   M(MACRO_ALT_GR_DOLLAR),                 M(MACRO_ALT_GR_B),                              ___,                                    M(MACRO_ALT_GR_P),                      M(MACRO_ALT_GR_Y),                      M(MACRO_ALT_GR_X),                           M(MACRO_ALT_GR_K),
-   M(MACRO_CTRL_G),                        M(MACRO_1),                                     M(MACRO_2),                             M(MACRO_3),                             M(MACRO_4),                             M(MACRO_5),
-   ___,                                    M(MACRO_ALT_GR_A_AIGU),                         M(MACRO_ALT_GR_E),                      M(MACRO_ALT_GR_I),                      ___,                                    ___,                                         ___,
-   ___,                                    Key_Backspace,                                  ___,                                    ___,
+  (___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,
    ___,
 
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-                                           M(MACRO_6),                                     M(MACRO_7),                             M(MACRO_8),                             M(MACRO_9),                             M(MACRO_0),                                  ___,
-   ___,                                    M(MACRO_SHIFT_PERCENT),                         ___,                                    ___,                                    ___,                                    ___,                                         ___,
+                                           ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,
    ___),
 
@@ -1038,7 +1041,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_DIVIDE:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(9), U(LeftControl));
+      return MACRO(I(INTERVAL), D(LeftControl), D(LeftShift), T(Period), U(LeftShift), U(LeftControl));
     }
     break;
 
@@ -2006,6 +2009,9 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // by BIOSes) and Report (NKRO).
   USBQuirks,
 
+  // TopsyTurvy
+  TopsyTurvy,
+
   // The hardware test mode, which can be invoked by tapping Prog, LED and the
   // left Fn button at the same time.
   HardwareTestMode  //,
@@ -2021,7 +2027,12 @@ void setup() {
 
   //Qukeys
   QUKEYS(
-       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(WM)) // Need because LT(WM, LALT(Spacebar)) does not work with macro
+       kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(CUT)),
+       //kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
+       kaleidoscope::plugin::Qukey(0, KeyAddr(2, 8), ShiftToLayer(SYMBOL)),
+       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
+       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(WM))
   )
 
   Qukeys.setHoldTimeout(180);
@@ -2029,6 +2040,11 @@ void setup() {
 
   //OneShot
   OneShot.setTimeout(1000);
+
+  // ChasShift
+//  CS_KEYS(
+//    kaleidoscope::plugin::CharShift::KeyPair(Key_Space, RALT(Key_Space)),
+//  );
 
 
   // Add colormap overlays for all keys of the numpad. This makes sure that
