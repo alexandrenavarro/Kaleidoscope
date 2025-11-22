@@ -348,7 +348,7 @@ enum { MACRO_0,
   *
   */
 
-enum { PRIMARY, FUNCTION, CUT, NUMPAD, SYMBOL, WM}; // layers
+enum { PRIMARY, FUNCTION, CUT, NUMPAD, VARIANT_LETTER, SYMBOL, WM}; // layers
 
 
 /**
@@ -365,9 +365,12 @@ enum { PRIMARY, FUNCTION, CUT, NUMPAD, SYMBOL, WM}; // layers
   */
 
 //#define PRIMARY_KEYMAP_QWERTY
-// #define PRIMARY_KEYMAP_DVORAK
-// #define PRIMARY_KEYMAP_COLEMAK
- #define PRIMARY_KEYMAP_CUSTOM
+//#define PRIMARY_KEYMAP_DVORAK
+//#define PRIMARY_KEYMAP_COLEMAK
+//#define PRIMARY_KEYMAP_CUSTOM
+#define PRIMARY_KEYMAP_BEPO
+//#define PRIMARY_KEYMAP_BEPOLAR
+
 
 
 /* This comment temporarily turns off astyle's indent enforcement
@@ -430,18 +433,35 @@ KEYMAPS(
 #elif defined (PRIMARY_KEYMAP_CUSTOM)
   // Edit this keymap to make a custom layout
   [PRIMARY] = KEYMAP_STACKED
+  (___,          Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
+   Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_Tab,
+   Key_PageUp,   Key_A, Key_S, Key_D, Key_F, Key_G,
+   Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
+   Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
+   ShiftToLayer(FUNCTION),
+
+   M(MACRO_ANY),  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
+   Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
+                  Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
+   Key_RightAlt,  Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
+   Key_RightShift, Key_LeftAlt, Key_Spacebar, Key_RightControl,
+   ShiftToLayer(FUNCTION)),
+
+#elif defined (PRIMARY_KEYMAP_BEPO)
+  // Edit this bepo keymap from azerty layout
+  [PRIMARY] = KEYMAP_STACKED
   (Key_LEDEffectNext,                      Key_Insert,                                     Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_5,                                  Key_Minus,                                   Key_Enter,
    Key_RightBracket,                       Key_B,                                          Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                       Key_Tab,
    Key_Z,                                  Key_Q,                                          Key_U,                                  Key_I,                                  Key_E,                                  Key_M,
    Key_Equals,                             Key_0,                                          Key_Y,                                  Key_X,                                  TOPSY(Comma),                           Key_K,                                       Key_Period,
-   OSM(LeftShift),                         Key_Backspace,                                  OSM(LeftControl),                       OSM(LeftAlt),
+   OSM(LeftShift),                         Key_Backspace,                                  Key_Enter,                              OSM(LeftAlt),
    Key_Escape,
 
    Key_Slash,                              RALT(Key_0),                                    LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_Backslash,                               LSHIFT(Key_Quote),
    Key_3,                                  Key_LeftBracket,                                Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                       Key_W,
                                            Key_C,                                          Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                       Key_Semicolon,
    Key_8,                                  Key_4,                                          Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                       Key_9,
-   OSM(LeftGui),                           Key_Enter,                                      Key_Spacebar,                           OSM(LeftShift),
+   OSM(LeftGui),                           OSL(VARIANT_LETTER),                            Key_Spacebar,                           OSM(LeftShift),
    LALT(Key_Spacebar)),
 
 #else
@@ -457,7 +477,7 @@ KEYMAPS(
    M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                                M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_W),                        M(MACRO_ALT_F4),                             M(MACRO_CTRL_H),
    Key_Delete,                             M(MACRO_CTRL_Z),                                M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
    M(MACRO_CTRL_DIVIDE),                   M(MACRO_ALT_LEFT),                              M(MACRO_ALT_DOWN),                      M(MACRO_ALT_UP),                        M(MACRO_ALT_RIGHT),                     Key_F4,                                      M(MACRO_ALT_F7),
-   Key_LeftShift,                          Key_Backspace,                                  Key_LeftControl,                        Key_LeftAlt,
+   Key_LeftShift,                          Key_Backspace,                                  LCTRL(Key_Enter),                       Key_LeftAlt,
    ___,
 
    Key_F12,                                Key_F6,                                         Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                     Key_F11,
@@ -494,6 +514,21 @@ KEYMAPS(
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
                                            M(MACRO_6),                                     M(MACRO_7),                             M(MACRO_8),                             M(MACRO_9),                             M(MACRO_0),                                  ___,
    ___,                                    M(MACRO_SHIFT_PERCENT),                         ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,
+   ___),
+
+  [VARIANT_LETTER] =  KEYMAP_STACKED
+  (___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            Key_Quote,                              ___,                                    ___,                                    ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+                                           ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,
    ___),
 
@@ -2030,7 +2065,7 @@ void setup() {
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(CUT)),
        //kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftControl),
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
-       kaleidoscope::plugin::Qukey(0, KeyAddr(2, 8), ShiftToLayer(SYMBOL)),
+       kaleidoscope::plugin::Qukey(0, KeyAddr(2, 8), OSL(VARIANT_LETTER)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(WM))
   )
