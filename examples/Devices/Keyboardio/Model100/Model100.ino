@@ -520,14 +520,14 @@ KEYMAPS(
   [VARIANT_LETTER] =  KEYMAP_STACKED
   (___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-   ___,                                    ___,                                            Key_Quote,                              ___,                                    ___,                                    ___,
+   ___,                                    Key_0,                                          Key_Quote,                              Key_2,                                  Key_7,                                  ___,
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,
    ___,
 
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-                                           ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+                                           Key_9,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,
    ___),
@@ -2063,7 +2063,7 @@ void setup() {
   //Qukeys
   QUKEYS(
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(CUT)),
-       //kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftControl),
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(2, 8), OSL(VARIANT_LETTER)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
