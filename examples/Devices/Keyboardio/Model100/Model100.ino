@@ -476,14 +476,14 @@ KEYMAPS(
   (LCTRL(Key_P),                           Key_F1,                                         Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                      LCTRL(Key_Delete),
    LCTRL(Key_N),                           LCTRL(Key_S),                                   LCTRL(Key_T),                           LCTRL(Key_L),                           LCTRL(Key_Z),                           LALT(Key_Z),                                 LCTRL(Key_Tab),
    LCTRL(Key_Q),                           LCTRL(Key_W),                                   LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
-   M(MACRO_CTRL_DIVIDE),                   M(MACRO_ALT_LEFT),                              M(MACRO_ALT_DOWN),                      M(MACRO_ALT_UP),                        M(MACRO_ALT_RIGHT),                     LCTRL(Key_B),                                LALT(Key_F7),
+   LCTRL(Key_KeypadDivide),                M(MACRO_ALT_LEFT),                              M(MACRO_ALT_DOWN),                      M(MACRO_ALT_UP),                        M(MACRO_ALT_RIGHT),                     LCTRL(Key_B),                                LALT(Key_F7),
    Key_LeftShift,                          Key_Backspace,                                  LCTRL(Key_Enter),                       Key_LeftAlt,
    ___,
 
    Key_F12,                                Key_F6,                                         Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                     Key_F11,
-   Key_PcApplication,                      M(MACRO_CTRL_HOME),                             M(MACRO_CTRL_PAGE_UP),                  Key_PageDown,                           Key_PageUp,                             M(MACRO_CTRL_PAGE_DOWN),                     M(MACRO_CTRL_END),
+   Key_PcApplication,                      ___,                                            LCTRL(Key_PageDown),                    Key_PageDown,                           Key_PageUp,                             LCTRL(Key_PageUp),                         ___,
                                            Key_Home,                                       Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                              Key_End,
-   M(MACRO_CTRL_INSERT),                   M(MACRO_CTRL_LEFT_LEFT_LEFT_LEFT),              M(MACRO_CTRL_LEFT),                     M(MACRO_CTRL_DOWN),                     M(MACRO_CTRL_UP),                       M(MACRO_CTRL_RIGHT),                         M(MACRO_CTRL_RIGHT_RIGHT_RIGHT_RIGHT),
+   LCTRL(Key_Insert),                      LCTRL(Key_Home),                                LCTRL(Key_LeftArrow),                   LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LCTRL(Key_RightArrow),                       LCTRL(Key_End),
    ___,                                    ___,                                            LCTRL(Key_Spacebar),                    ___,
    M(MACRO_ALT_1)),
 
@@ -2065,7 +2065,6 @@ void setup() {
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(CUT)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftControl),
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
-       kaleidoscope::plugin::Qukey(0, KeyAddr(2, 8), OSL(VARIANT_LETTER)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(WM))
   )
