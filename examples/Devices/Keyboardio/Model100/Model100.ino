@@ -104,8 +104,9 @@
 // Support for the GeminiPR Stenography protocol
 #include "Kaleidoscope-Steno.h"
 
-// Support for TopsyTurvy
-#include "Kaleidoscope-TopsyTurvy.h"
+// Support for CharShift
+#include <Kaleidoscope.h>
+#include <Kaleidoscope-CharShift.h>
 
 /** This 'enum' is a list of all the macros used by the Model 100's firmware
   * The names aren't particularly important. What is important is that each
@@ -371,6 +372,26 @@ enum { PRIMARY, FUNCTION, CUT, NUMPAD, VARIANT_LETTER, SYMBOL, WM}; // layers
 #define PRIMARY_KEYMAP_BEPO
 //#define PRIMARY_KEYMAP_BEPOLAR
 
+#define Spacebar_Underscore          CS(0)
+#define Dollar_Hash                  CS(1)
+#define LeftParenthesis_Bracket      CS(2)
+#define RightParenthesis_Bracket     CS(3)
+#define Circumflex_ExclamationPoint  CS(4)
+#define Comma_SemiColon              CS(5)
+#define Period_Colon                 CS(6)
+#define Apostrophe_QuestionMark      CS(7)
+#define E_Acute                      CS(8)
+#define E_Grave                      CS(9)
+#define E_Circumflex                 CS(10)
+#define A_Grave                      CS(11)
+#define A_Circumflex                 CS(12)
+#define U_Grave                      CS(13)
+#define U_Circumflex                 CS(14)
+#define I_Circumflex                 CS(15)
+#define O_Circumflex                 CS(16)
+#define C_Cedilla                    CS(17)
+#define Y_Circumflex                 CS(18)
+
 
 
 /* This comment temporarily turns off astyle's indent enforcement
@@ -450,18 +471,18 @@ KEYMAPS(
 #elif defined (PRIMARY_KEYMAP_BEPO)
   // Edit this bepo keymap from azerty layout
   [PRIMARY] = KEYMAP_STACKED
-  (Key_LEDEffectNext,                      Key_Insert,                                     Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_5,                                  Key_Minus,                                   Key_Delete,
-   Key_RightBracket,                       Key_B,                                          Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                       Key_Tab,
-   Key_Z,                                  Key_Q,                                          Key_U,                                  Key_I,                                  Key_E,                                  Key_M,
-   Key_Equals,                             Key_0,                                          Key_Y,                                  Key_X,                                  TOPSY(Comma),                           Key_K,                                       Key_Period,
+  (Key_Insert,                             Key_PcApplication,                              Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      LeftParenthesis_Bracket,                RightParenthesis_Bracket,                    Key_Delete,
+   Dollar_Hash,                            Key_B,                                          Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                       Key_Tab,
+   Key_Z,                                  Key_Q,                                          Key_U,                                  Key_I,                                  Key_E,                                  Comma_SemiColon,
+   Key_Equals,                             Key_0,                                          Key_Y,                                  Key_X,                                  Period_Colon,                           Key_K,                                       Key_Period,
    OSM(LeftShift),                         Key_Backspace,                                  Key_Enter,                              OSM(LeftAlt),
    Key_Escape,
 
    Key_Slash,                              RALT(Key_0),                                    LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_Backslash,                               LSHIFT(Key_Quote),
-   Key_3,                                  Key_LeftBracket,                                Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                       Key_W,
+   Key_3,                                  Circumflex_ExclamationPoint,                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                       Key_W,
                                            Key_C,                                          Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                       Key_Semicolon,
-   Key_8,                                  Key_4,                                          Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                       Key_9,
-   OSM(LeftGui),                           OSL(VARIANT_LETTER),                            Key_Spacebar,                           OSM(LeftShift),
+   Key_8,                                  Apostrophe_QuestionMark,                        Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                       Key_9,
+   OSM(LeftGui),                           OSL(VARIANT_LETTER),                            Spacebar_Underscore,                    OSM(LeftShift),
    LALT(Key_Spacebar)),
 
 #else
@@ -474,14 +495,14 @@ KEYMAPS(
 
   [FUNCTION] =  KEYMAP_STACKED
   (LCTRL(Key_P),                           Key_F1,                                         Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                      LCTRL(Key_Delete),
-   LCTRL(Key_N),                           LCTRL(Key_S),                                   LCTRL(Key_T),                           LCTRL(Key_L),                           LCTRL(Key_Z),                           LALT(Key_Z),                                 LCTRL(Key_Tab),
+   LCTRL(Key_N),                           LCTRL(Key_S),                                   LCTRL(Key_T),                           LCTRL(Key_L),                           LCTRL(Key_Z),                           LALT(Key_F4),                                LCTRL(Key_Tab),
    LCTRL(Key_Q),                           LCTRL(Key_W),                                   LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
    LCTRL(Key_KeypadDivide),                M(MACRO_ALT_LEFT),                              M(MACRO_ALT_DOWN),                      M(MACRO_ALT_UP),                        M(MACRO_ALT_RIGHT),                     LCTRL(Key_B),                                LALT(Key_F7),
    Key_LeftShift,                          Key_Backspace,                                  LCTRL(Key_Enter),                       Key_LeftAlt,
    ___,
 
    Key_F12,                                Key_F6,                                         Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                     Key_F11,
-   Key_PcApplication,                      ___,                                            LCTRL(Key_PageDown),                    Key_PageDown,                           Key_PageUp,                             LCTRL(Key_PageUp),                         ___,
+   ___,                                    ___,                                            LCTRL(Key_PageDown),                    Key_PageDown,                           Key_PageUp,                             LCTRL(Key_PageUp),                         ___,
                                            Key_Home,                                       Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                              Key_End,
    LCTRL(Key_Insert),                      LCTRL(Key_Home),                                LCTRL(Key_LeftArrow),                   LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LCTRL(Key_RightArrow),                       LCTRL(Key_End),
    ___,                                    ___,                                            LCTRL(Key_Spacebar),                    ___,
@@ -2044,8 +2065,8 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // by BIOSes) and Report (NKRO).
   USBQuirks,
 
-  // TopsyTurvy
-  TopsyTurvy,
+  // CharShift,
+  CharShift,
 
   // The hardware test mode, which can be invoked by tapping Prog, LED and the
   // left Fn button at the same time.
@@ -2060,7 +2081,7 @@ void setup() {
   // First, call Kaleidoscope's internal setup function
   Kaleidoscope.setup();
 
-  //Qukeys
+  // Qukeys
   QUKEYS(
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(CUT)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftControl),
@@ -2075,10 +2096,29 @@ void setup() {
   //OneShot
   OneShot.setTimeout(1000);
 
-  // ChasShift
-//  CS_KEYS(
-//    kaleidoscope::plugin::CharShift::KeyPair(Key_Space, RALT(Key_Space)),
-//  );
+  // CharShift
+  CS_KEYS(
+    kaleidoscope::plugin::CharShift::KeyPair(Key_Space, Key_8),                     // #define Spacebar_Underscore          CS(0)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),        // #define Dollar_Hash                  CS(1)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_5, RALT(Key_5)),                   // #define LeftParenthesis_Bracket      CS(2)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_Minus, RALT(Key_Minus)),           // #define RightParenthesis_Bracket     CS(3)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_LeftBracket, Key_Slash),           // #define Circumflex_ExclamationPoint  CS(4)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_M, Key_Comma),                     // #define Comma_SemiColon              CS(5)
+    kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),        // #define Period_Colon                 CS(6)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_QuestionMark      CS(7)
+
+//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define E_Acute                      CS(8)
+//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define E_Grave                      CS(9)
+//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define E_Circumflex                 CS(10)
+//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define A_Grave                      CS(11)
+//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define A_Circumflex                 CS(12)
+//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define U_Grave                      CS(13)
+//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define U_Circumflex                 CS(14)
+//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define I_Circumflex                 CS(15)
+//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define O_Circumflex                 CS(16)
+//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define C_Cedilla                    CS(17)
+//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define Y_Circumflex                 CS(18)
+  );
 
 
   // Add colormap overlays for all keys of the numpad. This makes sure that
