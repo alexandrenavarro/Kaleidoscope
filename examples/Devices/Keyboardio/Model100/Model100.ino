@@ -460,14 +460,14 @@ KEYMAPS(
    Dollar_Hash,                            Key_B,                                          Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                       Key_Tab,
    Key_Z,                                  Key_Q,                                          Key_U,                                  Key_I,                                  Key_E,                                  Comma_SemiColon,
    Key_Equals,                             Key_0,                                          Key_Y,                                  Key_X,                                  Period_Colon,                           Key_K,                                       Key_Period,
-   OSM(LeftShift),                         Key_Backspace,                                  Key_Enter,                              OSM(LeftAlt),
+   OSM(LeftShift),                         Key_Backspace,                                  Key_Enter,                              OSM(LeftGui),
    Key_Escape,
 
    Key_Slash,                              RALT(Key_0),                                    LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_Backslash,                               LSHIFT(Key_Quote),
    Key_3,                                  OSL(LETTER_VARIANT),                            Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                       Key_W,
                                            Key_C,                                          Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                       Key_Semicolon,
    Key_8,                                  Apostrophe_QuestionMark,                        Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                       Key_9,
-   OSM(LeftGui),                           OSL(SYMBOL),                                    Spacebar_Underscore,                    OSM(LeftShift),
+   OSM(LeftControl),                       OSL(SYMBOL),                                    Spacebar_Underscore,                    OSM(LeftShift),
    LALT(Key_Spacebar)),
 
 #else
@@ -482,8 +482,8 @@ KEYMAPS(
   (LCTRL(Key_P),                           Key_F1,                                         Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                      LCTRL(Key_Delete),
    LCTRL(Key_N),                           LCTRL(Key_S),                                   LCTRL(Key_T),                           LCTRL(Key_L),                           LCTRL(Key_Z),                           LALT(Key_F4),                                LCTRL(Key_Tab),
    LCTRL(Key_Q),                           LCTRL(Key_W),                                   LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
-   LCTRL(Key_KeypadDivide),                M(MACRO_ALT_LEFT),                              M(MACRO_ALT_DOWN),                      M(MACRO_ALT_UP),                        M(MACRO_ALT_RIGHT),                     LCTRL(Key_B),                                LALT(Key_F7),
-   Key_LeftShift,                          Key_Backspace,                                  LCTRL(Key_Enter),                       Key_LeftAlt,
+   LCTRL(Key_KeypadDivide),                Key_LeftArrow,                                  Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LCTRL(Key_B),                                LALT(Key_F7),
+   Key_LeftShift,                          Key_Backspace,                                  Key_LeftAlt,                            ___,
    ___,
 
    Key_F12,                                Key_F6,                                         Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                     Key_F11,
@@ -2192,7 +2192,7 @@ void setup() {
   // Qukeys
   QUKEYS(
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(CUT)),
-       kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT))
