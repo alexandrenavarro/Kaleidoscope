@@ -105,8 +105,10 @@
 #include "Kaleidoscope-Steno.h"
 
 // Support for CharShift
-#include <Kaleidoscope.h>
-#include <Kaleidoscope-CharShift.h>
+#include "Kaleidoscope-CharShift.h"
+
+// Support for HostOS
+#include "Kaleidoscope-HostOS.h"
 
 /** This 'enum' is a list of all the macros used by the Model 100's firmware
   * The names aren't particularly important. What is important is that each
@@ -121,26 +123,8 @@
   * a macro key is pressed.
   */
 
-enum { MACRO_0,
-       MACRO_1,
-       MACRO_2,
-       MACRO_3,
-       MACRO_4,
-       MACRO_5,
-       MACRO_6,
-       MACRO_7,
-       MACRO_8,
-       MACRO_9,
-       MACRO_ALT_0,
-       MACRO_ALT_1,
-       MACRO_ALT_2,
-       MACRO_ALT_3,
-       MACRO_ALT_4,
-       MACRO_ALT_5,
-       MACRO_ALT_6,
-       MACRO_ALT_7,
-       MACRO_ALT_8,
-       MACRO_ALT_9,
+enum { MACRO_A_CIRCUMFLEX,
+       MACRO_A_GRAVE,
        MACRO_ALT_ENTER,
        MACRO_ALT_INSERT,
        MACRO_ALT_F1,
@@ -183,6 +167,7 @@ enum { MACRO_0,
        MACRO_ALT_TAB,
        MACRO_ALT_UP,
        MACRO_ALT_SPACE,
+       MACRO_C_CEDILLA,
        MACRO_COLON,
        MACRO_CTRL_A,
        MACRO_CTRL_ALT_DELETE,
@@ -244,7 +229,12 @@ enum { MACRO_0,
        MACRO_CTRL_W,
        MACRO_CTRL_X,
        MACRO_CTRL_Z,
-       MACRO_EXCLAMATION_POINT,
+       MACRO_E_ACUTE,
+       MACRO_E_GRAVE,
+       MACRO_E_CIRCUMFLEX,
+       MACRO_I_CIRCUMFLEX,
+       MACRO_O_CIRCUMFLEX,
+       MACRO_PRINT_OS,
        MACRO_SEMICOLON,
        MACRO_SHIFT_CTRL_DOWN_X,
        MACRO_SHIFT_CTRL_END_X,
@@ -297,7 +287,9 @@ enum { MACRO_0,
        MACRO_SUPER_SHIFT_UP,
        MACRO_SUPER_RIGHT,
        MACRO_SUPER_TAB,
-       MACRO_SUPER_UP
+       MACRO_SUPER_UP,
+       MACRO_U_CIRCUMFLEX,
+       MACRO_U_GRAVE
      };
 
 
@@ -349,7 +341,7 @@ enum { MACRO_0,
   *
   */
 
-enum { PRIMARY, FUNCTION, CUT, NUMPAD, VARIANT_LETTER, SYMBOL, WM}; // layers
+enum { PRIMARY, FUNCTION, CUT, NUMPAD, LETTER_VARIANT, SYMBOL, WM}; // layers
 
 
 /**
@@ -369,7 +361,7 @@ enum { PRIMARY, FUNCTION, CUT, NUMPAD, VARIANT_LETTER, SYMBOL, WM}; // layers
 //#define PRIMARY_KEYMAP_DVORAK
 //#define PRIMARY_KEYMAP_COLEMAK
 //#define PRIMARY_KEYMAP_CUSTOM
-#define PRIMARY_KEYMAP_BEPO
+#define PRIMARY_KEYMAP_BEPO_ON_AZERTY
 //#define PRIMARY_KEYMAP_BEPOLAR
 
 #define Spacebar_Underscore          CS(0)
@@ -380,18 +372,6 @@ enum { PRIMARY, FUNCTION, CUT, NUMPAD, VARIANT_LETTER, SYMBOL, WM}; // layers
 #define Comma_SemiColon              CS(5)
 #define Period_Colon                 CS(6)
 #define Apostrophe_QuestionMark      CS(7)
-#define E_Acute                      CS(8)
-#define E_Grave                      CS(9)
-#define E_Circumflex                 CS(10)
-#define A_Grave                      CS(11)
-#define A_Circumflex                 CS(12)
-#define U_Grave                      CS(13)
-#define U_Circumflex                 CS(14)
-#define I_Circumflex                 CS(15)
-#define O_Circumflex                 CS(16)
-#define C_Cedilla                    CS(17)
-#define Y_Circumflex                 CS(18)
-
 
 
 /* This comment temporarily turns off astyle's indent enforcement
@@ -468,10 +448,10 @@ KEYMAPS(
    Key_RightShift, Key_LeftAlt, Key_Spacebar, Key_RightControl,
    ShiftToLayer(FUNCTION)),
 
-#elif defined (PRIMARY_KEYMAP_BEPO)
-  // Edit this bepo keymap from azerty layout
+#elif defined (PRIMARY_KEYMAP_BEPO_ON_AZERTY)
+  // Edit this bepo keymap on azerty layout
   [PRIMARY] = KEYMAP_STACKED
-  (Key_Insert,                             Key_PcApplication,                              Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      LeftParenthesis_Bracket,                RightParenthesis_Bracket,                    Key_Delete,
+  (Key_Insert,                             M(MACRO_PRINT_OS),                              Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      LeftParenthesis_Bracket,                RightParenthesis_Bracket,                    Key_Delete,
    Dollar_Hash,                            Key_B,                                          Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                       Key_Tab,
    Key_Z,                                  Key_Q,                                          Key_U,                                  Key_I,                                  Key_E,                                  Comma_SemiColon,
    Key_Equals,                             Key_0,                                          Key_Y,                                  Key_X,                                  Period_Colon,                           Key_K,                                       Key_Period,
@@ -482,7 +462,7 @@ KEYMAPS(
    Key_3,                                  Circumflex_ExclamationPoint,                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                       Key_W,
                                            Key_C,                                          Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                       Key_Semicolon,
    Key_8,                                  Apostrophe_QuestionMark,                        Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                       Key_9,
-   OSM(LeftGui),                           OSL(VARIANT_LETTER),                            Spacebar_Underscore,                    OSM(LeftShift),
+   OSM(LeftGui),                           OSL(LETTER_VARIANT),                            Spacebar_Underscore,                    OSM(LeftShift),
    LALT(Key_Spacebar)),
 
 #else
@@ -506,12 +486,12 @@ KEYMAPS(
                                            Key_Home,                                       Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                              Key_End,
    LCTRL(Key_Insert),                      LCTRL(Key_Home),                                LCTRL(Key_LeftArrow),                   LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LCTRL(Key_RightArrow),                       LCTRL(Key_End),
    ___,                                    ___,                                            LCTRL(Key_Spacebar),                    ___,
-   M(MACRO_ALT_1)),
+   LALT(LSHIFT(Key_1))),
 
   [CUT] =  KEYMAP_STACKED
   (M(MACRO_ALT_INSERT),                    M(MACRO_ALT_F1),                                M(MACRO_ALT_F2),                        M(MACRO_ALT_F3),                        M(MACRO_ALT_F4),                        M(MACRO_ALT_F5),                             M(MACRO_ALT_ENTER),
    Key_Home,                               Key_LeftArrow,                                  Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,                                     M(MACRO_ALT_TAB),
-   M(MACRO_ALT_0),                         M(MACRO_ALT_1),                                 M(MACRO_ALT_2),                         M(MACRO_ALT_3),                         M(MACRO_ALT_4),                         M(MACRO_ALT_5),
+   LALT(LSHIFT(Key_0)),                    LALT(LSHIFT(Key_1)),                            LALT(LSHIFT(Key_2)),                    LALT(LSHIFT(Key_3)),                    LALT(LSHIFT(Key_4)),                    LALT(LSHIFT(Key_5)),
    Key_Home,                               Key_LeftArrow,                                  Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,                                     ___,
    ___, ___, ___, ___,
    ___,
@@ -526,29 +506,29 @@ KEYMAPS(
   [NUMPAD] =  KEYMAP_STACKED
   (___,                                    ___,                                            M(MACRO_ALT_GR_2),                      M(MACRO_ALT_GR_3),                      M(MACRO_ALT_GR_4),                      M(MACRO_ALT_GR_5),                           ___,
    M(MACRO_ALT_GR_DOLLAR),                 M(MACRO_ALT_GR_B),                              ___,                                    M(MACRO_ALT_GR_P),                      M(MACRO_ALT_GR_Y),                      M(MACRO_ALT_GR_X),                           M(MACRO_ALT_GR_K),
-   M(MACRO_CTRL_G),                        M(MACRO_1),                                     M(MACRO_2),                             M(MACRO_3),                             M(MACRO_4),                             M(MACRO_5),
+   M(MACRO_CTRL_G),                        LSHIFT(Key_1),                                  LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
    ___,                                    M(MACRO_ALT_GR_A_AIGU),                         M(MACRO_ALT_GR_E),                      M(MACRO_ALT_GR_I),                      ___,                                    ___,                                         ___,
    ___,                                    Key_Backspace,                                  ___,                                    ___,
    ___,
 
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-                                           M(MACRO_6),                                     M(MACRO_7),                             M(MACRO_8),                             M(MACRO_9),                             M(MACRO_0),                                  ___,
+                                           LSHIFT(Key_6),                                  LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                               ___,
    ___,                                    M(MACRO_SHIFT_PERCENT),                         ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,
    ___),
 
-  [VARIANT_LETTER] =  KEYMAP_STACKED
+  [LETTER_VARIANT] =  KEYMAP_STACKED
   (___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-   ___,                                    Key_0,                                          Key_Quote,                              Key_2,                                  Key_7,                                  ___,
-   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    M(MACRO_A_CIRCUMFLEX),                          M(MACRO_U_CIRCUMFLEX),                  M(MACRO_I_CIRCUMFLEX),                  M(MACRO_O_CIRCUMFLEX),                  Key_Slash,                                   ___,
+   ___,                                    M(MACRO_A_GRAVE),                               M(MACRO_U_GRAVE),                       M(MACRO_E_ACUTE),                       M(MACRO_E_GRAVE),                       M(MACRO_E_CIRCUMFLEX),
+   ___,                                    ___,                                            ___,                                    ___,                                    Key_Period,                             LSHIFT(Key_M),                               ___,
    ___,                                    ___,                                            ___,                                    ___,
    ___,
 
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-                                           Key_9,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+                                           M(MACRO_C_CEDILLA),                             ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    ___,                                            ___,                                    ___,
    ___),
@@ -586,6 +566,48 @@ KEYMAPS(
 
 ) // KEYMAPS(
 
+// ShiftBlocker
+
+namespace kaleidoscope {
+namespace plugin {
+
+// When activated, this plugin will suppress any `Shift` key (including modifier
+// combos with `Shift`) before it's added to the HID report.
+class ShiftBlocker : public Plugin {
+
+ public:
+  EventHandlerResult onAddToReport(Key key) {
+    if (active_ && key.isKeyboardShift())
+      return EventHandlerResult::ABORT;
+    return EventHandlerResult::OK;
+  }
+
+  void enable() {
+    active_ = true;
+  }
+  void disable() {
+    active_ = false;
+  }
+
+ private:
+  bool active_{false};
+
+};
+
+} // namespace plugin
+} // namespace kaleidoscope
+
+kaleidoscope::plugin::ShiftBlocker ShiftBlocker;
+
+ bool isShiftKeyHeld() {
+   for (Key key : kaleidoscope::live_keys.all()) {
+     if (key.isKeyboardShift())
+       return true;
+   }
+   return false;
+ }
+
+//
 /* Re-enable astyle's indent enforcement */
 // clang-format on
 
@@ -660,126 +682,32 @@ static void anyKeyMacro(KeyEvent &event) {
 
  */
 
+
 const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
   switch (macro_id) {
 
-  case MACRO_0:
+  case MACRO_A_CIRCUMFLEX:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(0), U(LeftShift));
+      if (isShiftKeyHeld()) {
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(LeftBracket)));
+        ShiftBlocker.disable();
+        return MACRO(T(Q));
+      } else {
+        return MACRO(T(LeftBracket), T(Q));
+      }
     }
     break;
 
-  case MACRO_1:
+  case MACRO_A_GRAVE:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(1), U(LeftShift));
-    }
-    break;
-
-  case MACRO_2:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(2), U(LeftShift));
-    }
-    break;
-
-  case MACRO_3:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(3), U(LeftShift));
-    }
-    break;
-
-  case MACRO_4:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(4), U(LeftShift));
-    }
-    break;
-
-  case MACRO_5:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(5), U(LeftShift));
-    }
-    break;
-
-  case MACRO_6:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(6), U(LeftShift));
-    }
-    break;
-
-  case MACRO_7:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(7), U(LeftShift));
-    }
-    break;
-
-  case MACRO_8:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(8), U(LeftShift));
-    }
-    break;
-
-  case MACRO_9:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(9), U(LeftShift));
-    }
-    break;
-
-  case MACRO_ALT_0:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), D(LeftShift), T(0), U(LeftShift), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_1:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), D(LeftShift), T(1), U(LeftShift), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_2:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), D(LeftShift), T(2), U(LeftShift), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_3:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), D(LeftShift), T(3), U(LeftShift), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_4:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), D(LeftShift), T(4), U(LeftShift), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_5:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), D(LeftShift), T(5), U(LeftShift), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_6:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), D(LeftShift), T(6), U(LeftShift), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_7:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), D(LeftShift), T(7), U(LeftShift), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_8:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), D(LeftShift), T(8), U(LeftShift), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_9:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), D(LeftShift), T(9), U(LeftShift), U(LeftAlt));
+      if (isShiftKeyHeld()) {
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(CapsLock), T(0), T(CapsLock)));
+        ShiftBlocker.disable();
+      } else {
+        return MACRO(T(0));
+      }
     }
     break;
 
@@ -1038,6 +966,18 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
   case MACRO_ALT_UP:
     if (keyToggledOn(event.state)) {
       return MACRO(I(INTERVAL), D(LeftAlt), T(UpArrow), U(LeftAlt));
+    }
+    break;
+
+  case MACRO_C_CEDILLA:
+    if (keyToggledOn(event.state)) {
+      if (isShiftKeyHeld()) {
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(CapsLock), T(9), T(CapsLock)));
+        ShiftBlocker.disable();
+      } else {
+        return MACRO(T(9));
+      }
     }
     break;
 
@@ -1473,11 +1413,86 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_EXCLAMATION_POINT:
+  case MACRO_E_ACUTE:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(Y), U(LeftControl));
+      if (isShiftKeyHeld()) {
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(CapsLock), T(2), T(CapsLock)));
+        ShiftBlocker.disable();
+      } else {
+        return MACRO(T(2));
+      }
     }
     break;
+
+  case MACRO_E_CIRCUMFLEX:
+    if (keyToggledOn(event.state)) {
+      if (isShiftKeyHeld()) {
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(LeftBracket)));
+        ShiftBlocker.disable();
+        return MACRO(T(E));
+      } else {
+        return MACRO(T(LeftBracket), T(E));
+      }
+    }
+    break;
+
+  case MACRO_E_GRAVE:
+    if (keyToggledOn(event.state)) {
+      if (isShiftKeyHeld()) {
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(CapsLock), T(7), T(CapsLock)));
+        ShiftBlocker.disable();
+      } else {
+        return MACRO(T(7));
+      }
+    }
+    break;
+
+  case MACRO_I_CIRCUMFLEX:
+    if (keyToggledOn(event.state)) {
+      if (isShiftKeyHeld()) {
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(LeftBracket)));
+        ShiftBlocker.disable();
+        return MACRO(T(I));
+      } else {
+        return MACRO(T(LeftBracket), T(I));
+      }
+    }
+    break;
+
+  case MACRO_O_CIRCUMFLEX:
+    if (keyToggledOn(event.state)) {
+      if (isShiftKeyHeld()) {
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(LeftBracket)));
+        ShiftBlocker.disable();
+        return MACRO(T(O));
+      } else {
+        return MACRO(T(LeftBracket), T(O));
+      }
+    }
+    break;
+
+  case MACRO_PRINT_OS:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::LINUX) {
+        Macros.type(PSTR("Linux"));
+      }
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        Macros.type(PSTR("MacOs"));
+      }
+      if (HostOS.os() == kaleidoscope::hostos::WINDOWS) {
+        Macros.type(PSTR("Windows"));
+      }
+      if (HostOS.os() == kaleidoscope::hostos::OTHER) {
+        Macros.type(PSTR("Other"));
+      }
+    }
+    break;
+
 
   case MACRO_SEMICOLON:
     if (keyToggledOn(event.state)) {
@@ -1810,6 +1825,31 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
+  case MACRO_U_CIRCUMFLEX:
+    if (keyToggledOn(event.state)) {
+      if (isShiftKeyHeld()) {
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(LeftBracket)));
+        ShiftBlocker.disable();
+        return MACRO(T(U));
+      } else {
+        return MACRO(T(LeftBracket), T(U));
+      }
+    }
+    break;
+
+  case MACRO_U_GRAVE:
+    if (keyToggledOn(event.state)) {
+      if (isShiftKeyHeld()) {
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(CapsLock), T(Quote), T(CapsLock)));
+        ShiftBlocker.disable();
+      } else {
+        return MACRO(T(Quote));
+      }
+    }
+    break;
+
   default:
     break;
   }
@@ -2068,6 +2108,12 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // CharShift,
   CharShift,
 
+  // ShiftBlocker
+  ShiftBlocker,
+
+  //HostOS,
+  HostOS,
+
   // The hardware test mode, which can be invoked by tapping Prog, LED and the
   // left Fn button at the same time.
   HardwareTestMode  //,
@@ -2106,18 +2152,6 @@ void setup() {
     kaleidoscope::plugin::CharShift::KeyPair(Key_M, Key_Comma),                     // #define Comma_SemiColon              CS(5)
     kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),        // #define Period_Colon                 CS(6)
     kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_QuestionMark      CS(7)
-
-//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define E_Acute                      CS(8)
-//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define E_Grave                      CS(9)
-//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define E_Circumflex                 CS(10)
-//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define A_Grave                      CS(11)
-//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define A_Circumflex                 CS(12)
-//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define U_Grave                      CS(13)
-//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define U_Circumflex                 CS(14)
-//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define I_Circumflex                 CS(15)
-//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define O_Circumflex                 CS(16)
-//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define C_Cedilla                    CS(17)
-//     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define Y_Circumflex                 CS(18)
   );
 
 
