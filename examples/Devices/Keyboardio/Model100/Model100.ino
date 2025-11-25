@@ -341,7 +341,7 @@ enum { MACRO_A_CIRCUMFLEX,
   *
   */
 
-enum { PRIMARY, FUNCTION, CUT, NUMPAD, LETTER_VARIANT, SYMBOL, WM}; // layers
+enum { PRIMARY, FUNCTION, FUNCTION_VARIANT, CUT, NUMPAD, LETTER_VARIANT, NUMBER_SHORTCUT}; // layers
 
 
 /**
@@ -368,10 +368,9 @@ enum { PRIMARY, FUNCTION, CUT, NUMPAD, LETTER_VARIANT, SYMBOL, WM}; // layers
 #define Dollar_Hash                  CS(1)
 #define LeftParenthesis_Bracket      CS(2)
 #define RightParenthesis_Bracket     CS(3)
-#define Circumflex_ExclamationPoint  CS(4)
-#define Comma_SemiColon              CS(5)
-#define Period_Colon                 CS(6)
-#define Apostrophe_QuestionMark      CS(7)
+#define Comma_SemiColon              CS(4)
+#define Period_Colon                 CS(5)
+#define Apostrophe_QuestionMark      CS(6)
 
 
 /* This comment temporarily turns off astyle's indent enforcement
@@ -459,7 +458,7 @@ KEYMAPS(
    Key_Escape,
 
    Key_Slash,                              RALT(Key_0),                                    LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_Backslash,                               LSHIFT(Key_Quote),
-   Key_3,                                  Circumflex_ExclamationPoint,                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                       Key_W,
+   Key_3,                                  OSL(LETTER_VARIANT),                            Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                       Key_W,
                                            Key_C,                                          Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                       Key_Semicolon,
    Key_8,                                  Apostrophe_QuestionMark,                        Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                       Key_9,
    OSM(LeftGui),                           OSL(LETTER_VARIANT),                            Spacebar_Underscore,                    OSM(LeftShift),
@@ -487,6 +486,21 @@ KEYMAPS(
    LCTRL(Key_Insert),                      LCTRL(Key_Home),                                LCTRL(Key_LeftArrow),                   LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LCTRL(Key_RightArrow),                       LCTRL(Key_End),
    ___,                                    ___,                                            LCTRL(Key_Spacebar),                    ___,
    LALT(LSHIFT(Key_1))),
+
+  [FUNCTION_VARIANT] =  KEYMAP_STACKED
+  (___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+                                           ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
+   ___,                                    ___,                                            ___,                                    ___,
+   ___),
 
   [CUT] =  KEYMAP_STACKED
   (M(MACRO_ALT_INSERT),                    M(MACRO_ALT_F1),                                M(MACRO_ALT_F2),                        M(MACRO_ALT_F3),                        M(MACRO_ALT_F4),                        M(MACRO_ALT_F5),                             M(MACRO_ALT_ENTER),
@@ -533,22 +547,7 @@ KEYMAPS(
    ___,                                    ___,                                            ___,                                    ___,
    ___),
 
-  [SYMBOL] =  KEYMAP_STACKED
-  (___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-   ___,                                    ___,                                            ___,                                    ___,
-   ___,
-
-   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-                                           ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-   ___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
-   ___,                                    ___,                                            ___,                                    ___,
-   ___),
-
-  [WM] =  KEYMAP_STACKED
+  [NUMBER_SHORTCUT] =  KEYMAP_STACKED
   (___,                                    M(MACRO_CTRL_F1),                               M(MACRO_CTRL_F2),                       M(MACRO_CTRL_F3),                       M(MACRO_CTRL_F4),                       M(MACRO_CTRL_F5),                            M(MACRO_SUPER_ALT_6),
    M(MACRO_SUPER_ALT_0),                   M(MACRO_SUPER_ALT_1),                           M(MACRO_SUPER_ALT_2),                   M(MACRO_SUPER_ALT_3),                   M(MACRO_SUPER_ALT_4),                   M(MACRO_SUPER_ALT_5),                        M(MACRO_SUPER_6),
    M(MACRO_SUPER_0),                       M(MACRO_SUPER_1),                               M(MACRO_SUPER_2),                       M(MACRO_SUPER_3),                       M(MACRO_SUPER_4),                       M(MACRO_SUPER_5),
@@ -2133,7 +2132,7 @@ void setup() {
        kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftControl),
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
-       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(WM))
+       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT))
   )
 
   Qukeys.setHoldTimeout(180);
@@ -2148,10 +2147,9 @@ void setup() {
     kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),        // #define Dollar_Hash                  CS(1)
     kaleidoscope::plugin::CharShift::KeyPair(Key_5, RALT(Key_5)),                   // #define LeftParenthesis_Bracket      CS(2)
     kaleidoscope::plugin::CharShift::KeyPair(Key_Minus, RALT(Key_Minus)),           // #define RightParenthesis_Bracket     CS(3)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_LeftBracket, Key_Slash),           // #define Circumflex_ExclamationPoint  CS(4)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_M, Key_Comma),                     // #define Comma_SemiColon              CS(5)
-    kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),        // #define Period_Colon                 CS(6)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_QuestionMark      CS(7)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_M, Key_Comma),                     // #define Comma_SemiColon              CS(4)
+    kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),        // #define Period_Colon                 CS(5)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_QuestionMark      CS(6)
   );
 
 
