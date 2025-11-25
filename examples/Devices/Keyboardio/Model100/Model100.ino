@@ -110,6 +110,9 @@
 // Support for HostOS
 #include "Kaleidoscope-HostOS.h"
 
+// Support for AutoShift
+#include "Kaleidoscope-AutoShift.h"
+
 /** This 'enum' is a list of all the macros used by the Model 100's firmware
   * The names aren't particularly important. What is important is that each
   * is unique.
@@ -2110,8 +2113,11 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // ShiftBlocker
   ShiftBlocker,
 
-  //HostOS,
+  // HostOS,
   HostOS,
+
+  // AutoShift
+  AutoShift,
 
   // The hardware test mode, which can be invoked by tapping Prog, LED and the
   // left Fn button at the same time.
@@ -2152,6 +2158,9 @@ void setup() {
     kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_QuestionMark      CS(6)
   );
 
+  //  AutoShift for letter keys and number keys only:
+  AutoShift.setEnabled(AutoShift.letterKeys());
+  AutoShift.setTimeout(150);
 
   // Add colormap overlays for all keys of the numpad. This makes sure that
   // all keys of the numpad light up once the numpad layer is active.
