@@ -233,9 +233,11 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_CTRL_X,
        MACRO_CTRL_Z,
        MACRO_E_ACUTE,
-       MACRO_E_GRAVE,
        MACRO_E_CIRCUMFLEX,
+       MACRO_E_DIAERESIS,
+       MACRO_E_GRAVE,
        MACRO_I_CIRCUMFLEX,
+       MACRO_I_DIAERESIS,
        MACRO_O_CIRCUMFLEX,
        MACRO_PRINT_OS,
        MACRO_SEMICOLON,
@@ -292,7 +294,8 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_SUPER_TAB,
        MACRO_SUPER_UP,
        MACRO_U_CIRCUMFLEX,
-       MACRO_U_GRAVE
+       MACRO_U_GRAVE,
+       MACRO_U_DIAERESIS
      };
 
 
@@ -539,7 +542,7 @@ KEYMAPS(
   (___,                                    ___,                                            ___,                                    ___,                                    ___,                                    ___,                                         ___,
    ___,                                    M(MACRO_A_CIRCUMFLEX),                          M(MACRO_U_CIRCUMFLEX),                  M(MACRO_I_CIRCUMFLEX),                  M(MACRO_O_CIRCUMFLEX),                  Key_Slash,                                   ___,
    ___,                                    M(MACRO_A_GRAVE),                               M(MACRO_U_GRAVE),                       M(MACRO_E_ACUTE),                       M(MACRO_E_GRAVE),                       M(MACRO_E_CIRCUMFLEX),
-   ___,                                    ___,                                            ___,                                    ___,                                    Key_Period,                             LSHIFT(Key_M),                               ___,
+   ___,                                    M(MACRO_E_DIAERESIS),                           M(MACRO_U_DIAERESIS),                   M(MACRO_I_DIAERESIS),                   Key_Period,                             LSHIFT(Key_M),                               ___,
    ___,                                    ___,                                            ___,                                    ___,
    ___,
 
@@ -1440,6 +1443,19 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
+  case MACRO_E_DIAERESIS:
+    if (keyToggledOn(event.state)) {
+      if (isShiftKeyHeld()) {
+        return MACRO(T(LeftBracket),  T(E));
+      } else {
+        Macros.play(MACRO(D(LeftShift), T(LeftBracket), U(LeftShift)));
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(E)));
+        ShiftBlocker.disable();
+      }
+    }
+    break;
+
   case MACRO_E_GRAVE:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
@@ -1461,6 +1477,19 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
         return MACRO(T(I));
       } else {
         return MACRO(T(LeftBracket), T(I));
+      }
+    }
+    break;
+
+  case MACRO_I_DIAERESIS:
+    if (keyToggledOn(event.state)) {
+      if (isShiftKeyHeld()) {
+        return MACRO(T(LeftBracket),  T(I));
+      } else {
+        Macros.play(MACRO(D(LeftShift), T(LeftBracket), U(LeftShift)));
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(I)));
+        ShiftBlocker.disable();
       }
     }
     break;
@@ -1840,6 +1869,19 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
+  case MACRO_U_DIAERESIS:
+    if (keyToggledOn(event.state)) {
+      if (isShiftKeyHeld()) {
+        return MACRO(T(LeftBracket),  T(U));
+      } else {
+        Macros.play(MACRO(D(LeftShift), T(LeftBracket), U(LeftShift)));
+        ShiftBlocker.enable();
+        Macros.play(MACRO(T(U)));
+        ShiftBlocker.disable();
+      }
+    }
+    break;
+
   case MACRO_U_GRAVE:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
@@ -2159,7 +2201,7 @@ void setup() {
   );
 
   //  AutoShift for letter keys and number keys only:
-  AutoShift.setEnabled(AutoShift.letterKeys());
+  AutoShift.setEnabled(AutoShift.letterKeys() | AutoShift.symbolKeys());
   AutoShift.setTimeout(150);
 
   // Add colormap overlays for all keys of the numpad. This makes sure that
