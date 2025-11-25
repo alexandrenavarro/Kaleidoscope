@@ -569,17 +569,17 @@ KEYMAPS(
    ___),
 
   [NUMBER_SHORTCUT] =  KEYMAP_STACKED
-  (___,                                    M(MACRO_CTRL_F1),                       M(MACRO_CTRL_F2),                       M(MACRO_CTRL_F3),                       M(MACRO_CTRL_F4),                       M(MACRO_CTRL_F5),                       M(MACRO_SUPER_ALT_6),
-   M(MACRO_SUPER_ALT_0),                   M(MACRO_SUPER_ALT_1),                   M(MACRO_SUPER_ALT_2),                   M(MACRO_SUPER_ALT_3),                   M(MACRO_SUPER_ALT_4),                   M(MACRO_SUPER_ALT_5),                   M(MACRO_SUPER_6),
-   M(MACRO_SUPER_0),                       M(MACRO_SUPER_1),                       M(MACRO_SUPER_2),                       M(MACRO_SUPER_3),                       M(MACRO_SUPER_4),                       M(MACRO_SUPER_5),
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+  (___,                                    LCTRL(Key_F1),                          LCTRL(Key_F2),                          LCTRL(Key_F3),                          LCTRL(Key_F4),                          LCTRL(Key_F5),                          ___,
+   LCTRL(LSHIFT(Key_0)),                   LCTRL(LSHIFT(Key_1)),                   LCTRL(LSHIFT(Key_3)),                   LCTRL(LSHIFT(Key_3)),                   LCTRL(LSHIFT(Key_4)),                   LCTRL(LSHIFT(Key_5)),                   ___,
+   LGUI(LSHIFT(Key_0)),                    LGUI(LSHIFT(Key_1)),                    LGUI(LSHIFT(Key_2)),                    LGUI(LSHIFT(Key_3)),                    LGUI(LSHIFT(Key_4)),                    LGUI(LSHIFT(Key_5)),
+   LALT(LSHIFT(Key_0)),                    LALT(LSHIFT(Key_1)),                    LALT(LSHIFT(Key_2)),                    LALT(LSHIFT(Key_3)),                    LALT(LSHIFT(Key_4)),                    LALT(LSHIFT(Key_5)),                    ___,
    ___, ___, ___, ___,
    ___,
 
-   M(MACRO_CTRL_F12),                      M(MACRO_CTRL_F6),                       M(MACRO_CTRL_F7),                       M(MACRO_CTRL_F8),                       M(MACRO_CTRL_F8),                       M(MACRO_CTRL_F10),                      M(MACRO_CTRL_F11),
-   ___,                                    M(MACRO_SUPER_SHIFT_PAGE_DOWN),         M(MACRO_SUPER_PAGE_DOWN),               M(MACRO_SUPER_ALT_SHIFT_DOWN),          M(MACRO_SUPER_ALT_SHIFT_UP),            M(MACRO_SUPER_END),                     M(MACRO_ALT_F4),
-                                           M(MACRO_SUPER_EQUALS),                  M(MACRO_SUPER_SHIFT_LEFT),              M(MACRO_SUPER_SHIFT_DOWN),              M(MACRO_SUPER_SHIFT_UP),                M(MACRO_SUPER_SHIFT_RIGHT),             M(MACRO_SUPER_SHIFT_PAGE_UP),
-   ___,                                    ___,                                    M(MACRO_SUPER_LEFT),                    M(MACRO_SUPER_DOWN),                    M(MACRO_SUPER_UP),                      M(MACRO_SUPER_RIGHT),                   M(MACRO_SUPER_A),
+   LCTRL(Key_F12),                         LCTRL(Key_F6),                          LCTRL(Key_F7),                          LCTRL(Key_F8),                          LCTRL(Key_F8),                          LCTRL(Key_F10),                         LCTRL(Key_F11),
+   ___,                                    LCTRL(LSHIFT(Key_6)),                   LCTRL(LSHIFT(Key_7)),                   LCTRL(LSHIFT(Key_8)),                   LCTRL(LSHIFT(Key_9)),                   LCTRL(LSHIFT(Key_0)),                   ___,
+                                           LGUI(LSHIFT(Key_6)),                    LGUI(LSHIFT(Key_7)),                    LGUI(LSHIFT(Key_8)),                    LGUI(LSHIFT(Key_9)),                    LGUI(LSHIFT(Key_0)),                    ___,
+   ___,                                    LALT(LSHIFT(Key_6)),                    LALT(LSHIFT(Key_7)),                    LALT(LSHIFT(Key_8)),                    LALT(LSHIFT(Key_9)),                    LALT(LSHIFT(Key_0)),                    ___,
    ___,                                    ___,                                    Key_Space,                              ___,
 
    ___)
