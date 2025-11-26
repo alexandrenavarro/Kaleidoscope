@@ -510,9 +510,9 @@ KEYMAPS(
 
   [CUT] =  KEYMAP_STACKED
   (LALT(Key_Insert),                       LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           LALT(Key_Delete),
-   Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,                                LALT(Key_Tab),
-   LALT(LSHIFT(Key_0)),                    LALT(LSHIFT(Key_1)),                    LALT(LSHIFT(Key_2)),                    LALT(LSHIFT(Key_3)),                    LALT(LSHIFT(Key_4)),                    LALT(LSHIFT(Key_5)),
-   Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,                                ___,
+   LCTRL(LSHIFT(Key_0)),                   LCTRL(LSHIFT(Key_1)),                   LCTRL(LSHIFT(Key_3)),                   LCTRL(LSHIFT(Key_3)),                   LCTRL(LSHIFT(Key_4)),                   LCTRL(LSHIFT(Key_5)),                   LALT(Key_Tab),
+   LSHIFT(Key_0),                          LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
+   LALT(LSHIFT(Key_0)),                    LALT(LSHIFT(Key_1)),                    LALT(LSHIFT(Key_2)),                    LALT(LSHIFT(Key_3)),                    LALT(LSHIFT(Key_4)),                    LALT(LSHIFT(Key_5)),                    ___,
    ___, ___, ___, ___,
    ___,
 
