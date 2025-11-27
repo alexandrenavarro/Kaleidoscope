@@ -128,48 +128,6 @@
 
 enum { MACRO_A_CIRCUMFLEX,
        MACRO_A_GRAVE,
-       MACRO_ALT_ENTER,
-       MACRO_ALT_INSERT,
-       MACRO_ALT_F1,
-       MACRO_ALT_F2,
-       MACRO_ALT_F3,
-       MACRO_ALT_F4,
-       MACRO_ALT_F5,
-       MACRO_ALT_F6,
-       MACRO_ALT_F7,
-       MACRO_ALT_F8,
-       MACRO_ALT_F9,
-       MACRO_ALT_F10,
-       MACRO_ALT_F11,
-       MACRO_ALT_F12,
-       MACRO_ALT_GR_1,
-       MACRO_ALT_GR_2,
-       MACRO_ALT_GR_3,
-       MACRO_ALT_GR_4,
-       MACRO_ALT_GR_5,
-       MACRO_ALT_GR_A,
-       MACRO_ALT_GR_A_AIGU,
-       MACRO_ALT_GR_B,
-       MACRO_ALT_GR_COMMA,
-       MACRO_ALT_GR_DOLLAR,
-       MACRO_ALT_GR_E,
-       MACRO_ALT_GR_EQUALS,
-       MACRO_ALT_GR_E_AIGU,
-       MACRO_ALT_GR_E_GRAVE,
-       MACRO_ALT_GR_I,
-       MACRO_ALT_GR_K,
-       MACRO_ALT_GR_O,
-       MACRO_ALT_GR_P,
-       MACRO_ALT_GR_SPACE,
-       MACRO_ALT_GR_U,
-       MACRO_ALT_GR_X,
-       MACRO_ALT_GR_Y,
-       MACRO_ALT_DOWN,
-       MACRO_ALT_LEFT,
-       MACRO_ALT_RIGHT,
-       MACRO_ALT_TAB,
-       MACRO_ALT_UP,
-       MACRO_ALT_SPACE,
        MACRO_C_CEDILLA,
        MACRO_COLON,
        MACRO_CTRL_A,
@@ -466,7 +424,7 @@ KEYMAPS(
    Key_Slash,                              RALT(Key_0),                            LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_Backslash,                          LSHIFT(Key_Quote),
    Key_3,                                  OSL(LETTER_VARIANT),                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                  Key_W,
                                            Key_C,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Key_Semicolon,
-   Key_8,                                  Apostrophe_QuestionMark,                Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  Key_9,
+   Key_Insert,                             Apostrophe_QuestionMark,                Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  Key_9,
    OSM(LeftControl),                       OSL(SYMBOL),                            Spacebar_Underscore,                    OSM(LeftShift),
    LALT(Key_Spacebar)),
 
@@ -482,8 +440,8 @@ KEYMAPS(
   (LCTRL(Key_P),                           Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 LCTRL(Key_Delete),
    LCTRL(Key_N),                           LCTRL(Key_S),                           LCTRL(Key_T),                           LCTRL(Key_L),                           LCTRL(Key_Z),                           LALT(Key_F4),                           LCTRL(Key_Tab),
    LCTRL(Key_Q),                           LCTRL(Key_W),                           LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
-   LCTRL(Key_KeypadDivide),                Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LCTRL(Key_B),                           LALT(Key_F7),
-   Key_LeftShift,                          OSL(FUNCTION_VARIANT),                  OSM(LeftAlt),                           ___,
+   LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    Key_DownArrow,                          Key_UpArrow,                            LALT(Key_RightArrow),                   LCTRL(Key_B),                           LALT(Key_F7),
+   Key_LeftShift,                          OSL(FUNCTION_VARIANT),                  LCTRL(LSHIFT(Key_Enter)),               ___,
    ___,
 
    Key_F12,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
@@ -517,7 +475,7 @@ KEYMAPS(
    ___,
 
    LALT(Key_F12),                          LALT(Key_F6),                           LALT(Key_F7),                           LALT(Key_F8),                           LALT(Key_F9),                           LALT(Key_F10),                          LALT(Key_F11),
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    LCTRL(Key_U),                           LCTRL(Key_Z),                           ___,                                    ___,                                    LALT(Key_D),                            LCTRL(Key_K),
                                            M(MACRO_SHIFT_HOME_CTRL_X),             Key_Backspace,                          M(MACRO_SHIFT_DOWN_CTRL_X),             M(MACRO_SHIFT_UP_CTRL_X),               Key_Delete,                             M(MACRO_SHIFT_END_CTRL_X),
    ___,                                    ___,                                    M(MACRO_SHIFT_CTRL_LEFT_X),             M(MACRO_SHIFT_CTRL_DOWN_X),             M(MACRO_SHIFT_CTRL_UP_X),               M(MACRO_SHIFT_CTRL_RIGHT_X),            ___,
    ___,                                    ___,                                    Key_Space,                              ___,
@@ -728,264 +686,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
       } else {
         return MACRO(T(0));
       }
-    }
-    break;
-
-  case MACRO_ALT_ENTER:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(Enter), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_INSERT:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(Insert), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F1:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F1), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F2:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F2), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F3:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F3), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F4:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F4), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F5:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F5), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F6:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F6), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F7:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F7), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F8:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F8), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F9:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F9), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F10:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F10), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F11:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F11), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_F12:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(F12), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_1:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(1), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_2:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(2), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_3:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(3), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_4:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(4), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_5:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(5), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_A:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(A), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_A_AIGU:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(W), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_B:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(Q), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_COMMA:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(G), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_DOLLAR:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(Backtick), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_E:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(F), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_E_AIGU:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(W), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_E_GRAVE:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(T), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_I:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(D), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_EQUALS:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(Minus), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_K:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(B), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_O:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(R), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_P:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(E), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_SPACE:
-    if (keyToggledOn(event.state)) {
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-        Macros.play(MACRO(I(INTERVAL), U(LeftShift)));
-        return MACRO(I(INTERVAL), D(RightAlt), T(Space), U(RightAlt));
-      } else {
-        return MACRO(I(INTERVAL), D(RightAlt), T(Space), U(RightAlt));
-      }
-      return MACRO(I(INTERVAL), D(RightAlt), T(E), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_U:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(S), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(C), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_GR_Y:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(RightAlt), T(X), U(RightAlt));
-    }
-    break;
-
-  case MACRO_ALT_DOWN:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(DownArrow), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_LEFT:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(LeftArrow), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_RIGHT:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(RightArrow), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_SPACE:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(Space), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_TAB:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(Tab), U(LeftAlt));
-    }
-    break;
-
-  case MACRO_ALT_UP:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftAlt), T(UpArrow), U(LeftAlt));
     }
     break;
 
@@ -2193,6 +1893,7 @@ void setup() {
   QUKEYS(
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(CUT)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(1, KeyAddr(2, 7), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT))
