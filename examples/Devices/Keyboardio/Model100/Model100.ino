@@ -131,10 +131,7 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_C_CEDILLA,
        MACRO_COLON,
        MACRO_CTRL_A,
-       MACRO_CTRL_ALT_DELETE,
-       MACRO_CTRL_A_AIGU,
        MACRO_CTRL_B,
-       MACRO_CTRL_AT,
        MACRO_CTRL_C,
        MACRO_CTRL_COMMA,
        MACRO_CTRL_COLON,
@@ -142,23 +139,9 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_CTRL_DOUBLE_QUOTE,
        MACRO_CTRL_DOWN,
        MACRO_CTRL_E,
-       MACRO_CTRL_E_AIGU,
-       MACRO_CTRL_E_GRAVE,
        MACRO_CTRL_END,
        MACRO_CTRL_ENTER,
        MACRO_CTRL_F,
-       MACRO_CTRL_F1,
-       MACRO_CTRL_F2,
-       MACRO_CTRL_F3,
-       MACRO_CTRL_F4,
-       MACRO_CTRL_F5,
-       MACRO_CTRL_F6,
-       MACRO_CTRL_F7,
-       MACRO_CTRL_F8,
-       MACRO_CTRL_F9,
-       MACRO_CTRL_F10,
-       MACRO_CTRL_F11,
-       MACRO_CTRL_F12,
        MACRO_CTRL_G,
        MACRO_CTRL_H,
        MACRO_CTRL_I,
@@ -167,7 +150,6 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_CTRL_HOME,
        MACRO_CTRL_L,
        MACRO_CTRL_LEFT,
-       MACRO_CTRL_LEFT_LEFT_LEFT_LEFT,
        MACRO_CTRL_LEFT_PARENTHESIS,
        MACRO_CTRL_N,
        MACRO_CTRL_O,
@@ -178,7 +160,6 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_CTRL_R,
        MACRO_CTRL_RIGHT,
        MACRO_CTRL_RIGHT_PARENTHESIS,
-       MACRO_CTRL_RIGHT_RIGHT_RIGHT_RIGHT,
        MACRO_CTRL_S,
        MACRO_CTRL_SHIFT_ENTER,
        MACRO_CTRL_SHIFT_SPACE,
@@ -198,14 +179,11 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_I_DIAERESIS,
        MACRO_O_CIRCUMFLEX,
        MACRO_PRINT_OS,
-       MACRO_SEMICOLON,
        MACRO_SHIFT_CTRL_DOWN_X,
        MACRO_SHIFT_CTRL_END_X,
        MACRO_SHIFT_CTRL_HOME_X,
        MACRO_SHIFT_CTRL_LEFT_X,
-       MACRO_SHIFT_CTRL_LEFT_LEFT_LEFT_LEFT_X,
        MACRO_SHIFT_CTRL_RIGHT_X,
-       MACRO_SHIFT_CTRL_RIGHT_RIGHT_RIGHT_RIGHT_X,
        MACRO_SHIFT_CTRL_UP_X,
        MACRO_SHIFT_DOWN_CTRL_X,
        MACRO_SHIFT_END_CTRL_X,
@@ -215,42 +193,6 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_SHIFT_PG_UP_CTRL_X,
        MACRO_SHIFT_UP_CTRL_X,
        MACRO_SHIFT_SUPER_Z,
-       MACRO_SPACE,
-       MACRO_SPACE_EQUALS_SPACE,
-       MACRO_SUPER_0,
-       MACRO_SUPER_1,
-       MACRO_SUPER_2,
-       MACRO_SUPER_3,
-       MACRO_SUPER_4,
-       MACRO_SUPER_5,
-       MACRO_SUPER_6,
-       MACRO_SUPER_7,
-       MACRO_SUPER_A,
-       MACRO_SUPER_ALT_0,
-       MACRO_SUPER_ALT_1,
-       MACRO_SUPER_ALT_2,
-       MACRO_SUPER_ALT_3,
-       MACRO_SUPER_ALT_4,
-       MACRO_SUPER_ALT_5,
-       MACRO_SUPER_ALT_6,
-       MACRO_SUPER_ALT_7,
-       MACRO_SUPER_ALT_SHIFT_DOWN,
-       MACRO_SUPER_ALT_SHIFT_UP,
-       MACRO_SUPER_B,
-       MACRO_SUPER_DOWN,
-       MACRO_SUPER_END,
-       MACRO_SUPER_EQUALS,
-       MACRO_SUPER_LEFT,
-       MACRO_SUPER_PAGE_DOWN,
-       MACRO_SUPER_SHIFT_DOWN,
-       MACRO_SUPER_SHIFT_LEFT,
-       MACRO_SUPER_SHIFT_PAGE_DOWN,
-       MACRO_SUPER_SHIFT_PAGE_UP,
-       MACRO_SUPER_SHIFT_RIGHT,
-       MACRO_SUPER_SHIFT_UP,
-       MACRO_SUPER_RIGHT,
-       MACRO_SUPER_TAB,
-       MACRO_SUPER_UP,
        MACRO_U_CIRCUMFLEX,
        MACRO_U_GRAVE,
        MACRO_U_DIAERESIS
@@ -305,7 +247,7 @@ enum { MACRO_A_CIRCUMFLEX,
   *
   */
 
-enum { PRIMARY, FUNCTION, FUNCTION_VARIANT, CUT, NUMPAD, SYMBOL, LETTER_VARIANT, NUMBER_SHORTCUT}; // layers
+enum { PRIMARY, FUNCTION, FUNCTION_VARIANT, WM_CUT, NUMPAD, SYMBOL, LETTER_VARIANT, NUMBER_SHORTCUT}; // layers
 
 
 /**
@@ -452,22 +394,22 @@ KEYMAPS(
    LALT(LSHIFT(Key_1))),
 
   [FUNCTION_VARIANT] =  KEYMAP_STACKED
-  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+  (___,                                    LCTRL(Key_F1),                          LCTRL(Key_F2),                          LCTRL(Key_F3),                          LCTRL(Key_F4),                          LCTRL(Key_F5),                          ___,
    LCTRL(Key_O),                           ___,                                    ___,                                    LCTRL(Key_K),                           LCTRL(Key_F4),                          LCTRL(Key_A),                           ___,
    LCTRL(Key_H),                           LCTRL(Key_Q),                           LCTRL(Key_U),                           LCTRL(Key_I),                           LCTRL(Key_E),                           LCTRL(Key_R),
    RALT(Key_Enter),                        LGUI(LSHIFT(Key_LeftArrow)),            LGUI(LSHIFT(Key_DownArrow)),            LGUI(LSHIFT(Key_UpArrow)),              LGUI(LSHIFT(Key_RightArrow)),           ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   LCTRL(Key_F12),                         LCTRL(Key_F6),                          LCTRL(Key_F7),                          LCTRL(Key_F8),                          LCTRL(Key_F8),                          LCTRL(Key_F10),                         LCTRL(Key_F11),
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
                                            ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___),
 
-  [CUT] =  KEYMAP_STACKED
-  (LALT(Key_Insert),                       LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           LALT(Key_Delete),
+  [WM_CUT] =  KEYMAP_STACKED
+  (___,                                    LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           LALT(Key_Delete),
    LCTRL(LSHIFT(Key_0)),                   LCTRL(LSHIFT(Key_1)),                   LCTRL(LSHIFT(Key_3)),                   LCTRL(LSHIFT(Key_3)),                   LCTRL(LSHIFT(Key_4)),                   LCTRL(LSHIFT(Key_5)),                   LALT(Key_Tab),
    LSHIFT(Key_0),                          LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
    LALT(LSHIFT(Key_0)),                    LALT(LSHIFT(Key_1)),                    LALT(LSHIFT(Key_2)),                    LALT(LSHIFT(Key_3)),                    LALT(LSHIFT(Key_4)),                    LALT(LSHIFT(Key_5)),                    ___,
@@ -713,24 +655,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_CTRL_ALT_DELETE:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), D(LeftAlt), T(Delete), U(LeftAlt), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_A_AIGU:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(Z), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_AT:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(6), U(LeftControl));
-    }
-    break;
-
   case MACRO_CTRL_B:
     if (keyToggledOn(event.state)) {
       return MACRO(I(INTERVAL), D(LeftControl), T(B), U(LeftControl));
@@ -779,18 +703,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_CTRL_E_AIGU:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(W), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_E_GRAVE:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(R), U(LeftControl));
-    }
-    break;
-
   case MACRO_CTRL_ENTER:
     if (keyToggledOn(event.state)) {
       return MACRO(I(INTERVAL), D(LeftControl), T(Enter), U(LeftControl));
@@ -818,78 +730,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
   case MACRO_CTRL_F:
     if (keyToggledOn(event.state)) {
       return MACRO(I(INTERVAL), D(LeftControl), T(F), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F1:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F1), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F2:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F2), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F3:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F3), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F4:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F4), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F5:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F5), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F6:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F6), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F7:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F7), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F8:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F8), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F9:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F9), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F10:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F10), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F11:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F11), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F12:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F12), U(LeftControl));
     }
     break;
 
@@ -965,24 +805,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_CTRL_LEFT_LEFT_LEFT_LEFT:
-    if (keyToggledOn(event.state)) {
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftShift)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(RightAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftGui) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightGui)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftGui)));
-      }
-      return MACRO(I(INTERVAL), D(LeftControl), T(LeftArrow), T(LeftArrow), T(LeftArrow), T(LeftArrow), U(LeftControl));
-    }
-    break;
-
   case MACRO_CTRL_LEFT_PARENTHESIS:
     if (keyToggledOn(event.state)) {
       return MACRO(I(INTERVAL), D(LeftControl), T(4), U(LeftControl));
@@ -1046,24 +868,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
   case MACRO_CTRL_RIGHT_PARENTHESIS:
     if (keyToggledOn(event.state)) {
       return MACRO(I(INTERVAL), D(LeftControl), T(5), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_RIGHT_RIGHT_RIGHT_RIGHT:
-    if (keyToggledOn(event.state)) {
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftShift)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(RightAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftGui) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightGui)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftGui)));
-      }
-      return MACRO(I(INTERVAL), D(LeftControl), T(RightArrow), T(RightArrow), T(RightArrow), T(RightArrow), U(LeftControl));
     }
     break;
 
@@ -1239,13 +1043,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-
-  case MACRO_SEMICOLON:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(G), U(LeftControl));
-    }
-    break;
-
   case MACRO_SHIFT_CTRL_DOWN_X:
     if (keyToggledOn(event.state)) {
       return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(DownArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
@@ -1270,21 +1067,10 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_SHIFT_CTRL_LEFT_LEFT_LEFT_LEFT_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(LeftArrow), T(LeftArrow), T(LeftArrow), T(LeftArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
 
   case MACRO_SHIFT_CTRL_RIGHT_X:
     if (keyToggledOn(event.state)) {
       return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(RightArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
-
-  case MACRO_SHIFT_CTRL_RIGHT_RIGHT_RIGHT_RIGHT_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(RightArrow), T(RightArrow), T(RightArrow), T(RightArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
@@ -1339,235 +1125,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
   case MACRO_SHIFT_SUPER_Z:
     if (keyToggledOn(event.state)) {
       return MACRO(I(INTERVAL), D(LeftShift), D(LeftGui), T(LeftBracket), U(LeftGui), U(LeftShift));
-    }
-    break;
-
-  case MACRO_SPACE:
-    if (keyToggledOn(event.state)) {
-//       if (Kaleidoscope.hid().keyboard().isModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().isModifierKeyActive(Key_RightShift)) {
-//         //Macros.play(MACRO(I(INTERVAL), U(LeftShift)));
-//         //return MACRO(I(INTERVAL), D(RightAlt), T(Space), U(RightAlt));
-//         return MACRO(I(INTERVAL), U(LeftShift), D(RightAlt), T(Space), U(RightAlt), D(LeftShift));
-//       } else
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-        Kaleidoscope.hid().keyboard().releaseKey(Key_LeftShift);
-        //Macros.play(MACRO(I(INTERVAL), U(LeftShift)));
-        //return MACRO(I(INTERVAL), U(LeftShift), T(A), T(A), T(A), D(LeftShift));
-        return MACRO(U(LeftShift), U(RightShift), T(A), T(A), T(A), D(LeftShift));
-        //return MACRO(I(INTERVAL), U(LeftShift), D(RightAlt), T(Space), U(RightAlt), D(LeftShift));
-      } else {
-        return MACRO(I(INTERVAL), T(Spacebar));
-      }
-    }
-    break;
-
-  case MACRO_SPACE_EQUALS_SPACE:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), T(Spacebar), D(Minus), T(Spacebar));
-    }
-    break;
-
-  case MACRO_SUPER_0:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(0), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_1:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(1), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_2:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(2), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_3:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(3), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_4:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(4), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_5:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(5), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_6:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(6), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_7:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(7), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_A:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), T(A), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_ALT_0:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftAlt), D(LeftShift), T(0), U(LeftShift), U(LeftAlt), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_ALT_1:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftAlt), D(LeftShift), T(1), U(LeftShift), U(LeftAlt), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_ALT_2:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftAlt), D(LeftShift), T(2), U(LeftShift), U(LeftAlt), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_ALT_3:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftAlt), D(LeftShift), T(3), U(LeftShift), U(LeftAlt), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_ALT_4:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftAlt), D(LeftShift), T(4), U(LeftShift), U(LeftAlt), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_ALT_5:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftAlt), D(LeftShift), T(5), U(LeftShift), U(LeftAlt), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_ALT_6:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftAlt), D(LeftShift), T(6), U(LeftShift), U(LeftAlt), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_ALT_7:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftAlt), D(LeftShift), T(7), U(LeftShift), U(LeftAlt), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_ALT_SHIFT_DOWN:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftAlt), D(LeftShift), T(DownArrow), U(LeftShift), U(LeftAlt), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_ALT_SHIFT_UP:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftAlt), D(LeftShift), T(UpArrow), U(LeftShift), U(LeftAlt), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_B:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), T(B), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_DOWN:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), T(DownArrow), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_LEFT:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), T(LeftArrow), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_PAGE_DOWN:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), T(PageDown), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_END:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), T(End), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_EQUALS:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), T(Minus), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_SHIFT_DOWN:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(DownArrow), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_SHIFT_LEFT:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(LeftArrow), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_SHIFT_PAGE_DOWN:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(PageDown), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_SHIFT_PAGE_UP:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(PageUp), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_SHIFT_RIGHT:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(RightArrow), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_SHIFT_UP:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), D(LeftShift), T(UpArrow), U(LeftShift), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_RIGHT:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), T(RightArrow), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_TAB:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), T(Tab), U(LeftGui));
-    }
-    break;
-
-  case MACRO_SUPER_UP:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftGui), T(UpArrow), U(LeftGui));
     }
     break;
 
@@ -1891,7 +1448,7 @@ void setup() {
 
   // Qukeys
   QUKEYS(
-       kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(CUT)),
+       kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(WM_CUT)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(1, KeyAddr(2, 7), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
