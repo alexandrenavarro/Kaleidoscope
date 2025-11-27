@@ -377,7 +377,6 @@ KEYMAPS(
 #endif
 
 
-
   [FUNCTION] =  KEYMAP_STACKED
   (___,                                    Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 ___,
    LCTRL(Key_N),                           LCTRL(Key_S),                           LCTRL(Key_T),                           LCTRL(Key_L),                           LCTRL(Key_Z),                           LALT(Key_F4),                           LCTRL(Key_Tab),
