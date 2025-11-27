@@ -379,9 +379,9 @@ KEYMAPS(
 
 
   [FUNCTION] =  KEYMAP_STACKED
-  (___,                                    Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 LCTRL(Key_Delete),
+  (___,                                    Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 ___,
    LCTRL(Key_N),                           LCTRL(Key_S),                           LCTRL(Key_T),                           LCTRL(Key_L),                           LCTRL(Key_Z),                           LALT(Key_F4),                           LCTRL(Key_Tab),
-   LCTRL(Key_P),                           LCTRL(Key_W),                           LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
+   LCTRL(Key_P),                           M(MACRO_CTRL_Z),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        LCTRL(Key_F),
    LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    LCTRL(Key_M),                           LCTRL(Key_B),                           LALT(Key_RightArrow),                   LCTRL(Key_H),                           LALT(Key_F7),
    Key_LeftShift,                          OSL(FUNCTION_VARIANT),                  LCTRL(LSHIFT(Key_Enter)),               Key_LeftControl,
    ___,
@@ -663,7 +663,11 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_C:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(C), U(LeftControl));
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(I(INTERVAL), D(LeftGui), T(C), U(LeftGui));
+      } else {
+        return MACRO(I(INTERVAL), D(LeftControl), T(C), U(LeftControl));
+      }
     }
     break;
 
@@ -728,9 +732,11 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     break;
 
   case MACRO_CTRL_F:
-    if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(F), U(LeftControl));
-    }
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(I(INTERVAL), D(LeftGui), T(F), U(LeftGui));
+      } else {
+        return MACRO(I(INTERVAL), D(LeftControl), T(F), U(LeftControl));
+      }
     break;
 
   case MACRO_CTRL_G:
@@ -915,7 +921,11 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_V:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(V), U(LeftControl));
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(I(INTERVAL), D(LeftGui), T(V), U(LeftGui));
+      } else {
+        return MACRO(I(INTERVAL), D(LeftControl), T(V), U(LeftControl));
+      }
     }
     break;
 
@@ -927,13 +937,21 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(X), U(LeftControl));
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(I(INTERVAL), D(LeftGui), T(X), U(LeftGui));
+      } else {
+        return MACRO(I(INTERVAL), D(LeftControl), T(X), U(LeftControl));
+      }
     }
     break;
 
   case MACRO_CTRL_Z:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(W), U(LeftControl));
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(I(INTERVAL), D(LeftGui), T(W), U(LeftGui));
+      } else {
+        return MACRO(I(INTERVAL), D(LeftControl), T(W), U(LeftControl));
+      }
     }
     break;
 
