@@ -410,8 +410,8 @@ KEYMAPS(
   [WM_CUT] =  KEYMAP_STACKED
   (LGUI(LALT(LSHIFT(Key_0))),              LGUI(LALT(LSHIFT(Key_1))),              LGUI(LALT(LSHIFT(Key_2))),              LGUI(LALT(LSHIFT(Key_3))),              LGUI(LALT(LSHIFT(Key_4))),              LGUI(LALT(LSHIFT(Key_5))),              LGUI(LALT(LSHIFT(Key_6))),
    LGUI(LSHIFT(Key_0)),                    LGUI(LSHIFT(Key_1)),                    LGUI(LSHIFT(Key_2)),                    LGUI(LSHIFT(Key_3)),                    LGUI(LSHIFT(Key_4)),                    LGUI(LSHIFT(Key_5)),                    LGUI(LSHIFT(Key_6)),
-   ___,                                    LGUI(Key_LeftArrow),                    LGUI(Key_DownArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_RightArrow),                   LGUI(Key_End),
-   ___,                                    LGUI(LSHIFT(Key_LeftArrow)),            LGUI(LSHIFT(Key_DownArrow)),            LGUI(LSHIFT(Key_UpArrow)),              LGUI(LSHIFT(Key_RightArrow)),           ___,                                    ___,
+   ___,                                    LGUI(Key_LeftArrow),                    LGUI(Key_DownArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_RightArrow),                   LALT(Key_F4),
+   ___,                                    LGUI(LSHIFT(Key_LeftArrow)),            LGUI(LSHIFT(Key_DownArrow)),            LGUI(LSHIFT(Key_UpArrow)),              LGUI(LSHIFT(Key_RightArrow)),           LGUI(Key_End),                          ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
