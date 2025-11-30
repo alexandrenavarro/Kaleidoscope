@@ -382,7 +382,7 @@ KEYMAPS(
    LCTRL(Key_N),                           LCTRL(Key_S),                           LCTRL(Key_T),                           LCTRL(Key_L),                           LCTRL(Key_Z),                           LALT(Key_F4),                           LCTRL(Key_Tab),
    LCTRL(Key_P),                           M(MACRO_CTRL_Z),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        LCTRL(Key_F),
    LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    LCTRL(Key_M),                           LCTRL(Key_B),                           LALT(Key_RightArrow),                   LCTRL(Key_H),                           LALT(Key_F7),
-   Key_LeftShift,                          OSL(FUNCTION_VARIANT),                  LCTRL(LSHIFT(Key_Enter)),               Key_LeftControl,
+   Key_LeftShift,                          Key_Delete,                             LCTRL(Key_Enter),                       Key_LeftControl,
    ___,
 
    Key_F12,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
@@ -408,7 +408,7 @@ KEYMAPS(
    ___),
 
   [WM_CUT] =  KEYMAP_STACKED
-  (LGUI(LALT(LSHIFT(Key_0))),              LGUI(LALT(LSHIFT(Key_1))),              LGUI(LALT(LSHIFT(Key_2))),              LGUI(LALT(LSHIFT(Key_3))),              LGUI(LALT(LSHIFT(Key_4))),              LGUI(LALT(LSHIFT(Key_5))),              LGUI(LALT(LSHIFT(Key_6))),
+  (___,                                    LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           LALT(Key_F6),
    LGUI(LSHIFT(Key_0)),                    LGUI(LSHIFT(Key_1)),                    LGUI(LSHIFT(Key_2)),                    LGUI(LSHIFT(Key_3)),                    LGUI(LSHIFT(Key_4)),                    LGUI(LSHIFT(Key_5)),                    LGUI(LSHIFT(Key_6)),
    ___,                                    LGUI(Key_LeftArrow),                    LGUI(Key_DownArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_RightArrow),                   LALT(Key_F4),
    ___,                                    LGUI(LSHIFT(Key_LeftArrow)),            LGUI(LSHIFT(Key_DownArrow)),            LGUI(LSHIFT(Key_UpArrow)),              LGUI(LSHIFT(Key_RightArrow)),           LGUI(Key_End),                          ___,
@@ -1466,6 +1466,7 @@ void setup() {
   // Qukeys
   QUKEYS(
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(WM_CUT)),
+       kaleidoscope::plugin::Qukey(1, KeyAddr(1, 7), ShiftToLayer(FUNCTION_VARIANT)),
        kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(1, KeyAddr(2, 7), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
