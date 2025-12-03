@@ -384,7 +384,7 @@ KEYMAPS(
    LCTRL(Key_N),                           LCTRL(Key_S),                           LCTRL(Key_T),                           LCTRL(Key_L),                           LCTRL(Key_Z),                           LALT(Key_F4),                           LCTRL(Key_Tab),
    LCTRL(Key_P),                           M(MACRO_CTRL_Z),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        LCTRL(Key_F),
    LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    LCTRL(Key_R),                           LCTRL(Key_H),                           LALT(Key_RightArrow),                   LCTRL(Key_B),                           LCTRL(Key_Enter),
-   Key_LeftShift,                          OSL(FUNCTION_VARIANT),                  ___,                                    Key_LeftControl,
+   Key_LeftShift,                          OSL(FUNCTION_VARIANT),                  LCTRL(Key_Enter),                       Key_LeftControl,
    ___,
 
    Key_F12,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
