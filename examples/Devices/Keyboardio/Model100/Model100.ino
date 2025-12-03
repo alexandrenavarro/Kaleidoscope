@@ -179,6 +179,9 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_I_DIAERESIS,
        MACRO_O_CIRCUMFLEX,
        MACRO_PRINT_OS,
+       MACRO_SET_OS_LINUX,
+       MACRO_SET_OS_MACOS,
+       MACRO_SET_OS_WINDOWS,
        MACRO_SHIFT_CTRL_DOWN_X,
        MACRO_SHIFT_CTRL_END_X,
        MACRO_SHIFT_CTRL_HOME_X,
@@ -376,13 +379,12 @@ KEYMAPS(
 
 #endif
 
-
   [FUNCTION] =  KEYMAP_STACKED
-  (___,                                    Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 ___,
+  (LCTRL(Key_M),                           Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 LCTRL(Key_Delete),
    LCTRL(Key_N),                           LCTRL(Key_S),                           LCTRL(Key_T),                           LCTRL(Key_L),                           LCTRL(Key_Z),                           LALT(Key_F4),                           LCTRL(Key_Tab),
    LCTRL(Key_P),                           M(MACRO_CTRL_Z),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        LCTRL(Key_F),
-   LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    LCTRL(Key_M),                           LCTRL(Key_B),                           LALT(Key_RightArrow),                   LCTRL(Key_H),                           LALT(Key_F7),
-   Key_LeftShift,                          Key_Delete,                             LCTRL(Key_Enter),                       Key_LeftControl,
+   LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    LCTRL(Key_R),                           LCTRL(Key_H),                           LALT(Key_RightArrow),                   LCTRL(Key_B),                           LCTRL(Key_Enter),
+   Key_LeftShift,                          OSL(FUNCTION_VARIANT),                  ___,                                    Key_LeftControl,
    ___,
 
    Key_F12,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
@@ -393,25 +395,25 @@ KEYMAPS(
    LALT(LSHIFT(Key_1))),
 
   [FUNCTION_VARIANT] =  KEYMAP_STACKED
-  (___,                                    LCTRL(Key_F1),                          LCTRL(Key_F2),                          LCTRL(Key_F3),                          LCTRL(Key_F4),                          LCTRL(Key_F5),                          ___,
+  (___,                                    LCTRL(Key_F1),                          LCTRL(Key_F2),                          LCTRL(Key_F3),                          LCTRL(Key_F4),                          LCTRL(Key_F5),                          Key_Delete,
    LCTRL(Key_O),                           ___,                                    LCTRL(Key_J),                           LCTRL(Key_K),                           LCTRL(Key_F4),                          LCTRL(Key_A),                           ___,
-   ___,                                    LCTRL(Key_Q),                           LCTRL(Key_U),                           LCTRL(Key_I),                           LCTRL(Key_E),                           LCTRL(Key_R),
-   RALT(Key_Enter),                        ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   LCTRL(Key_D),                           LCTRL(Key_Q),                           LCTRL(Key_U),                           LCTRL(Key_I),                           LCTRL(Key_E),                           LALT(Key_F7),
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
-   LCTRL(Key_F12),                         LCTRL(Key_F6),                          LCTRL(Key_F7),                          LCTRL(Key_F8),                          LCTRL(Key_F8),                          LCTRL(Key_F10),                         LCTRL(Key_F11),
+   LCTRL(Key_F12),                        LCTRL(Key_F6),                           LCTRL(Key_F7),                          LCTRL(Key_F8),                          LCTRL(Key_F8),                          LCTRL(Key_F10),                         LCTRL(Key_F11),
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-                                           ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+                                           ___,                                    Key_Backspace,                          ___,                                    ___,                                    Key_Delete,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___),
 
   [WM_CUT] =  KEYMAP_STACKED
-  (___,                                    LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           LALT(Key_F6),
-   LGUI(LSHIFT(Key_0)),                    LGUI(LSHIFT(Key_1)),                    LGUI(LSHIFT(Key_2)),                    LGUI(LSHIFT(Key_3)),                    LGUI(LSHIFT(Key_4)),                    LGUI(LSHIFT(Key_5)),                    LGUI(LSHIFT(Key_6)),
+  (___,                                    LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           LALT(Key_Delete),
+   LGUI(LSHIFT(Key_0)),                    LGUI(LSHIFT(Key_1)),                    LGUI(LSHIFT(Key_2)),                    LGUI(LSHIFT(Key_3)),                    LGUI(LSHIFT(Key_4)),                    LGUI(LSHIFT(Key_5)),                    LALT(Key_Tab),
    ___,                                    LGUI(Key_LeftArrow),                    LGUI(Key_DownArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_RightArrow),                   LALT(Key_F4),
-   ___,                                    LGUI(LSHIFT(Key_LeftArrow)),            LGUI(LSHIFT(Key_DownArrow)),            LGUI(LSHIFT(Key_UpArrow)),              LGUI(LSHIFT(Key_RightArrow)),           LGUI(Key_End),                          ___,
+   ___,                                    LGUI(LSHIFT(Key_LeftArrow)),            LGUI(LSHIFT(Key_DownArrow)),            LGUI(LSHIFT(Key_UpArrow)),              LGUI(LSHIFT(Key_RightArrow)),           LGUI(Key_End),                          LALT(Key_Enter),
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -424,15 +426,15 @@ KEYMAPS(
 
   [NUMPAD] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    RALT(Key_6),                            Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_1,                                  ___,                                    ___,
+   LALT(LSHIFT(Key_0)),                    LALT(LSHIFT(Key_1)),                    LALT(LSHIFT(Key_2)),                    LALT(LSHIFT(Key_3)),                    LALT(LSHIFT(Key_4)),                    LALT(LSHIFT(Key_5)),                    ___,
    LCTRL(Key_G),                           LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   ___,                                    RALT(Key_8),                            RALT(Key_4),                            RALT(Key_Equals),                       RALT(Key_2),                            ___,                                    ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_Backspace,                          ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          ___,
+   ___,                                    LALT(LSHIFT(Key_6)),                    LALT(LSHIFT(Key_7)),                    LALT(LSHIFT(Key_8)),                    LALT(LSHIFT(Key_9)),                    LALT(LSHIFT(Key_0)),                    ___,
+                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          Period_Colon,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___),
@@ -476,9 +478,9 @@ KEYMAPS(
    ___,
 
    LCTRL(Key_F12),                         LCTRL(Key_F6),                          LCTRL(Key_F7),                          LCTRL(Key_F8),                          LCTRL(Key_F8),                          LCTRL(Key_F10),                         LCTRL(Key_F11),
-   ___,                                    LCTRL(LSHIFT(Key_6)),                   LCTRL(LSHIFT(Key_7)),                   LCTRL(LSHIFT(Key_8)),                   LCTRL(LSHIFT(Key_9)),                   LCTRL(LSHIFT(Key_0)),                   ___,
-                                           LALT(LSHIFT(Key_6)),                    LALT(LSHIFT(Key_7)),                    LALT(LSHIFT(Key_8)),                    LALT(LSHIFT(Key_9)),                    LALT(LSHIFT(Key_0)),                    ___,
-   ___,                                    LGUI(LSHIFT(Key_6)),                    LGUI(LSHIFT(Key_7)),                    LGUI(LSHIFT(Key_8)),                    LGUI(LSHIFT(Key_9)),                    LGUI(LSHIFT(Key_0)),                    ___,
+   ___,                                    LCTRL(LSHIFT(Key_6)),                   LCTRL(LSHIFT(Key_7)),                   LCTRL(LSHIFT(Key_8)),                   LCTRL(LSHIFT(Key_9)),                   LCTRL(LSHIFT(Key_0)),                   M(MACRO_SET_OS_LINUX),
+                                           LALT(LSHIFT(Key_6)),                    LALT(LSHIFT(Key_7)),                    LALT(LSHIFT(Key_8)),                    LALT(LSHIFT(Key_9)),                    LALT(LSHIFT(Key_0)),                    M(MACRO_SET_OS_MACOS),
+   ___,                                    LGUI(LSHIFT(Key_6)),                    LGUI(LSHIFT(Key_7)),                    LGUI(LSHIFT(Key_8)),                    LGUI(LSHIFT(Key_9)),                    LGUI(LSHIFT(Key_0)),                    M(MACRO_SET_OS_WINDOWS),
    ___,                                    ___,                                    Key_Space,                              ___,
 
    ___)
@@ -1060,6 +1062,25 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
+  case MACRO_SET_OS_LINUX:
+    if (keyToggledOn(event.state)) {
+        HostOS.os(kaleidoscope::hostos::LINUX);
+    }
+    break;
+
+  case MACRO_SET_OS_MACOS:
+    if (keyToggledOn(event.state)) {
+        HostOS.os(kaleidoscope::hostos::MACOS);
+    }
+    break;
+
+  case MACRO_SET_OS_WINDOWS:
+    if (keyToggledOn(event.state)) {
+        HostOS.os(kaleidoscope::hostos::WINDOWS);
+    }
+    break;
+
+
   case MACRO_SHIFT_CTRL_DOWN_X:
     if (keyToggledOn(event.state)) {
       return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(DownArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
@@ -1448,7 +1469,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
   HostOS,
 
   // AutoShift
-  AutoShift,
+//   AutoShift,
 
   // The hardware test mode, which can be invoked by tapping Prog, LED and the
   // left Fn button at the same time.
@@ -1492,8 +1513,8 @@ void setup() {
   );
 
   //  AutoShift for letter keys and number keys only:
-  AutoShift.setEnabled(AutoShift.letterKeys() | AutoShift.symbolKeys());
-  AutoShift.setTimeout(150);
+//   AutoShift.setEnabled(AutoShift.letterKeys() | AutoShift.symbolKeys());
+//   AutoShift.setTimeout(150);
 
   // Add colormap overlays for all keys of the numpad. This makes sure that
   // all keys of the numpad light up once the numpad layer is active.
