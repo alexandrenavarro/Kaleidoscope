@@ -7,10 +7,6 @@
  * as well as the Kaleidoscope plugins we use in the Model 100's firmware
  */
 
-// Interval duration between step of a macro (needed on windows if bepo-pkl is used for layout to let time to process key codes events)
-// It should be removed when bepo will be included by default in windows 11 23H2 (to be tested)
-#define INTERVAL 0
-
 // The Kaleidoscope core
 #include "Kaleidoscope.h"
 
@@ -657,302 +653,302 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_COLON:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(V), U(LeftShift));
+      return MACRO(D(LeftShift), T(V), U(LeftShift));
     }
     break;
 
   case MACRO_CTRL_A:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(A), U(LeftControl));
+      return MACRO(D(LeftControl), T(A), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_B:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(B), U(LeftControl));
+      return MACRO(D(LeftControl), T(B), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_C:
     if (keyToggledOn(event.state)) {
       if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(I(INTERVAL), D(LeftGui), T(C), U(LeftGui));
+        return MACRO(D(LeftGui), T(C), U(LeftGui));
       } else {
-        return MACRO(I(INTERVAL), D(LeftControl), T(C), U(LeftControl));
+        return MACRO(D(LeftControl), T(C), U(LeftControl));
       }
     }
     break;
 
   case MACRO_CTRL_COLON:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), D(LeftShift), T(V), U(LeftShift), U(LeftControl));
+      return MACRO(D(LeftControl), D(LeftShift), T(V), U(LeftShift), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_COMMA:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(G), U(LeftControl));
+      return MACRO(D(LeftControl), T(G), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_DIVIDE:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), D(LeftShift), T(Period), U(LeftShift), U(LeftControl));
+      return MACRO(D(LeftControl), D(LeftShift), T(Period), U(LeftShift), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_DOUBLE_QUOTE:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(1), U(LeftControl));
+      return MACRO(D(LeftControl), T(1), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_DOWN:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(DownArrow), U(LeftControl));
+      return MACRO(D(LeftControl), T(DownArrow), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_E:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(E), U(LeftControl));
+      return MACRO(D(LeftControl), T(E), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_ENTER:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(Enter), U(LeftControl));
+      return MACRO(D(LeftControl), T(Enter), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_END:
     if (keyToggledOn(event.state)) {
        if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-          Macros.play(MACRO(I(INTERVAL), D(LeftShift)));
+          Macros.play(MACRO(D(LeftShift)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftAlt)));
+        Macros.play(MACRO(D(LeftAlt)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(RightAlt)));
+        Macros.play(MACRO(D(RightAlt)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftGui) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightGui)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftGui)));
+        Macros.play(MACRO(D(LeftGui)));
       }
-      return MACRO(I(INTERVAL), D(LeftControl), T(End), U(LeftControl));
+      return MACRO(D(LeftControl), T(End), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_F:
       if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(I(INTERVAL), D(LeftGui), T(F), U(LeftGui));
+        return MACRO(D(LeftGui), T(F), U(LeftGui));
       } else {
-        return MACRO(I(INTERVAL), D(LeftControl), T(F), U(LeftControl));
+        return MACRO(D(LeftControl), T(F), U(LeftControl));
       }
     break;
 
   case MACRO_CTRL_G:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(G), U(LeftControl));
+      return MACRO(D(LeftControl), T(G), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_H:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(H), U(LeftControl));
+      return MACRO(D(LeftControl), T(H), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_I:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(I), U(LeftControl));
+      return MACRO(D(LeftControl), T(I), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_K:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(K), U(LeftControl));
+      return MACRO(D(LeftControl), T(K), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_INSERT:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(Insert), U(LeftControl));
+      return MACRO(D(LeftControl), T(Insert), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_HOME:
     if (keyToggledOn(event.state)) {
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftShift)));
+        Macros.play(MACRO(D(LeftShift)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftAlt)));
+        Macros.play(MACRO(D(LeftAlt)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(RightAlt)));
+        Macros.play(MACRO(D(RightAlt)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftGui) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightGui)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftGui)));
+        Macros.play(MACRO(D(LeftGui)));
       }
-      return MACRO(I(INTERVAL), D(LeftControl), T(Home), U(LeftControl));
+      return MACRO(D(LeftControl), T(Home), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_L:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(L), U(LeftControl));
+      return MACRO(D(LeftControl), T(L), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_LEFT:
     if (keyToggledOn(event.state)) {
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftShift)));
+        Macros.play(MACRO(D(LeftShift)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftAlt)));
+        Macros.play(MACRO(D(LeftAlt)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(RightAlt)));
+        Macros.play(MACRO(D(RightAlt)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftGui) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightGui)) {
         Macros.play(MACRO(D(LeftGui)));
       }
-      return MACRO(I(INTERVAL), D(LeftControl), T(LeftArrow), U(LeftControl));
+      return MACRO(D(LeftControl), T(LeftArrow), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_LEFT_PARENTHESIS:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(4), U(LeftControl));
+      return MACRO(D(LeftControl), T(4), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_N:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(N), U(LeftControl));
+      return MACRO(D(LeftControl), T(N), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_O:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(O), U(LeftControl));
+      return MACRO(D(LeftControl), T(O), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_P:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(P), U(LeftControl));
+      return MACRO(D(LeftControl), T(P), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_PAGE_DOWN:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(PageDown), U(LeftControl));
+      return MACRO(D(LeftControl), T(PageDown), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_PAGE_UP:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(PageUp), U(LeftControl));
+      return MACRO(D(LeftControl), T(PageUp), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_PERIOD:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(V), U(LeftControl));
+      return MACRO(D(LeftControl), T(V), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_RIGHT:
     if (keyToggledOn(event.state)) {
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftShift)));
+        Macros.play(MACRO(D(LeftShift)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftAlt)));
+        Macros.play(MACRO(D(LeftAlt)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightAlt)) {
-        Macros.play(MACRO(I(INTERVAL), D(RightAlt)));
+        Macros.play(MACRO(D(RightAlt)));
       }
       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftGui) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightGui)) {
-        Macros.play(MACRO(I(INTERVAL), D(LeftGui)));
+        Macros.play(MACRO(D(LeftGui)));
       }
-      return MACRO(I(INTERVAL), D(LeftControl), T(RightArrow), U(LeftControl));
+      return MACRO(D(LeftControl), T(RightArrow), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_RIGHT_PARENTHESIS:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(5), U(LeftControl));
+      return MACRO(D(LeftControl), T(5), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_S:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(S), U(LeftControl));
+      return MACRO(D(LeftControl), T(S), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_SHIFT_ENTER:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), D(LeftShift), T(Enter), U(LeftShift), U(LeftControl));
+      return MACRO(D(LeftControl), D(LeftShift), T(Enter), U(LeftShift), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_SHIFT_SPACE:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), D(LeftShift), T(Space), U(LeftShift), U(LeftControl));
+      return MACRO(D(LeftControl), D(LeftShift), T(Space), U(LeftShift), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_SPACE:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(Space), U(LeftControl));
+      return MACRO(D(LeftControl), T(Space), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_T:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(T), U(LeftControl));
+      return MACRO(D(LeftControl), T(T), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_U:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(U), U(LeftControl));
+      return MACRO(D(LeftControl), T(U), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_UP:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(UpArrow), U(LeftControl));
+      return MACRO(D(LeftControl), T(UpArrow), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_V:
     if (keyToggledOn(event.state)) {
       if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(I(INTERVAL), D(LeftGui), T(V), U(LeftGui));
+        return MACRO(D(LeftGui), T(V), U(LeftGui));
       } else {
-        return MACRO(I(INTERVAL), D(LeftControl), T(V), U(LeftControl));
+        return MACRO(D(LeftControl), T(V), U(LeftControl));
       }
     }
     break;
 
   case MACRO_CTRL_W:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftControl), T(Z), U(LeftControl));
+      return MACRO(D(LeftControl), T(Z), U(LeftControl));
     }
     break;
 
   case MACRO_CTRL_X:
     if (keyToggledOn(event.state)) {
       if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(I(INTERVAL), D(LeftGui), T(X), U(LeftGui));
+        return MACRO(D(LeftGui), T(X), U(LeftGui));
       } else {
-        return MACRO(I(INTERVAL), D(LeftControl), T(X), U(LeftControl));
+        return MACRO(D(LeftControl), T(X), U(LeftControl));
       }
     }
     break;
@@ -960,9 +956,9 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
   case MACRO_CTRL_Z:
     if (keyToggledOn(event.state)) {
       if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(I(INTERVAL), D(LeftGui), T(W), U(LeftGui));
+        return MACRO(D(LeftGui), T(W), U(LeftGui));
       } else {
-        return MACRO(I(INTERVAL), D(LeftControl), T(W), U(LeftControl));
+        return MACRO(D(LeftControl), T(W), U(LeftControl));
       }
     }
     break;
@@ -1094,86 +1090,86 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
 
   case MACRO_SHIFT_CTRL_DOWN_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(DownArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
+      return MACRO(D(LeftShift), D(LeftControl), T(DownArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_CTRL_END_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(End), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
+      return MACRO(D(LeftShift), D(LeftControl), T(End), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_CTRL_HOME_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(Home), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
+      return MACRO(D(LeftShift), D(LeftControl), T(Home), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_CTRL_LEFT_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(LeftArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
+      return MACRO(D(LeftShift), D(LeftControl), T(LeftArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
 
   case MACRO_SHIFT_CTRL_RIGHT_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(RightArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
+      return MACRO(D(LeftShift), D(LeftControl), T(RightArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_CTRL_UP_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftControl), T(UpArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
+      return MACRO(D(LeftShift), D(LeftControl), T(UpArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_DOWN_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(DownArrow), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
+      return MACRO(D(LeftShift), T(DownArrow), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_END_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(End), U(LeftShift), D(LeftControl), T(X), U(LeftControl), T(Space), T(Space), T(Backspace), T(Backspace));
+      return MACRO(D(LeftShift), T(End), U(LeftShift), D(LeftControl), T(X), U(LeftControl), T(Space), T(Space), T(Backspace), T(Backspace));
     }
     break;
 
   case MACRO_SHIFT_HOME_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(Home), U(LeftShift), D(LeftControl), T(X), U(LeftControl), T(Space), T(Backspace));
+      return MACRO(D(LeftShift), T(Home), U(LeftShift), D(LeftControl), T(X), U(LeftControl), T(Space), T(Backspace));
     }
     break;
 
   case MACRO_SHIFT_PERCENT:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(Equals), U(LeftShift));
+      return MACRO(D(LeftShift), T(Equals), U(LeftShift));
     }
     break;
 
   case MACRO_SHIFT_PG_DOWN_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(PageDown), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
+      return MACRO(D(LeftShift), T(PageDown), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_PG_UP_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(PageUp), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
+      return MACRO(D(LeftShift), T(PageUp), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_UP_CTRL_X:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), T(UpArrow), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
+      return MACRO(D(LeftShift), T(UpArrow), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
     }
     break;
 
   case MACRO_SHIFT_SUPER_Z:
     if (keyToggledOn(event.state)) {
-      return MACRO(I(INTERVAL), D(LeftShift), D(LeftGui), T(LeftBracket), U(LeftGui), U(LeftShift));
+      return MACRO(D(LeftShift), D(LeftGui), T(LeftBracket), U(LeftGui), U(LeftShift));
     }
     break;
 
