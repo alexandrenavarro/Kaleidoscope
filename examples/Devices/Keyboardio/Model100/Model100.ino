@@ -128,6 +128,7 @@
 
 enum { MACRO_A_CIRCUMFLEX,
        MACRO_A_GRAVE,
+       MACRO_ALT_SPACEBAR,
        MACRO_C_CEDILLA,
        MACRO_COLON,
        MACRO_CTRL_A,
@@ -371,7 +372,7 @@ KEYMAPS(
                                            Key_C,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Key_Semicolon,
    Key_Insert,                             Apostrophe_QuestionMark,                Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  Key_9,
    OSM(LeftControl),                       OSL(SYMBOL),                            Spacebar_Underscore,                    OSM(LeftShift),
-   LALT(Key_Spacebar)),
+   M(MACRO_ALT_SPACEBAR)),
 
 #else
 
@@ -426,14 +427,14 @@ KEYMAPS(
 
   [NUMPAD] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   LALT(LSHIFT(Key_0)),                    LALT(LSHIFT(Key_1)),                    LALT(LSHIFT(Key_2)),                    LALT(LSHIFT(Key_3)),                    LALT(LSHIFT(Key_4)),                    LALT(LSHIFT(Key_5)),                    ___,
+   LALT(LSHIFT(Key_0)),                    RALT(Key_6),                            LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_1,                                  ___,                                    ___,
    LCTRL(Key_G),                           LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                    RALT(Key_4),                            RALT(Key_Equals),                       ___,                                    RALT(Key_2),                            ___,
    ___,                                    Key_Backspace,                          ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    LALT(LSHIFT(Key_6)),                    LALT(LSHIFT(Key_7)),                    LALT(LSHIFT(Key_8)),                    LALT(LSHIFT(Key_9)),                    LALT(LSHIFT(Key_0)),                    ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
                                            LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          Period_Colon,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
@@ -628,6 +629,16 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
         ShiftBlocker.disable();
       } else {
         return MACRO(T(0));
+      }
+    }
+    break;
+
+  case MACRO_ALT_SPACEBAR:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftGui), T(Spacebar), U(LeftGui));
+      } else {
+        return MACRO(D(LeftAlt), T(Spacebar), U(LeftAlt));
       }
     }
     break;
