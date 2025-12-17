@@ -169,6 +169,7 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_E_CIRCUMFLEX,
        MACRO_E_DIAERESIS,
        MACRO_E_GRAVE,
+       MACRO_ESCAPE_ALT_F12_UP,
        MACRO_I_CIRCUMFLEX,
        MACRO_I_DIAERESIS,
        MACRO_MAXIMIZE,
@@ -453,24 +454,24 @@ KEYMAPS(
 
   [FUNCTION_VARIANT] =  KEYMAP_STACKED
   (___,                                    LCTRL(Key_F1),                          LCTRL(Key_F2),                          LCTRL(Key_F3),                          LCTRL(Key_F4),                          LCTRL(Key_F5),                          Key_Delete,
-   M(MACRO_CTRL_O),                        ___,                                    M(MACRO_CTRL_J),                        M(MACRO_CTRL_K),                        LCTRL(Key_F4),                          M(MACRO_CTRL_A),                        ___,
+   M(MACRO_CTRL_O),                        ___,                                    M(MACRO_CTRL_SHIFT_F10),                M(MACRO_CTRL_K),                        LCTRL(Key_F4),                          M(MACRO_CTRL_A),                        ___,
    M(MACRO_CTRL_D),                        M(MACRO_CTRL_Q),                        M(MACRO_CTRL_U),                        M(MACRO_CTRL_I),                        M(MACRO_CTRL_E),                        LALT(Key_F7),
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    M(MACRO_ESCAPE_ALT_F12_UP),             ___,                                    M(MACRO_CTRL_J),                        M(MACRO_CTRL_Y),                        ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    LCTRL(Key_F12),                        LCTRL(Key_F6),                           LCTRL(Key_F7),                          LCTRL(Key_F8),                          LCTRL(Key_F8),                          LCTRL(Key_F10),                         LCTRL(Key_F11),
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-                                           ___,                                    Key_Backspace,                          ___,                                    ___,                                    Key_Delete,                                    ___,
+                                           ___,                                    Key_Backspace,                          ___,                                    ___,                                    Key_Delete,                             ___,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___),
 
   [WM_CUT] =  KEYMAP_STACKED
-  (___,                                    LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           LALT(Key_Delete),
-   LGUI(LSHIFT(Key_0)),                    LGUI(LSHIFT(Key_1)),                    LGUI(LSHIFT(Key_2)),                    LGUI(LSHIFT(Key_3)),                    LGUI(LSHIFT(Key_4)),                    LGUI(LSHIFT(Key_5)),                    LALT(Key_Tab),
+  (___,                                    LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           ___,
+   LGUI(LSHIFT(Key_0)),                    LGUI(LSHIFT(Key_1)),                    LGUI(LSHIFT(Key_2)),                    LGUI(LSHIFT(Key_3)),                    LGUI(LSHIFT(Key_4)),                    LGUI(LSHIFT(Key_5)),                    Key_UpArrow,
    ___,                                    M(MACRO_MOVE_LEFT),                     M(MACRO_MINIMIZE),                      M(MACRO_MAXIMIZE),                      M(MACRO_MOVE_RIGHT),                    M(MACRO_CLOSE),
-   ___,                                    LGUI(LSHIFT(Key_LeftArrow)),            LGUI(LSHIFT(Key_DownArrow)),            LGUI(LSHIFT(Key_UpArrow)),              LGUI(LSHIFT(Key_RightArrow)),           LGUI(Key_End),                          LALT(Key_Enter),
+   ___,                                    LGUI(LSHIFT(Key_LeftArrow)),            LGUI(LSHIFT(Key_DownArrow)),            LGUI(LSHIFT(Key_UpArrow)),              LGUI(LSHIFT(Key_RightArrow)),           LGUI(Key_End),                          Key_DownArrow,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -986,6 +987,16 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
+  case MACRO_CTRL_SHIFT_F10:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftGui), T(S), U(LeftGui));
+      } else {
+        return MACRO(D(LeftControl), D(LeftShift), T(F10), U(LeftShift), U(LeftControl));
+      }
+    }
+    break;
+
   case MACRO_CTRL_SPACE:
     if (keyToggledOn(event.state)) {
       if (HostOS.os() == kaleidoscope::hostos::MACOS) {
@@ -1118,6 +1129,16 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
         ShiftBlocker.disable();
       } else {
         return MACRO(T(7));
+      }
+    }
+    break;
+
+  case MACRO_ESCAPE_ALT_F12_UP:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(T(Escape), D(LeftAlt), T(F12), U(LeftAlt), T(DownArrow));
+      } else {
+        return MACRO(T(Escape), D(LeftAlt), T(F12), U(LeftAlt), T(DownArrow));
       }
     }
     break;
