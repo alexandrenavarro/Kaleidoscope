@@ -124,6 +124,7 @@
 
 enum { MACRO_A_CIRCUMFLEX,
        MACRO_A_GRAVE,
+       MACRO_AT,
        MACRO_ALT_SPACE,
        MACRO_C_CEDILLA,
        MACRO_CLOSE,
@@ -170,6 +171,10 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_E_GRAVE,
        MACRO_I_CIRCUMFLEX,
        MACRO_I_DIAERESIS,
+       MACRO_MAXIMIZE,
+       MACRO_MINIMIZE,
+       MACRO_MOVE_LEFT,
+       MACRO_MOVE_RIGHT,
        MACRO_NEXT_HISTORY,
        MACRO_O_CIRCUMFLEX,
        MACRO_PREVIOUS_HISTORY,
@@ -245,7 +250,7 @@ enum { MACRO_A_CIRCUMFLEX,
   *
   */
 
-enum { PRIMARY, FUNCTION, FUNCTION_VARIANT, WM_CUT, NUMPAD, SYMBOL, LETTER_VARIANT, NUMBER_SHORTCUT}; // layers
+enum { PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, LETTER_VARIANT, SYMBOL, NUMPAD, FUNCTION, FUNCTION_VARIANT, WM_CUT, NUMBER_SHORTCUT}; // layers
 
 
 /**
@@ -265,8 +270,6 @@ enum { PRIMARY, FUNCTION, FUNCTION_VARIANT, WM_CUT, NUMPAD, SYMBOL, LETTER_VARIA
 //#define PRIMARY_KEYMAP_DVORAK
 //#define PRIMARY_KEYMAP_COLEMAK
 //#define PRIMARY_KEYMAP_CUSTOM
-#define PRIMARY_KEYMAP_BEPO_ON_AZERTY
-//#define PRIMARY_KEYMAP_BEPOLAR
 
 #define Space_Underscore             CS(0)
 #define Dollar_Hash                  CS(1)
@@ -351,42 +354,101 @@ KEYMAPS(
    Key_RightShift, Key_LeftAlt, Key_Spacebar, Key_RightControl,
    ShiftToLayer(FUNCTION)),
 
-#elif defined (PRIMARY_KEYMAP_BEPO_ON_AZERTY)
-  // Edit this bepo keymap on azerty layout
-  [PRIMARY] = KEYMAP_STACKED
-  (M(MACRO_PRINT_OS),                      Key_PcApplication,                      LeftParenthesis_Bracket,                RightParenthesis_Bracket,               LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_Delete,
+//#else
+
+//#error "No default keymap defined. You should make sure that you have a line like '#define PRIMARY_KEYMAP_QWERTY' in your sketch"
+
+#endif
+
+  [PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY] = KEYMAP_STACKED
+  (M(MACRO_PRINT_OS),                      ___,                                    LeftParenthesis_Bracket,                RightParenthesis_Bracket,               LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_Delete,
    Dollar_Hash,                            Key_B,                                  Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                  Key_Tab,
    Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_SemiColon,
    Key_Equals,                             Key_0,                                  Key_Y,                                  Key_X,                                  Period_Colon,                           Key_K,                                  Key_Period,
    OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              OSM(LeftGui),
    Key_Escape,
 
-   Key_Slash,                              RALT(Key_0),                            LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_Backslash,                          LSHIFT(Key_Quote),
+   ___,                                    RALT(Key_0),                            LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_Backslash,                          LSHIFT(Key_Quote),
    Key_3,                                  OSL(LETTER_VARIANT),                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                  Key_W,
                                            Key_C,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Key_Semicolon,
    Key_Insert,                             Apostrophe_QuestionMark,                Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  Key_9,
-   OSM(LeftControl),                       OSL(SYMBOL),                            Space_Underscore,                       OSM(LeftShift),
+   Key_RightAlt,                           OSL(NUMPAD),                            Space_Underscore,                       OSM(LeftShift),
    M(MACRO_ALT_SPACE)),
 
-#else
+  [PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY] = KEYMAP_STACKED
+  (M(MACRO_PRINT_OS),                      Key_Apple_Globe,                        LeftParenthesis_Bracket,                RightParenthesis_Bracket,               LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_Delete,
+   Dollar_Hash,                            Key_B,                                  Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                  Key_Tab,
+   Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_SemiColon,
+   Key_Equals,                             Key_0,                                  Key_Y,                                  Key_X,                                  Period_Colon,                           Key_K,                                  Key_Period,
+   OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              OSM(LeftGui),
+   Key_Escape,
 
-#error "No default keymap defined. You should make sure that you have a line like '#define PRIMARY_KEYMAP_QWERTY' in your sketch"
+   ___,                                    Key_NonUsBackslashAndPipe,              LSHIFT(Key_Slash),                      Key_Equals,                             LSHIFT(Key_Period),                     LSHIFT(Key_RightBracket),               LSHIFT(Key_Quote),
+   Key_3,                                  OSL(LETTER_VARIANT),                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                  Key_W,
+                                           Key_C,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Key_Semicolon,
+   Key_Insert,                             Apostrophe_QuestionMark,                Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  Key_9,
+   Key_RightAlt,                           OSL(NUMPAD),                            Space_Underscore,                       OSM(LeftShift),
+   M(MACRO_ALT_SPACE)),
 
-#endif
+
+  [LETTER_VARIANT] =  KEYMAP_STACKED
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    M(MACRO_A_CIRCUMFLEX),                  M(MACRO_U_CIRCUMFLEX),                  M(MACRO_I_CIRCUMFLEX),                  M(MACRO_O_CIRCUMFLEX),                  Key_Slash,                              ___,
+   ___,                                    M(MACRO_A_GRAVE),                       M(MACRO_U_GRAVE),                       M(MACRO_E_ACUTE),                       M(MACRO_E_GRAVE),                       M(MACRO_E_CIRCUMFLEX),
+   ___,                                    M(MACRO_E_DIAERESIS),                   M(MACRO_U_DIAERESIS),                   M(MACRO_I_DIAERESIS),                   Key_Period,                             LSHIFT(Key_M),                          ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+                                           M(MACRO_C_CEDILLA),                     ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___),
+
+  [SYMBOL] =  KEYMAP_STACKED
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_LeftBracket,                        Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_RightBracket,                       LSHIFT(Key_Quote),                      ___,
+   ___,                                    RALT(Key_4),                            LeftParenthesis_Bracket,                RightParenthesis_Bracket,               RALT(Key_Equals),                       Key_Equals,
+   ___,                                    RALT(Key_2),                            RALT(Key_5),                            RALT(Key_Minus),                        Key_8,                                  RALT(Key_3),                            ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          Apostrophe_QuestionMark,                RALT(Key_7),                            ___,
+                                           RALT(Key_8),                            LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_3,                                  ___,
+   ___,                                    RALT(Key_6),                            Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___),
+
+  [NUMPAD] =  KEYMAP_STACKED
+  (___,                                    Key_1,                                  Key_2,                                  Key_3,                                  Key_4,                                  Key_5,                                  ___,
+   ___,                                    Key_Quote,                              Key_NonUsBackslashAndPipe,              Key_Equals,                             Key_Semicolon,                          Key_Backslash,                          ___,
+   M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
+   ___,                                    LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_LeftBracket,                        Key_RightBracket,                       ___,                                    ___,
+   ___,                                    Key_Backspace,                          ___,                                    ___,
+   ___,
+
+   ___,                                    Key_6,                                  Key_7,                                  Key_8,                                  Key_9,                                  Key_0,                                  ___,
+   ___,                                    Key_Minus,                              Key_Equals,                             Key_NonUsPound,                         Key_Quote,                              Key_Backtick,                           ___,
+                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          Period_Colon,
+   ___,                                    Key_M,                                  Key_Comma,                              Key_Slash,                              Key_Comma,                              Key_Period,                             ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___),
 
   [FUNCTION] =  KEYMAP_STACKED
   (M(MACRO_CTRL_M),                        Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 LCTRL(Key_Delete),
-   M(MACRO_CTRL_N),                        M(MACRO_CTRL_N),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_Z),                        M(MACRO_CLOSE),                         LCTRL(Key_Tab),
+   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_Z),                        M(MACRO_CLOSE),                         LCTRL(Key_Tab),
    M(MACRO_CTRL_P),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
    LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              M(MACRO_CTRL_R),                        M(MACRO_CTRL_H),                        M(MACRO_NEXT_HISTORY),                  M(MACRO_CTRL_B),                        LCTRL(Key_Enter),
-   Key_LeftShift,                          OSL(FUNCTION_VARIANT),                  LCTRL(Key_Enter),                       Key_LeftControl,
+   Key_LeftShift,                          OSL(FUNCTION_VARIANT),                  ___,                                    Key_LeftControl,
    ___,
 
    Key_F12,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
    ___,                                    ___,                                    LCTRL(Key_PageDown),                    Key_PageDown,                           Key_PageUp,                             LCTRL(Key_PageUp),                      ___,
                                            Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
    LCTRL(Key_Insert),                      LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LCTRL(Key_RightArrow),                  LCTRL(Key_End),
-   ___,                                    ___,                                    LCTRL(Key_Space),                    ___,
+   ___,                                    ___,                                    LCTRL(Key_Space),                       ___,
    LALT(LSHIFT(Key_1))),
 
   [FUNCTION_VARIANT] =  KEYMAP_STACKED
@@ -407,7 +469,7 @@ KEYMAPS(
   [WM_CUT] =  KEYMAP_STACKED
   (___,                                    LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           LALT(Key_Delete),
    LGUI(LSHIFT(Key_0)),                    LGUI(LSHIFT(Key_1)),                    LGUI(LSHIFT(Key_2)),                    LGUI(LSHIFT(Key_3)),                    LGUI(LSHIFT(Key_4)),                    LGUI(LSHIFT(Key_5)),                    LALT(Key_Tab),
-   ___,                                    LGUI(Key_LeftArrow),                    LGUI(Key_DownArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_RightArrow),                   LALT(Key_F4),
+   ___,                                    M(MACRO_MOVE_LEFT),                     M(MACRO_MINIMIZE),                      M(MACRO_MAXIMIZE),                      M(MACRO_MOVE_RIGHT),                    M(MACRO_CLOSE),
    ___,                                    LGUI(LSHIFT(Key_LeftArrow)),            LGUI(LSHIFT(Key_DownArrow)),            LGUI(LSHIFT(Key_UpArrow)),              LGUI(LSHIFT(Key_RightArrow)),           LGUI(Key_End),                          LALT(Key_Enter),
    ___,                                    ___,                                    ___,                                    ___,
    ___,
@@ -417,51 +479,6 @@ KEYMAPS(
                                            M(MACRO_SHIFT_HOME_CTRL_X),             Key_Backspace,                          M(MACRO_SHIFT_DOWN_CTRL_X),             M(MACRO_SHIFT_UP_CTRL_X),               Key_Delete,                             M(MACRO_SHIFT_END_CTRL_X),
    ___,                                    ___,                                    M(MACRO_SHIFT_CTRL_LEFT_X),             M(MACRO_SHIFT_CTRL_DOWN_X),             M(MACRO_SHIFT_CTRL_UP_X),               M(MACRO_SHIFT_CTRL_RIGHT_X),            ___,
    ___,                                    ___,                                    Key_Space,                              ___,
-   ___),
-
-  [NUMPAD] =  KEYMAP_STACKED
-  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   LALT(LSHIFT(Key_0)),                    RALT(Key_6),                            LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_1,                                  ___,                                    ___,
-   LCTRL(Key_G),                           LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   ___,                                    ___,                                    RALT(Key_4),                            RALT(Key_Equals),                       ___,                                    RALT(Key_2),                            ___,
-   ___,                                    Key_Backspace,                          ___,                                    ___,
-   ___,
-
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          Period_Colon,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,
-   ___),
-
-  [SYMBOL] =  KEYMAP_STACKED
-  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_LeftBracket,                        Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_RightBracket,                       LSHIFT(Key_Quote),                      ___,
-   ___,                                    RALT(Key_4),                            LeftParenthesis_Bracket,                RightParenthesis_Bracket,               RALT(Key_Equals),                       Key_Equals,
-   ___,                                    RALT(Key_2),                            RALT(Key_5),                            RALT(Key_Minus),                        Key_8,                                  RALT(Key_3),                            ___,
-   ___,                                    ___,                                    ___,                                    ___,
-   ___,
-
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          Apostrophe_QuestionMark,                RALT(Key_7),                            ___,
-                                           RALT(Key_8),                            LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_3,                                  ___,
-   ___,                                    RALT(Key_6),                            Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
-   ___,                                    ___,                                    ___,                                    ___,
-   ___),
-
-  [LETTER_VARIANT] =  KEYMAP_STACKED
-  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    M(MACRO_A_CIRCUMFLEX),                  M(MACRO_U_CIRCUMFLEX),                  M(MACRO_I_CIRCUMFLEX),                  M(MACRO_O_CIRCUMFLEX),                  Key_Slash,                              ___,
-   ___,                                    M(MACRO_A_GRAVE),                       M(MACRO_U_GRAVE),                       M(MACRO_E_ACUTE),                       M(MACRO_E_GRAVE),                       M(MACRO_E_CIRCUMFLEX),
-   ___,                                    M(MACRO_E_DIAERESIS),                   M(MACRO_U_DIAERESIS),                   M(MACRO_I_DIAERESIS),                   Key_Period,                             LSHIFT(Key_M),                          ___,
-   ___,                                    ___,                                    ___,                                    ___,
-   ___,
-
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-                                           M(MACRO_C_CEDILLA),                     ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,
    ___),
 
   [NUMBER_SHORTCUT] =  KEYMAP_STACKED
@@ -623,6 +640,16 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
         ShiftBlocker.disable();
       } else {
         return MACRO(T(0));
+      }
+    }
+    break;
+
+  case MACRO_AT:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftGui), T(Space), U(LeftGui));
+      } else {
+        return MACRO(D(RightAlt), T(0), U(RightAlt));
       }
     }
     break;
@@ -1121,6 +1148,46 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
+  case MACRO_MAXIMIZE:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(T(LeftControl), T(Apple_Globe), T(F));
+      } else {
+        return MACRO(D(LeftGui), T(UpArrow), U(LeftGui));
+      }
+    }
+    break;
+
+  case MACRO_MINIMIZE:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftGui), T(M), U(LeftGui));
+      } else {
+        return MACRO(D(LeftGui), T(DownArrow), U(LeftGui));
+      }
+    }
+    break;
+
+  case MACRO_MOVE_LEFT:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftControl), D(Apple_Globe), T(LeftArrow), U(Apple_Globe), U(LeftControl));
+      } else {
+        return MACRO(D(LeftGui), D(Apple_Globe), T(LeftArrow), U(Apple_Globe), U(LeftGui));
+      }
+    }
+    break;
+
+  case MACRO_MOVE_RIGHT:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftControl), T(RightArrow), U(LeftControl));
+      } else {
+        return MACRO(D(LeftGui), T(RightArrow), U(LeftGui));
+      }
+    }
+    break;
+
   case MACRO_NEXT_HISTORY:
     if (keyToggledOn(event.state)) {
       if (HostOS.os() == kaleidoscope::hostos::MACOS) {
@@ -1174,18 +1241,21 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
   case MACRO_SET_OS_LINUX:
     if (keyToggledOn(event.state)) {
         HostOS.os(kaleidoscope::hostos::LINUX);
+        return MACRO(Tr(LockLayer(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY)));
     }
     break;
 
   case MACRO_SET_OS_MACOS:
     if (keyToggledOn(event.state)) {
         HostOS.os(kaleidoscope::hostos::MACOS);
+        return MACRO(Tr(LockLayer(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY)));
     }
     break;
 
   case MACRO_SET_OS_WINDOWS:
     if (keyToggledOn(event.state)) {
         HostOS.os(kaleidoscope::hostos::WINDOWS);
+        return MACRO(Tr(LockLayer(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY)));
     }
     break;
 
@@ -1595,13 +1665,18 @@ void setup() {
 
   // Qukeys
   QUKEYS(
-       kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), ShiftToLayer(WM_CUT)),
-       kaleidoscope::plugin::Qukey(1, KeyAddr(1, 7), ShiftToLayer(FUNCTION_VARIANT)),
-       kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(1, KeyAddr(2, 7), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
-       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
-       kaleidoscope::plugin::Qukey(0, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT))
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 7), ShiftToLayer(WM_CUT)),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 7), ShiftToLayer(WM_CUT)),
+       kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(1, 7), ShiftToLayer(FUNCTION_VARIANT)),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 7), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 7), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 7), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 8), ShiftToLayer(SYMBOL)),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 8), ShiftToLayer(SYMBOL)),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT)),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT))
   )
 
   Qukeys.setHoldTimeout(180);
@@ -1623,7 +1698,7 @@ void setup() {
 
   //  AutoShift for letter keys and number keys only:
 //   AutoShift.setEnabled(AutoShift.letterKeys() | AutoShift.symbolKeys());
-//   AutoShift.setTimeout(150);
+//   AutoShift.setTimeout(160);
 
   // Add colormap overlays for all keys of the numpad. This makes sure that
   // all keys of the numpad light up once the numpad layer is active.
