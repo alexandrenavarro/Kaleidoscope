@@ -252,8 +252,8 @@ enum { MACRO_A_CIRCUMFLEX,
   *
   */
 
-enum { PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, LETTER_VARIANT, SYMBOL, NUMPAD, FUNCTION, FUNCTION_VARIANT, WM_CUT, NUMBER_SHORTCUT}; // layers
-
+enum { PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, LETTER_VARIANT, SYMBOL, NUMPAD, FUNCTION, FUNCTION_VARIANT, NAV}; // layers
+#define NUMROW NUMPAD
 
 /**
   * To change your keyboard's layout from QWERTY to DVORAK or COLEMAK, comment out the line
@@ -423,7 +423,7 @@ KEYMAPS(
    ___,                                    ___,                                    ___,                                    ___,
    ___),
 
-  [NUMPAD] =  KEYMAP_STACKED
+  [NUMROW] =  KEYMAP_STACKED
   (___,                                    RALT(Key_4),                            LeftParenthesis_Bracket,                RightParenthesis_Bracket,               RALT(Key_Equals),                       Key_Equals,                             ___,
    ___,                                    Key_LeftBracket,                        Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_RightBracket,                       LSHIFT(Key_Quote),                      ___,
    M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
@@ -468,7 +468,7 @@ KEYMAPS(
    ___,                                    ___,                                    ___,                                    ___,
    ___),
 
-  [WM_CUT] =  KEYMAP_STACKED
+  [NAV] =  KEYMAP_STACKED
   (___,                                    LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           Key_UpArrow,
    LGUI(LSHIFT(Key_0)),                    LGUI(LSHIFT(Key_1)),                    LGUI(LSHIFT(Key_2)),                    LGUI(LSHIFT(Key_3)),                    LGUI(LSHIFT(Key_4)),                    LGUI(LSHIFT(Key_5)),                    Key_DownArrow,
    ___,                                    M(MACRO_MOVE_LEFT),                     M(MACRO_MINIMIZE),                      M(MACRO_MAXIMIZE),                      M(MACRO_MOVE_RIGHT),                    M(MACRO_CLOSE),
@@ -481,22 +481,6 @@ KEYMAPS(
                                            M(MACRO_SHIFT_HOME_CTRL_X),             Key_Backspace,                          M(MACRO_SHIFT_DOWN_CTRL_X),             M(MACRO_SHIFT_UP_CTRL_X),               Key_Delete,                             M(MACRO_SHIFT_END_CTRL_X),
    ___,                                    ___,                                    M(MACRO_SHIFT_CTRL_LEFT_X),             M(MACRO_SHIFT_CTRL_DOWN_X),             M(MACRO_SHIFT_CTRL_UP_X),               M(MACRO_SHIFT_CTRL_RIGHT_X),            ___,
    ___,                                    ___,                                    Key_Space,                              ___,
-   ___),
-
-  [NUMBER_SHORTCUT] =  KEYMAP_STACKED
-  (___,                                    LCTRL(Key_F1),                          LCTRL(Key_F2),                          LCTRL(Key_F3),                          LCTRL(Key_F4),                          LCTRL(Key_F5),                          ___,
-   LCTRL(LSHIFT(Key_0)),                   LCTRL(LSHIFT(Key_1)),                   LCTRL(LSHIFT(Key_3)),                   LCTRL(LSHIFT(Key_3)),                   LCTRL(LSHIFT(Key_4)),                   LCTRL(LSHIFT(Key_5)),                   ___,
-   LALT(LSHIFT(Key_0)),                    LALT(LSHIFT(Key_1)),                    LALT(LSHIFT(Key_2)),                    LALT(LSHIFT(Key_3)),                    LALT(LSHIFT(Key_4)),                    LALT(LSHIFT(Key_5)),
-   LGUI(LSHIFT(Key_0)),                    LGUI(LSHIFT(Key_1)),                    LGUI(LSHIFT(Key_2)),                    LGUI(LSHIFT(Key_3)),                    LGUI(LSHIFT(Key_4)),                    LGUI(LSHIFT(Key_5)),                    ___,
-   ___, ___, ___, ___,
-   ___,
-
-   LCTRL(Key_F12),                         LCTRL(Key_F6),                          LCTRL(Key_F7),                          LCTRL(Key_F8),                          LCTRL(Key_F8),                          LCTRL(Key_F10),                         LCTRL(Key_F11),
-   ___,                                    LCTRL(LSHIFT(Key_6)),                   LCTRL(LSHIFT(Key_7)),                   LCTRL(LSHIFT(Key_8)),                   LCTRL(LSHIFT(Key_9)),                   LCTRL(LSHIFT(Key_0)),                   M(MACRO_SET_OS_LINUX),
-                                           LALT(LSHIFT(Key_6)),                    LALT(LSHIFT(Key_7)),                    LALT(LSHIFT(Key_8)),                    LALT(LSHIFT(Key_9)),                    LALT(LSHIFT(Key_0)),                    M(MACRO_SET_OS_MACOS),
-   ___,                                    LGUI(LSHIFT(Key_6)),                    LGUI(LSHIFT(Key_7)),                    LGUI(LSHIFT(Key_8)),                    LGUI(LSHIFT(Key_9)),                    LGUI(LSHIFT(Key_0)),                    M(MACRO_SET_OS_WINDOWS),
-   ___,                                    ___,                                    Key_Space,                              ___,
-
    ___)
 
 ) // KEYMAPS(
@@ -1687,18 +1671,18 @@ void setup() {
 
   // Qukeys
   QUKEYS(
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 7), ShiftToLayer(WM_CUT)),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 7), ShiftToLayer(WM_CUT)),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 7), ShiftToLayer(NAV)),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(1, 7), ShiftToLayer(FUNCTION_VARIANT)),
        kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 7), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 7), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 7), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 8), ShiftToLayer(NUMROW)),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 8), ShiftToLayer(NUMROW)),
        kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT)),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT))
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 6), ShiftToLayer(FUNCTION)) //,
+//        kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT)),
+//        kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT))
   )
 
   Qukeys.setHoldTimeout(180);
@@ -1709,13 +1693,13 @@ void setup() {
 
   // CharShift
   CS_KEYS(
-    kaleidoscope::plugin::CharShift::KeyPair(Key_Space, Key_8),                     // #define Space_Underscore          CS(0)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),        // #define Dollar_Hash                  CS(1)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_5, RALT(Key_5)),                   // #define LeftParenthesis_Bracket      CS(2)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_Minus, RALT(Key_Minus)),           // #define RightParenthesis_Bracket     CS(3)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_M, Key_Comma),                     // #define Comma_SemiColon              CS(4)
-    kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),        // #define Period_Colon                 CS(5)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_QuestionMark      CS(6)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_Space, Key_8),                     // #define Space_Underscore                             CS(0)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),        // #define Dollar_Hash                                  CS(1)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_5, RALT(Key_5)),                   // #define LeftParenthesis_Bracket                      CS(2)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_Minus, RALT(Key_Minus)),           // #define RightParenthesis_Bracket                     CS(3)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_M, Key_Comma),                     // #define Comma_SemiColon                              CS(4)
+    kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),        // #define Period_Colon                                 CS(5)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_QuestionMark                      CS(6)
   );
 
   //  AutoShift for letter keys and number keys only:
