@@ -447,9 +447,9 @@ KEYMAPS(
    ___,
 
    Key_F12,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
-   ___,                                    ___,                                    LCTRL(Key_PageDown),                    Key_PageDown,                           Key_PageUp,                             LCTRL(Key_PageUp),                      ___,
+   ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
                                            Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
-   LCTRL(Key_Insert),                      LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LCTRL(Key_RightArrow),                  LCTRL(Key_End),
+   LCTRL(Key_Insert),                      LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
    ___,                                    ___,                                    LCTRL(Key_Space),                       ___,
    LALT(LSHIFT(Key_1))),
 
@@ -477,9 +477,9 @@ KEYMAPS(
    ___,
 
    LALT(Key_F12),                          LALT(Key_F6),                           LALT(Key_F7),                           LALT(Key_F8),                           LALT(Key_F9),                           LALT(Key_F10),                          LALT(Key_F11),
-   ___,                                    LCTRL(Key_U),                           LCTRL(Key_Z),                           ___,                                    ___,                                    LALT(Key_D),                            LCTRL(Key_K),
-                                           M(MACRO_SHIFT_HOME_CTRL_X),             Key_Backspace,                          M(MACRO_SHIFT_DOWN_CTRL_X),             M(MACRO_SHIFT_UP_CTRL_X),               Key_Delete,                             M(MACRO_SHIFT_END_CTRL_X),
-   ___,                                    ___,                                    M(MACRO_SHIFT_CTRL_LEFT_X),             M(MACRO_SHIFT_CTRL_DOWN_X),             M(MACRO_SHIFT_CTRL_UP_X),               M(MACRO_SHIFT_CTRL_RIGHT_X),            ___,
+   ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
+                                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
+   LCTRL(Key_Insert),                      LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
    ___,                                    ___,                                    Key_Space,                              ___,
    ___)
 
@@ -1685,7 +1685,7 @@ void setup() {
 //        kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT))
   )
 
-  Qukeys.setHoldTimeout(180);
+  Qukeys.setHoldTimeout(250);
   Qukeys.setMaxIntervalForTapRepeat(150);
 
   //OneShot
