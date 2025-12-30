@@ -363,10 +363,10 @@ KEYMAPS(
 #endif
 
   [PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY] = KEYMAP_STACKED
-  (M(MACRO_PRINT_OS),                      ___,                                    LeftParenthesis_Bracket,                RightParenthesis_Bracket,               LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_Delete,
-   Dollar_Hash,                            Key_B,                                  Key_2,                                  Key_P,                                  Key_O,                                  ___,                                    Key_Tab,
+  (M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_Delete,
+   Dollar_Hash,                            Key_B,                                  Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                  Key_Tab,
    Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_SemiColon,
-   Key_Equals,                             Key_Equals,                             Key_Y,                                  Key_X,                                  Period_Colon,                           Key_K,                                  Key_Enter,
+   Key_Equals,                             M(MACRO_A_GRAVE),                       Key_Y,                                  Key_X,                                  Period_Colon,                           Key_K,                                  Key_Enter,
    OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              OSM(LeftGui),
    Key_Escape,
 
@@ -395,9 +395,9 @@ KEYMAPS(
 
   [LETTER_VARIANT] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    Key_Slash,                              ___,
-   ___,                                    M(MACRO_A_GRAVE),                       LeftParenthesis_Bracket,                RightParenthesis_Bracket,               M(MACRO_E_GRAVE),                       M(MACRO_E_CIRCUMFLEX),
-   ___,                                    M(MACRO_A_CIRCUMFLEX),                  M(MACRO_U_CIRCUMFLEX),                  M(MACRO_I_DIAERESIS),                   M(MACRO_E_CIRCUMFLEX),                  LSHIFT(Key_M),                          ___,
+   ___,                                    M(MACRO_A_CIRCUMFLEX),                  M(MACRO_U_CIRCUMFLEX),                  M(MACRO_I_CIRCUMFLEX),                  M(MACRO_O_CIRCUMFLEX),                  Key_Slash,                              ___,
+   ___,                                    M(MACRO_A_GRAVE),                       M(MACRO_U_GRAVE),                       M(MACRO_I_DIAERESIS),                   M(MACRO_E_CIRCUMFLEX),                  ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    LSHIFT(Key_M),                          ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
