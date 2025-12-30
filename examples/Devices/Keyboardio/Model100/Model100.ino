@@ -463,14 +463,14 @@ KEYMAPS(
 
    LCTRL(Key_F12),                        LCTRL(Key_F6),                           LCTRL(Key_F7),                          LCTRL(Key_F8),                          LCTRL(Key_F8),                          LCTRL(Key_F10),                         LCTRL(Key_F11),
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-                                           ___,                                    Key_Backspace,                          ___,                                    ___,                                    Key_Delete,                             ___,
+                                           ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___),
 
   [NAV] =  KEYMAP_STACKED
   (___,                                    LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           ___,
-   LGUI(LSHIFT(Key_0)),                    M(MACRO_CLOSE),                         ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    M(MACRO_CLOSE),                         ___,                                    M(MACRO_ALT_SPACE),                     ___,                                    ___,                                    ___,
    ___,                                    Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LALT(Key_F7),
    ___,                                    LALT(Key_LeftArrow),                    ___,                                    ___,                                    LALT(Key_RightArrow),                   ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
