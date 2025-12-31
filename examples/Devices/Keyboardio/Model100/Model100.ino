@@ -1671,6 +1671,27 @@ void setup() {
 
   // Qukeys
   QUKEYS(
+  //  r2c1, r2c2, r2c3, r2c4
+  // r2c11, r2c12, r2c13, r2c14
+       //kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 2), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 3), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 4), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 11), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 12), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 13), Key_LeftGui),
+       //kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 14), Key_LeftShift),
+
+       //kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 2), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 3), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 4), Key_LeftAlt),
+//        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 11), Key_LeftAlt),
+//        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 12), Key_LeftControl),
+//        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 13), Key_LeftGui),
+       //kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 14), Key_LeftShift),
+
+
        kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(1, 7), ShiftToLayer(FUNCTION_VARIANT)),
@@ -1685,8 +1706,10 @@ void setup() {
 //        kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT))
   )
 
-  Qukeys.setHoldTimeout(250);
-  Qukeys.setMaxIntervalForTapRepeat(150);
+  //Qukeys.setHoldTimeout(300);
+  //Qukeys.setMaxIntervalForTapRepeat(150);
+  Qukeys.setMinimumHoldTime(250);
+
 
   //OneShot
   OneShot.setTimeout(1000);
