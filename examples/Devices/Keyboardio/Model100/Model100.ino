@@ -253,8 +253,10 @@ enum { MACRO_A_CIRCUMFLEX,
   *
   */
 
-enum { BEPO_ON_AZERTY_LINUX, BEPO_ON_AZERTY_MACOS, ERGOL_ON_AZERTY_LINUX, LETTER_VARIANT, SYMBOL, NUMPAD, FUNCTION, FUNCTION_VARIANT, NAV}; // layers
+enum { BEPO_ON_AZERTY_LINUX, BEPO_ON_AZERTY_MACOS, ERGOL_ON_AZERTY_LINUX, FUNCTION, NUMPAD, SYMBOL, LETTER_VARIANT}; // layers
+#define NAV FUNCTION
 #define NUMROW NUMPAD
+
 
 /**
   * To change your keyboard's layout from QWERTY to DVORAK or COLEMAK, comment out the line
@@ -408,17 +410,32 @@ KEYMAPS(
    Key_RightAlt,                           OSL(SYMBOL),                            Space_Underscore,                       OSM(LeftShift),
    M(MACRO_ALT_SPACE)),
 
-  [LETTER_VARIANT] =  KEYMAP_STACKED
+  [FUNCTION] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    M(MACRO_A_CIRCUMFLEX),                  M(MACRO_U_CIRCUMFLEX),                  M(MACRO_I_CIRCUMFLEX),                  M(MACRO_O_CIRCUMFLEX),                  Key_Slash,                              ___,
-   ___,                                    M(MACRO_A_GRAVE),                       M(MACRO_U_GRAVE),                       Key_7,                                  M(MACRO_E_CIRCUMFLEX),                  ___,
-   ___,                                    ___,                                    ___,                                    M(MACRO_I_DIAERESIS),                   M(MACRO_E_DIAERESIS),                   LSHIFT(Key_M),                          ___,
+   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_ALT_SPACE_LESS_THAN_BACKSPACE), Key_Tab,                                M(MACRO_CTRL_Z),                        ___,
+   M(MACRO_CTRL_P),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
+   LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          M(MACRO_NEXT_HISTORY),                  M(MACRO_CTRL_B),                        ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    LSHIFT(Key_LeftBracket),                ___,                                    ___,                                    ___,                                    ___,                                    ___,
-                                           M(MACRO_C_CEDILLA),                     ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
+                                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
+   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
+   ___,                                    Key_Enter,                              Key_Space,                              ___,
+   ___),
+
+  [NUMROW] =  KEYMAP_STACKED
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 ___,
+   M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
+   ___,                                    LGUI(Key_LeftArrow),                    LGUI(Key_DownArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_RightArrow),                   ___,                                    ___,
+   ___,                                    ___,                          ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
+                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          ___,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___),
@@ -438,64 +455,19 @@ KEYMAPS(
    ___,                                    ___,                                    ___,                                    ___,
    ___),
 
-  [NUMROW] =  KEYMAP_STACKED
+  [LETTER_VARIANT] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 ___,
-   M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   ___,                                    LGUI(Key_LeftArrow),                    LGUI(Key_DownArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_RightArrow),                   ___,                                    ___,
-   ___,                                    ___,                          ___,                                    ___,
-   ___,
-
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
-                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,
-   ___),
-
-  [FUNCTION] =  KEYMAP_STACKED
-  (M(MACRO_CTRL_M),                        Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 LCTRL(Key_Delete),
-   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_Z),                        M(MACRO_CLOSE),                         LCTRL(Key_Tab),
-   M(MACRO_CTRL_P),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
-   LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              M(MACRO_CTRL_R),                        M(MACRO_CTRL_H),                        M(MACRO_NEXT_HISTORY),                  M(MACRO_CTRL_B),                        LCTRL(Key_Enter),
-   Key_LeftShift,                          OSL(FUNCTION_VARIANT),                  LCTRL(Key_Enter),                       Key_LeftControl,
-   ___,
-
-   Key_F12,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
-   ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
-                                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
-   LCTRL(Key_Insert),                      LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
-   ___,                                    ___,                                    LCTRL(Key_Space),                       ___,
-   LALT(LSHIFT(Key_1))),
-
-  [FUNCTION_VARIANT] =  KEYMAP_STACKED
-  (___,                                    LCTRL(Key_F1),                          LCTRL(Key_F2),                          LCTRL(Key_F3),                          LCTRL(Key_F4),                          LCTRL(Key_F5),                          Key_Delete,
-   M(MACRO_CTRL_O),                        ___,                                    M(MACRO_CTRL_SHIFT_F10),                M(MACRO_CTRL_K),                        LCTRL(Key_F4),                          M(MACRO_CTRL_A),                        ___,
-   M(MACRO_CTRL_D),                        M(MACRO_CTRL_Q),                        M(MACRO_CTRL_U),                        M(MACRO_CTRL_I),                        M(MACRO_CTRL_E),                        LALT(Key_F7),
-   ___,                                    M(MACRO_ESCAPE_ALT_F12_CTRL_P),         ___,                                    M(MACRO_CTRL_J),                        M(MACRO_CTRL_Y),                        ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,
-   ___,
-
-   LCTRL(Key_F12),                        LCTRL(Key_F6),                           LCTRL(Key_F7),                          LCTRL(Key_F8),                          LCTRL(Key_F8),                          LCTRL(Key_F10),                         LCTRL(Key_F11),
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-                                           ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,
-   ___),
-
-  [NAV] =  KEYMAP_STACKED
-  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_ALT_SPACE_LESS_THAN_BACKSPACE), Key_Tab,                                M(MACRO_CTRL_Z),                        ___,
-   M(MACRO_CTRL_P),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
-   LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          M(MACRO_NEXT_HISTORY),                  M(MACRO_CTRL_B),                        ___,
+   ___,                                    M(MACRO_A_CIRCUMFLEX),                  M(MACRO_U_CIRCUMFLEX),                  M(MACRO_I_CIRCUMFLEX),                  M(MACRO_O_CIRCUMFLEX),                  Key_Slash,                              ___,
+   ___,                                    M(MACRO_A_GRAVE),                       M(MACRO_U_GRAVE),                       Key_7,                                  M(MACRO_E_CIRCUMFLEX),                  ___,
+   ___,                                    ___,                                    ___,                                    M(MACRO_I_DIAERESIS),                   M(MACRO_E_DIAERESIS),                   LSHIFT(Key_M),                          ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
-                                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
-   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
-   ___,                                    Key_Enter,                              Key_Space,                              ___,
+   ___,                                    LSHIFT(Key_LeftBracket),                ___,                                    ___,                                    ___,                                    ___,                                    ___,
+                                           M(MACRO_C_CEDILLA),                     ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                    ___,                                    ___,
    ___)
 
 ) // KEYMAPS(
@@ -1702,7 +1674,7 @@ void setup() {
 // Thumb keys
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 7), ShiftToLayer(NUMROW)),
-       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMROW)),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(SYMBOL)),
        // Temporary
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(3, 6), ShiftToLayer(NAV)),
 // Homerow
