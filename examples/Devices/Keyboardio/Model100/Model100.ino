@@ -254,7 +254,7 @@ enum { MACRO_A_CIRCUMFLEX,
   */
 
 enum { BEPO_ON_AZERTY_LINUX, BEPO_ON_AZERTY_MACOS, ERGOL_ON_AZERTY_LINUX, LETTER_VARIANT, SYMBOL, NUMPAD, FUNCTION, FUNCTION_VARIANT, NAV}; // layers
-#define NUMROW NUMPAD
+#define NUMFNROW NUMPAD
 
 /**
   * To change your keyboard's layout from QWERTY to DVORAK or COLEMAK, comment out the line
@@ -438,7 +438,7 @@ KEYMAPS(
    ___,                                    ___,                                    ___,                                    ___,
    ___),
 
-  [NUMROW] =  KEYMAP_STACKED
+  [NUMFNROW] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 ___,
    M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
@@ -1725,9 +1725,9 @@ void setup() {
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 7), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(2, 7), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 7), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMROW)),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMFNROW)),
 //        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(1, 8), ShiftToLayer(NUMROW))//,
-//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
+        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(3, 6), ShiftToLayer(NAV)),
 //        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(3, 6), ShiftToLayer(FUNCTION)) ,
   )
 
