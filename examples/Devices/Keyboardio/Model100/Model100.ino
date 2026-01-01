@@ -254,7 +254,7 @@ enum { MACRO_A_CIRCUMFLEX,
   */
 
 enum { BEPO_ON_AZERTY_LINUX, BEPO_ON_AZERTY_MACOS, ERGOL_ON_AZERTY_LINUX, LETTER_VARIANT, SYMBOL, NUMPAD, FUNCTION, FUNCTION_VARIANT, NAV}; // layers
-#define NUMFNROW NUMPAD
+#define NUMROW NUMPAD
 
 /**
   * To change your keyboard's layout from QWERTY to DVORAK or COLEMAK, comment out the line
@@ -438,7 +438,7 @@ KEYMAPS(
    ___,                                    ___,                                    ___,                                    ___,
    ___),
 
-  [NUMFNROW] =  KEYMAP_STACKED
+  [NUMROW] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 ___,
    M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
@@ -1701,8 +1701,10 @@ void setup() {
 // On BEPO_ON_AZERTY_LINUX layer
 // Thumb keys
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 7), ShiftToLayer(NAV)),
-       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 7), ShiftToLayer(NUMFNROW)),
-
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 7), ShiftToLayer(NUMROW)),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMROW)),
+       // Temporary
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(3, 6), ShiftToLayer(NAV)),
 // Homerow
 //        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 2), Key_LeftAlt),
@@ -1717,29 +1719,21 @@ void setup() {
 // On NAV layer
 // For Alt+Tab
        kaleidoscope::plugin::Qukey(NAV, KeyAddr(1, 3), Key_LeftAlt),
-//        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 1), Key_LeftGui),
-
 // Homerow
        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 3), Key_LeftControl),
        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 4), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 11), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 12), Key_LeftControl),
-//        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 13), Key_LeftAlt),
-//        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 14), Key_LeftGui),
 
 
+// On NUMROW layer
+// Homerow
+       kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 2), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 3), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 4), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 11), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 12), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 13), Key_LeftAlt)
 
-
-//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(1, 7), ShiftToLayer(NAV)),
-//        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(1, 7), ShiftToLayer(FUNCTION_VARIANT)),
-//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 7), Key_LeftAlt),
-//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(2, 7), Key_LeftAlt),
-//        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 7), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMFNROW)),
-//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(1, 8), ShiftToLayer(NUMROW))//,
-        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(3, 6), ShiftToLayer(NAV))
-//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(3, 6), ShiftToLayer(FUNCTION)) ,
   )
 
   //Qukeys.setHoldTimeout(300);
