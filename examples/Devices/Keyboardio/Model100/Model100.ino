@@ -252,7 +252,7 @@ enum { MACRO_A_CIRCUMFLEX,
   *
   */
 
-enum { PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, LETTER_VARIANT, SYMBOL, NUMPAD, FUNCTION, FUNCTION_VARIANT, NAV}; // layers
+enum { BEPO_ON_AZERTY_LINUX, BEPO_ON_AZERTY_MACOS, ERGOL_ON_AZERTY_LINUX, LETTER_VARIANT, SYMBOL, NUMPAD, FUNCTION, FUNCTION_VARIANT, NAV}; // layers
 #define NUMROW NUMPAD
 
 /**
@@ -362,8 +362,8 @@ KEYMAPS(
 
 #endif
 
-  [PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY] = KEYMAP_STACKED
-  (M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_Delete,
+  [BEPO_ON_AZERTY_LINUX] = KEYMAP_STACKED
+  (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_SET_OS_WINDOWS),                M(MACRO_PRINT_OS),                      LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_Delete,
    Dollar_Hash,                            Key_B,                                  Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                  Key_Tab,
    Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_SemiColon,
    Key_Equals,                             M(MACRO_A_GRAVE),                       Key_Y,                                  Key_X,                                  Period_Colon,                           Key_K,                                  Key_Enter,
@@ -377,8 +377,8 @@ KEYMAPS(
    Key_RightAlt,                           OSL(SYMBOL),                            Space_Underscore,                       OSM(LeftShift),
    M(MACRO_ALT_SPACE)),
 
-  [PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY] = KEYMAP_STACKED
-  (M(MACRO_PRINT_OS),                      Key_Apple_Globe,                        LeftParenthesis_Bracket,                RightParenthesis_Bracket,               LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_Delete,
+  [BEPO_ON_AZERTY_MACOS] = KEYMAP_STACKED
+  (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_SET_OS_WINDOWS),                M(MACRO_PRINT_OS),                      LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_Delete,
    Dollar_Hash,                            Key_B,                                  Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                  Key_Tab,
    Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_SemiColon,
    Key_Equals,                             Key_Equals,                             Key_Y,                                  Key_X,                                  Period_Colon,                           Key_K,                                  Key_Enter,
@@ -392,12 +392,26 @@ KEYMAPS(
    Key_RightAlt,                           OSL(SYMBOL),                            Space_Underscore,                       OSM(LeftShift),
    M(MACRO_ALT_SPACE)),
 
+  [ERGOL_ON_AZERTY_LINUX] = KEYMAP_STACKED
+  (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_SET_OS_WINDOWS),                M(MACRO_PRINT_OS),                      LeftParenthesis_Bracket,                RightParenthesis_Bracket,               Key_Delete,
+   Dollar_Hash,                            Key_B,                                  Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                  Key_Tab,
+   Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_SemiColon,
+   Key_Equals,                             M(MACRO_A_GRAVE),                       Key_Y,                                  Key_X,                                  Period_Colon,                           Key_K,                                  Key_Enter,
+   OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              OSM(LeftGui),
+   Key_Escape,
+
+   ___,                                    RALT(Key_0),                            LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_Backslash,                          LSHIFT(Key_Quote),
+   Key_3,                                  OSL(LETTER_VARIANT),                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                  Key_W,
+                                           Key_C,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Key_Semicolon,
+   Key_Insert,                             Apostrophe_QuestionMark,                Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  RightParenthesis_Bracket,
+   Key_RightAlt,                           OSL(SYMBOL),                            Space_Underscore,                       OSM(LeftShift),
+   M(MACRO_ALT_SPACE)),
 
   [LETTER_VARIANT] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    M(MACRO_A_CIRCUMFLEX),                  M(MACRO_U_CIRCUMFLEX),                  M(MACRO_I_CIRCUMFLEX),                  M(MACRO_O_CIRCUMFLEX),                  Key_Slash,                              ___,
-   ___,                                    M(MACRO_A_GRAVE),                       M(MACRO_U_GRAVE),                       M(MACRO_I_DIAERESIS),                   M(MACRO_E_CIRCUMFLEX),                  ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    LSHIFT(Key_M),                          ___,
+   ___,                                    M(MACRO_A_GRAVE),                       M(MACRO_U_GRAVE),                       Key_7,                                  M(MACRO_E_CIRCUMFLEX),                  ___,
+   ___,                                    ___,                                    ___,                                    M(MACRO_I_DIAERESIS),                   M(MACRO_E_DIAERESIS),                   LSHIFT(Key_M),                          ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -471,7 +485,7 @@ KEYMAPS(
   [NAV] =  KEYMAP_STACKED
   (___,                                    LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           ___,
    ___,                                    M(MACRO_CLOSE),                         ___,                                    M(MACRO_ALT_SPACE),                     ___,                                    ___,                                    ___,
-   ___,                                    Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LALT(Key_F7),
+   ___,                                    Key_LeftArrow,                          Key_UpArrow,                            Key_DownArrow,                          Key_RightArrow,                         LALT(Key_F7),
    ___,                                    LALT(Key_LeftArrow),                    ___,                                    ___,                                    LALT(Key_RightArrow),                   ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
@@ -1247,21 +1261,21 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
   case MACRO_SET_OS_LINUX:
     if (keyToggledOn(event.state)) {
         HostOS.os(kaleidoscope::hostos::LINUX);
-        return MACRO(Tr(LockLayer(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY)));
+        return MACRO(Tr(LockLayer(BEPO_ON_AZERTY_LINUX)));
     }
     break;
 
   case MACRO_SET_OS_MACOS:
     if (keyToggledOn(event.state)) {
         HostOS.os(kaleidoscope::hostos::MACOS);
-        return MACRO(Tr(LockLayer(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY)));
+        return MACRO(Tr(LockLayer(BEPO_ON_AZERTY_MACOS)));
     }
     break;
 
   case MACRO_SET_OS_WINDOWS:
     if (keyToggledOn(event.state)) {
         HostOS.os(kaleidoscope::hostos::WINDOWS);
-        return MACRO(Tr(LockLayer(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY)));
+        return MACRO(Tr(LockLayer(ERGOL_ON_AZERTY_LINUX)));
     }
     break;
 
@@ -1673,37 +1687,37 @@ void setup() {
   QUKEYS(
   //  r2c1, r2c2, r2c3, r2c4
   // r2c11, r2c12, r2c13, r2c14
-       //kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 1), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 2), Key_LeftGui),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 3), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 4), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 11), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 12), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 13), Key_LeftGui),
-       //kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 14), Key_LeftShift),
+       //kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 2), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 3), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 4), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 11), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 12), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 13), Key_LeftGui),
+       //kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 14), Key_LeftShift),
 
        //kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 1), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 2), Key_LeftGui),
-       kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 3), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 4), Key_LeftAlt),
+//        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 2), Key_LeftGui),
+//        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 3), Key_LeftControl),
+//        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 4), Key_LeftAlt),
 //        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 11), Key_LeftAlt),
 //        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 12), Key_LeftControl),
 //        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 13), Key_LeftGui),
        //kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 14), Key_LeftShift),
 
 
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 7), ShiftToLayer(NAV)),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 7), ShiftToLayer(NAV)),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 7), ShiftToLayer(NAV)),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(1, 7), ShiftToLayer(FUNCTION_VARIANT)),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 7), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(2, 7), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 7), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(2, 7), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 7), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 8), ShiftToLayer(NUMROW)),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(1, 8), ShiftToLayer(NUMROW)),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
-       kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 6), ShiftToLayer(FUNCTION)) //,
-//        kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_LINUX_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT)),
-//        kaleidoscope::plugin::Qukey(PRIMARY_KEYMAP_MACOS_BEPO_VARIANT_ON_AZERTY, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT))
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMROW)),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(1, 8), ShiftToLayer(NUMROW)),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(3, 6), ShiftToLayer(FUNCTION)),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(3, 6), ShiftToLayer(FUNCTION)) //,
+//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT)),
+//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_MACOS, KeyAddr(3, 9), ShiftToLayer(NUMBER_SHORTCUT))
   )
 
   //Qukeys.setHoldTimeout(300);
