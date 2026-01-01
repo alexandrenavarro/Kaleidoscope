@@ -126,6 +126,7 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_A_GRAVE,
        MACRO_AT,
        MACRO_ALT_SPACE,
+       MACRO_ALT_SPACE_LESS_THAN_BACKSPACE,
        MACRO_C_CEDILLA,
        MACRO_CLOSE,
        MACRO_CTRL_A,
@@ -484,7 +485,7 @@ KEYMAPS(
 
   [NAV] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_ALT_SPACE),                     M(MACRO_CTRL_Z),                        Key_Tab,                                ___,
+   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_ALT_SPACE_LESS_THAN_BACKSPACE), M(MACRO_CTRL_Z),                        Key_Tab,                                ___,
    M(MACRO_CTRL_P),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
    LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          M(MACRO_NEXT_HISTORY),                  M(MACRO_CTRL_B),                        ___,
    ___,                                    ___,                                    ___,                                    ___,
@@ -663,6 +664,17 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
       }
     }
     break;
+
+  case MACRO_ALT_SPACE_LESS_THAN_BACKSPACE:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftGui), T(Space), U(LeftGui));
+      } else {
+        return MACRO(D(LeftAlt), T(Space), U(LeftAlt), W(32), T(NonUsBackslashAndPipe), T(Backspace));
+      }
+    }
+    break;
+
 
   case MACRO_C_CEDILLA:
     if (keyToggledOn(event.state)) {
