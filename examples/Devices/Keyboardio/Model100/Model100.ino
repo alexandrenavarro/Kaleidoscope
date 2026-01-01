@@ -483,18 +483,18 @@ KEYMAPS(
    ___),
 
   [NAV] =  KEYMAP_STACKED
-  (___,                                    LALT(Key_F1),                           LALT(Key_F2),                           LALT(Key_F3),                           LALT(Key_F4),                           LALT(Key_F5),                           ___,
-   ___,                                    M(MACRO_CLOSE),                         ___,                                    M(MACRO_ALT_SPACE),                     ___,                                    ___,                                    ___,
-   ___,                                    Key_LeftArrow,                          Key_UpArrow,                            Key_DownArrow,                          Key_RightArrow,                         LALT(Key_F7),
-   ___,                                    LALT(Key_LeftArrow),                    ___,                                    ___,                                    LALT(Key_RightArrow),                   ___,                                    ___,
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_ALT_SPACE),                     M(MACRO_CTRL_Z),                        Key_Tab,                                ___,
+   M(MACRO_CTRL_P),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
+   LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          M(MACRO_NEXT_HISTORY),                  M(MACRO_CTRL_B),                        ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
-   LALT(Key_F12),                          LALT(Key_F6),                           LALT(Key_F7),                           LALT(Key_F8),                           LALT(Key_F9),                           LALT(Key_F10),                          LALT(Key_F11),
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
                                            Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
-   LCTRL(Key_Insert),                      LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
-   ___,                                    ___,                                    Key_Space,                              ___,
+   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
+   ___,                                    Key_Enter,                              Key_Space,                              ___,
    ___)
 
 ) // KEYMAPS(
