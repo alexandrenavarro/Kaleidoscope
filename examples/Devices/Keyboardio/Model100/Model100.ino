@@ -436,7 +436,7 @@ KEYMAPS(
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
                                            LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Period_Colon,                           Key_Slash,                              Key_Comma,                              Comma_SemiColon,                        LSHIFT(Key_M),                          ___,
    ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
 
