@@ -457,16 +457,16 @@ KEYMAPS(
 
   [LETTER_VARIANT] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    M(MACRO_A_CIRCUMFLEX),                  M(MACRO_U_CIRCUMFLEX),                  M(MACRO_I_CIRCUMFLEX),                  M(MACRO_O_CIRCUMFLEX),                  Key_Slash,                              ___,
-   ___,                                    M(MACRO_A_GRAVE),                       M(MACRO_U_GRAVE),                       Key_7,                                  M(MACRO_E_CIRCUMFLEX),                  ___,
-   ___,                                    ___,                                    ___,                                    M(MACRO_I_DIAERESIS),                   M(MACRO_E_DIAERESIS),                   LSHIFT(Key_M),                          ___,
+   ___,                                    M(MACRO_A_CIRCUMFLEX),                  M(MACRO_C_CEDILLA),                     LSHIFT(Key_NonUsBackslashAndPipe),      M(MACRO_O_CIRCUMFLEX),                  LSHIFT(Key_Quote),                      ___,
+   ___,                                    M(MACRO_A_GRAVE),                       Key_2,                                  Key_7,                                  M(MACRO_E_CIRCUMFLEX),                  Key_Equals,
+   ___,                                    RALT(Key_2),                            RALT(Key_5),                            RALT(Key_Minus),                        Key_8,                                  RALT(Key_3),                           ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    LSHIFT(Key_LeftBracket),                ___,                                    ___,                                    ___,                                    ___,                                    ___,
-                                           M(MACRO_C_CEDILLA),                     ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          Apostrophe_QuestionMark,                M(MACRO_U_CIRCUMFLEX),                  ___,
+                                           LeftParenthesis_Bracket,                RightParenthesis_Bracket,               M(MACRO_I_CIRCUMFLEX),                  M(MACRO_I_DIAERESIS),                   M(MACRO_U_GRAVE),                       ___,
+   ___,                                    RALT(Key_6),                            Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___)
 
