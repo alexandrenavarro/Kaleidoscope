@@ -109,6 +109,9 @@
 // Support for AutoShift
 #include "Kaleidoscope-AutoShift.h"
 
+        // Support for TapDance
+#include "Kaleidoscope-TapDance.h"
+
 /** This 'enum' is a list of all the macros used by the Model 100's firmware
   * The names aren't particularly important. What is important is that each
   * is unique.
@@ -284,6 +287,9 @@ enum { BEPO_ON_AZERTY_LINUX, BEPO_ON_AZERTY_MACOS, ERGOL_ON_AZERTY_LINUX, FUNCTI
 #define Period_Colon                 CS(5)
 #define Apostrophe_QuestionMark      CS(6)
 
+#define AltRightArrow_x2_CtrlAltTab  TD(0)
+#define CtrlV_x2_AltSpace            TD(1)
+
 
 /* This comment temporarily turns off astyle's indent enforcement
  *   so we can make the keymaps actually resemble the physical key layout better
@@ -413,8 +419,8 @@ KEYMAPS(
   [FUNCTION] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_ALT_SPACE_LESS_THAN_BACKSPACE), Key_Tab,                                M(MACRO_CTRL_Z),                        ___,
-   M(MACRO_CTRL_P),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
-   LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          M(MACRO_NEXT_HISTORY),                  M(MACRO_CTRL_B),                        LALT(Key_Enter),
+   M(MACRO_CTRL_P),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        CtrlV_x2_AltSpace,                      M(MACRO_CTRL_F),
+   LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          AltRightArrow_x2_CtrlAltTab,            M(MACRO_CTRL_B),                        LALT(Key_Enter),
    ___,                                    ___,                                    ___,                                    Key_LeftGui,
    ___,
 
@@ -575,6 +581,18 @@ static void anyKeyMacro(KeyEvent &event) {
   }
 }
 
+void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count,
+                    kaleidoscope::plugin::TapDance::ActionType tap_dance_action) {
+  switch (tap_dance_index) {
+  case 0:
+    return tapDanceActionKeys(tap_count, tap_dance_action,
+                                LALT(Key_RightArrow), LCTRL(LALT(Key_Tab)));
+  case 1:
+    return tapDanceActionKeys(tap_count, tap_dance_action,
+                                LCTRL(Key_V), LALT(Key_Space));
+  }
+
+}
 
 /** macroAction dispatches keymap events that are tied to a macro
     to that macro. It takes two uint8_t parameters.
@@ -1653,6 +1671,9 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
   // AutoShift
 //   AutoShift,
+
+  // TapDance
+  TapDance,
 
   // The hardware test mode, which can be invoked by tapping Prog, LED and the
   // left Fn button at the same time.
