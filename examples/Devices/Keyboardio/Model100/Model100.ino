@@ -370,14 +370,14 @@ KEYMAPS(
    Dollar_Hash,                            Key_B,                                  Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                  Key_Tab,
    Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_SemiColon,
    Key_Equals,                             M(MACRO_A_GRAVE),                       Key_Y,                                  Key_X,                                  Period_Colon,                           Key_K,                                  Key_Enter,
-   OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              OSM(LeftGui),
+   OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              Key_LeftControl,
    Key_Escape,
 
    ___,                                    RALT(Key_0),                            LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_Backslash,                          LSHIFT(Key_Quote),
    Key_3,                                  OSL(LETTER_VARIANT),                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                  Key_W,
                                            Key_C,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Key_Semicolon,
    Key_Insert,                             Apostrophe_QuestionMark,                Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  RightParenthesis_Bracket,
-   Key_LeftControl,                        OSL(SYMBOL),                            Space_Underscore,                       OSM(LeftShift),
+   Key_LeftAlt,                            OSL(SYMBOL),                            Space_Underscore,                       OSM(LeftShift),
    ___),
 
   [BEPO_ON_AZERTY_MACOS] = KEYMAP_STACKED
@@ -415,7 +415,7 @@ KEYMAPS(
    M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_ALT_SPACE_LESS_THAN_BACKSPACE), Key_Tab,                                M(MACRO_CTRL_Z),                        ___,
    M(MACRO_CTRL_P),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
    LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          M(MACRO_NEXT_HISTORY),                  M(MACRO_CTRL_B),                        ___,
-   ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                    ___,                                    Key_LeftGui,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
@@ -437,7 +437,7 @@ KEYMAPS(
    ___,                                    Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
                                            LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          ___,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
 
   [SYMBOL] =  KEYMAP_STACKED
@@ -1679,12 +1679,12 @@ void setup() {
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(3, 6), ShiftToLayer(NAV)),
 // Homerow
 //        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 1), Key_LeftGui),
-       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 2), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 3), Key_LeftControl),
+//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 2), Key_LeftAlt),
+//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 3), Key_LeftControl),
 //        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 4), Key_LeftShift),
 //        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 11), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 12), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 13), Key_LeftAlt),
+//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 12), Key_LeftControl),
+//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 13), Key_LeftAlt),
 //        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 14), Key_LeftGui),
 
 
