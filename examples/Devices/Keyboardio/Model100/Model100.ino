@@ -163,6 +163,7 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_CTRL_SHIFT_F10,
        MACRO_CTRL_SPACE,
        MACRO_CTRL_T,
+       MACRO_CTRL_TAB,
        MACRO_CTRL_U,
        MACRO_CTRL_UP,
        MACRO_CTRL_V,
@@ -288,7 +289,6 @@ enum { BEPO_ON_AZERTY_LINUX, BEPO_ON_AZERTY_MACOS, ERGOL_ON_AZERTY_LINUX, FUNCTI
 #define Apostrophe_sh_QuestionMark   CS(6)
 
 #define AltRightArrow_x2_CtrlAltTab  TD(0)
-#define CtrlV_x2_AltSpace            TD(1)
 
 
 /* This comment temporarily turns off astyle's indent enforcement
@@ -375,7 +375,7 @@ KEYMAPS(
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_SET_OS_WINDOWS),                M(MACRO_PRINT_OS),                      LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            ___,
    Dollar_sh_Hash,                         Key_B,                                  Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                  Key_Tab,
    Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_sh_SemiColon,
-   Key_Equals,                             M(MACRO_A_GRAVE),                       Key_Y,                                  Key_X,                                  Period_sh_Colon,                        Key_K,                                  Key_Enter,
+   Key_Equals,                             M(MACRO_A_GRAVE),                       Key_Y,                                  Key_X,                                  Period_sh_Colon,                        Key_K,                                  Key_LeftGui,
    OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              Key_LeftAlt,
    Key_Escape,
 
@@ -383,7 +383,7 @@ KEYMAPS(
    Key_3,                                  OSL(LETTER_VARIANT),                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                  Key_W,
                                            Key_C,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Key_Semicolon,
    Key_Insert,                             Apostrophe_sh_QuestionMark,             Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  ___,
-   Key_LeftControl,                        OSL(SYMBOL),                            Space_sh_Underscore,                    OSM(LeftShift),
+   Key_LeftControl,                        Key_Tab,                                Space_sh_Underscore,                    OSM(LeftShift),
    ___),
 
   [BEPO_ON_AZERTY_MACOS] = KEYMAP_STACKED
@@ -418,10 +418,10 @@ KEYMAPS(
 
   [FUNCTION] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_ALT_SPACE),                     M(MACRO_CTRL_L),                        M(MACRO_CTRL_Z),                        LCTRL(Key_Tab),
-   M(MACRO_CTRL_Q),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
-   LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          AltRightArrow_x2_CtrlAltTab,            M(MACRO_CTRL_B),                        LALT(Key_Enter),
-   ___,                                    ___,                                    ___,                                    Key_LeftGui,
+   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_TAB),                      M(MACRO_CTRL_Z),                        ___,
+   M(MACRO_CTRL_P),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
+   LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          AltRightArrow_x2_CtrlAltTab,            M(MACRO_CTRL_B),                        ___,
+   ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
@@ -435,7 +435,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 ___,
    M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   Key_F6,                                 LGUI(Key_LeftArrow),                    LGUI(Key_DownArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_RightArrow),                   LALT(Key_F4),                           ___,
+   Key_LeftGui,                            LGUI(Key_LeftArrow),                    LGUI(Key_DownArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_RightArrow),                   LALT(Key_F4),                           ___,
    ___,                                    ___,                          ___,                                    ___,
    ___,
 
@@ -587,9 +587,6 @@ void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count
   case 0:
     return tapDanceActionKeys(tap_count, tap_dance_action,
                                 LALT(Key_RightArrow), LCTRL(LALT(Key_Tab)));
-  case 1:
-    return tapDanceActionKeys(tap_count, tap_dance_action,
-                                LCTRL(Key_V), LALT(Key_Space));
   }
 
 }
@@ -1014,6 +1011,16 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
         return MACRO(D(LeftGui), T(T), U(LeftGui));
       } else {
         return MACRO(D(LeftControl), T(T), U(LeftControl));
+      }
+    }
+    break;
+
+  case MACRO_CTRL_TAB:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftGui), T(Tab), U(LeftGui));
+      } else {
+        return MACRO(D(LeftControl), T(Tab), U(LeftControl));
       }
     }
     break;
@@ -1697,7 +1704,7 @@ void setup() {
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 7), ShiftToLayer(NUMROW)),
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(SYMBOL)),
        // Temporary
-       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(3, 6), ShiftToLayer(NAV)),
+//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(3, 6), ShiftToLayer(NAV)),
 // Homerow
 //        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 2), Key_LeftAlt),
