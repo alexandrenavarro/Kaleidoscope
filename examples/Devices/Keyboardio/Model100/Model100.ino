@@ -380,7 +380,7 @@ KEYMAPS(
    Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_sh_SemiColon,
    Key_Equals,                             M(MACRO_A_GRAVE),                       Key_Y,                                  Key_X,                                  Period_sh_Colon,                        Key_K,                                  Key_LeftGui,
    OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              Key_LeftAlt,
-   ___,
+   Key_Escape,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_3,                                  OSL(LETTER_VARIANT),                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                  Key_W,
