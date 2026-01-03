@@ -1765,8 +1765,8 @@ void setup() {
   CHORDS(
     CHORD(Key_Q, Key_E), Key_Escape,
     CHORD(Key_Q, Key_U), Key_Escape,
-    CHORD(Key_U, Key_I), Key_Tab,
-    CHORD(Key_I, Key_E), Key_Enter
+    CHORD(Key_U, Key_I), Key_Escape,
+    CHORD(Key_I, Key_E), Key_Escape
   )
 
   //  AutoShift for letter keys and number keys only:
