@@ -109,8 +109,11 @@
 // Support for AutoShift
 #include "Kaleidoscope-AutoShift.h"
 
-        // Support for TapDance
+// Support for TapDance
 #include "Kaleidoscope-TapDance.h"
+
+// Support for chord
+#include "Kaleidoscope-Chord.h"
 
 /** This 'enum' is a list of all the macros used by the Model 100's firmware
   * The names aren't particularly important. What is important is that each
@@ -377,7 +380,7 @@ KEYMAPS(
    Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_sh_SemiColon,
    Key_Equals,                             M(MACRO_A_GRAVE),                       Key_Y,                                  Key_X,                                  Period_sh_Colon,                        Key_K,                                  Key_LeftGui,
    OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              Key_LeftAlt,
-   Key_Escape,
+   ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_3,                                  OSL(LETTER_VARIANT),                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                  Key_W,
@@ -392,7 +395,7 @@ KEYMAPS(
    Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_sh_SemiColon,
    Key_Equals,                             Key_Equals,                             Key_Y,                                  Key_X,                                  Period_sh_Colon,                        Key_K,                                  Key_Enter,
    OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              OSM(LeftGui),
-   Key_Escape,
+   ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_3,                                  OSL(LETTER_VARIANT),                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                  Key_W,
@@ -407,7 +410,7 @@ KEYMAPS(
    Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_sh_SemiColon,
    Key_Equals,                             M(MACRO_A_GRAVE),                       Key_Y,                                  Key_X,                                  Period_sh_Colon,                        Key_K,                                  ___,
    OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              OSM(LeftGui),
-   Key_Escape,
+   ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_3,                                  OSL(LETTER_VARIANT),                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                  Key_W,
@@ -1682,6 +1685,9 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // TapDance
   TapDance,
 
+  // Chord
+  Chord,
+
   // The hardware test mode, which can be invoked by tapping Prog, LED and the
   // left Fn button at the same time.
   HardwareTestMode  //,
@@ -1754,6 +1760,13 @@ void setup() {
     kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),        // #define Period_sh_Colon                              CS(5)
     kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_sh_QuestionMark                   CS(6)
   );
+
+  CHORDS(
+    CHORD(Key_Q, Key_E), Key_Escape,
+    CHORD(Key_Q, Key_U), Key_Escape,
+    CHORD(Key_U, Key_I), Key_Tab,
+    CHORD(Key_I, Key_E), Key_Enter
+  )
 
   //  AutoShift for letter keys and number keys only:
 //   AutoShift.setEnabled(AutoShift.letterKeys() | AutoShift.symbolKeys());
