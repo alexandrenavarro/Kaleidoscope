@@ -429,8 +429,8 @@ KEYMAPS(
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
-                                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
-   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
+                                           LCTRL(Key_LeftArrow),                   Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LCTRL(Key_RightArrow),
+   ___,                                    LCTRL(Key_Home),                        Key_Home,                               LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      Key_End,                                LCTRL(Key_End),
    ___,                                    Key_Enter,                              Key_Space,                              ___,
    ___),
 
@@ -439,7 +439,7 @@ KEYMAPS(
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 ___,
    M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
    Key_LeftGui,                            LGUI(Key_LeftArrow),                    LGUI(Key_DownArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_RightArrow),                   LALT(Key_F4),                           ___,
-   ___,                                    ___,                          ___,                                    ___,
+   ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
@@ -454,7 +454,7 @@ KEYMAPS(
    ___,                                    Key_LeftBracket,                        Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_RightBracket,                       LSHIFT(Key_Quote),                      ___,
    ___,                                    RALT(Key_4),                            LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            RALT(Key_Equals),                       Key_Equals,
    ___,                                    RALT(Key_2),                            RALT(Key_5),                            RALT(Key_Minus),                        Key_8,                                  RALT(Key_3),                            ___,
-   ___,                                    ___,                                    ___,                                    ___,
+   Key_Backspace,                          Key_Space,                              ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
@@ -1733,13 +1733,14 @@ void setup() {
 
 // On NUMROW layer
 // Homerow
+       kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 3), Key_LeftControl),
        kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 4), Key_LeftShift),
        kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 11), Key_LeftShift),
        kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 12), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 13), Key_LeftAlt)
-
+       kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 13), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NUMROW, KeyAddr(2, 14), Key_LeftGui)
   )
 
   //Qukeys.setHoldTimeout(300);
