@@ -373,18 +373,18 @@ KEYMAPS(
 #endif
 
   [BEPO_ON_AZERTY_LINUX] = KEYMAP_STACKED
-  (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_SET_OS_WINDOWS),                M(MACRO_PRINT_OS),                      LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            ___,
+  (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_SET_OS_WINDOWS),                Key_PrintScreen,                        LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            ___,
    Dollar_sh_Hash,                         Key_B,                                  Key_2,                                  Key_P,                                  Key_O,                                  Key_7,                                  Key_Tab,
    Key_Z,                                  Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_sh_SemiColon,
    Key_Equals,                             M(MACRO_A_GRAVE),                       Key_Y,                                  Key_X,                                  Period_sh_Colon,                        Key_K,                                  Key_LeftGui,
-   OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              Key_LeftAlt,
+   Key_LeftShift,                          Key_Backspace,                          Key_Enter,                              Key_LeftAlt,
    Key_Escape,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_3,                                  OSL(LETTER_VARIANT),                    Key_V,                                  Key_D,                                  Key_L,                                  Key_J,                                  Key_W,
                                            Key_C,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Key_Semicolon,
    Key_Insert,                             Apostrophe_sh_QuestionMark,             Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  ___,
-   Key_LeftControl,                        OSL(SYMBOL),                            Space_sh_Underscore,                    OSM(LeftShift),
+   Key_LeftControl,                        Key_Tab,                                Space_sh_Underscore,                    OSM(LeftShift),
    ___),
 
   [BEPO_ON_AZERTY_MACOS] = KEYMAP_STACKED
@@ -449,16 +449,16 @@ KEYMAPS(
 
   [NUMPAD] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_LeftBracket,                        Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_RightBracket,                       LSHIFT(Key_Quote),                      ___,
    M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   ___,                                    ___,                                    Key_6,                                  ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    RALT(Key_2),                            RALT(Key_5),                            RALT(Key_Minus),                        Key_8,                                  RALT(Key_3),                            ___,
    Key_Backspace,                          ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_Equals,                             LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_Backslash,                          ___,
-                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          ___,
-   ___,                                    Period_sh_Colon,                        Key_Slash,                              Key_Comma,                              Comma_sh_SemiColon,                     LSHIFT(Key_M),                          ___,
+   ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          Apostrophe_sh_QuestionMark,             RALT(Key_7),                            ___,
+                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          Period_sh_Colon,
+   ___,                                    RALT(Key_6),                            Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
    ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
 
@@ -601,8 +601,7 @@ void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count
                     kaleidoscope::plugin::TapDance::ActionType tap_dance_action) {
   switch (tap_dance_index) {
   case 0:
-    return tapDanceActionKeys(tap_count, tap_dance_action,
-                                LALT(Key_RightArrow), LCTRL(LALT(Key_Tab)));
+    return tapDanceActionKeys(tap_count, tap_dance_action, LALT(Key_RightArrow), LCTRL(LALT(Key_Tab)));
   }
 
 }
@@ -1721,11 +1720,9 @@ void setup() {
 // Thumb keys
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 7), ShiftToLayer(FUNCTION)),
-       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 8), ShiftToLayer(SYMBOL)),
-       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(SYMBOL)),
+       kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 8), ShiftToLayer(NUMPAD)),
 
-       // Temporary
-//        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(3, 6), ShiftToLayer(NAV)),
 // Homerow
 //        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(BEPO_ON_AZERTY_LINUX, KeyAddr(2, 2), Key_LeftAlt),
@@ -1792,7 +1789,7 @@ void setup() {
     CHORD(Key_Q, Key_E), Key_Escape,
     CHORD(Key_Q, Key_U), Key_Escape,
     CHORD(Key_U, Key_I), Key_Escape,
-    CHORD(Key_I, Key_E), Key_Escape,
+    CHORD(Key_I, Key_E), LALT(Key_Space),
   )
 
   //  AutoShift for letter keys and number keys only:
