@@ -451,7 +451,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 ___,
    M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   ___,                                    RALT(Key_2),                            Key_6,                                  RALT(Key_Minus),                        Key_8,                                  RALT(Key_3),                            ___,
+   ___,                                    RALT(Key_2),                            RALT(Key_5),                            Key_6,                                  Key_8,                                  RALT(Key_3),                            ___,
    Key_Backspace,                          ___,                                    ___,                                    ___,
    ___,
 
