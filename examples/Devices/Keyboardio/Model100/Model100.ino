@@ -376,15 +376,15 @@ KEYMAPS(
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_SET_OS_WINDOWS),                M(MACRO_PRINT_OS),                      LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            Key_LeftGui,
    Dollar_sh_Hash,                         Key_B,                                  Key_C,                                  Key_P,                                  Key_O,                                  Key_Z,                                  Key_Tab,
    ___,                                    Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_sh_SemiColon,
-   Key_Equals,                             Key_W,                                  Key_Y,                                  Key_X,                                  Period_sh_Colon,                        Key_K,                                  ___,
+   Key_Equals,                             Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_K,                                  ___,
    OSM(LeftShift),                         Key_Backspace,                          Key_Enter,                              OSM(LeftGui),
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_J,                                  Key_V,                                  Key_D,                                  OSL(LETTER_VARIANT),                    Key_J,                                  ___,
+   ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT),                    Key_Y,                                  ___,
                                            Key_L,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Key_Semicolon,
-   Key_Insert,                             Apostrophe_sh_QuestionMark,             Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  ___,
-   Key_RightAlt,                           OSL(SYMBOL),                            Space_sh_Underscore,                    OSM(LeftShift),
+   Key_Insert,                             Period_sh_Colon,                        Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  ___,
+   Key_RightAlt,                           Key_Tab,                                Space_sh_Underscore,                    OSM(LeftShift),
    M(MACRO_ALT_SPACE)),
 
   [BEPO_ON_AZERTY_LINUX] = KEYMAP_STACKED
@@ -420,7 +420,7 @@ KEYMAPS(
   [NAV] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_TAB),                      M(MACRO_CTRL_Z),                        ___,
-   M(MACRO_CTRL_P),                        M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
+   Key_Delete,                             M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
    LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          AltRightArrow_x2_CtrlAltTab,            M(MACRO_CTRL_B),                        ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
