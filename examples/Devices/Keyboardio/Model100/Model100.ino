@@ -1741,7 +1741,7 @@ void setup() {
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 8), ShiftToLayer(NUMPAD)),
 
 // Homerow
-//        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 1), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 3), Key_LeftControl),
 //        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 4), Key_LeftShift),
@@ -1754,6 +1754,7 @@ void setup() {
 // For Alt+Tab
        kaleidoscope::plugin::Qukey(NAV, KeyAddr(1, 3), Key_LeftAlt),
 // Homerow
+       kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 3), Key_LeftControl),
        kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 4), Key_LeftShift),
