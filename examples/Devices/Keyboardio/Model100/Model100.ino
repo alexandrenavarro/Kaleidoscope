@@ -374,16 +374,16 @@ KEYMAPS(
 
   [ERGOL_ON_AZERTY_LINUX] = KEYMAP_STACKED
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_SET_OS_WINDOWS),                M(MACRO_PRINT_OS),                      LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            Key_LeftGui,
-   Dollar_sh_Hash,                         Key_B,                                  Key_C,                                  Key_P,                                  Key_O,                                  Key_Z,                                  Key_Tab,
-   Key_Tab,                                Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Comma_sh_SemiColon,
-   ___,                                    Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_K,                                  ___,
+   Dollar_sh_Hash,                         Key_A,                                  Key_C,                                  Key_P,                                  Key_O,                                  Key_Z,                                  Key_Tab,
+   Key_Escape,                             Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Key_F,
+   ___,                                    Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_B,                                  ___,
    Key_LeftShift,                          Key_Backspace,                          Key_Enter,                              OSM(LeftGui),
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT),                    Key_Y,                                  ___,
                                            Key_L,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Apostrophe_sh_QuestionMark,
-   Key_Insert,                             Period_sh_Colon,                        Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  ___,
+   Key_Insert,                             Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  ___,
    Key_RightAlt,                           Key_Tab,                                Space_sh_Underscore,                    OSM(LeftShift),
    M(MACRO_ALT_SPACE)),
 
@@ -1744,8 +1744,8 @@ void setup() {
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 3), Key_LeftControl),
-//        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 4), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 11), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 4), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 11), Key_LeftShift),
 //        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 12), Key_LeftControl),
 //        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 13), Key_LeftAlt),
 //        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 14), Key_LeftGui),
