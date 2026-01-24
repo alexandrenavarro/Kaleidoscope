@@ -206,6 +206,7 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_SHIFT_PG_UP_CTRL_X,
        MACRO_SHIFT_UP_CTRL_X,
        MACRO_SHIFT_SUPER_Z,
+       MACRO_SPACE_EQUALS_SPACE,
        MACRO_U_CIRCUMFLEX,
        MACRO_U_GRAVE,
        MACRO_U_DIAERESIS
@@ -373,19 +374,19 @@ KEYMAPS(
 #endif
 
   [ERGOL_ON_AZERTY_LINUX] = KEYMAP_STACKED
-  (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_SET_OS_WINDOWS),                M(MACRO_PRINT_OS),                      LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            Key_LeftGui,
-   Dollar_sh_Hash,                         Key_A,                                  Key_C,                                  Key_P,                                  Key_O,                                  Key_Z,                                  Key_Tab,
+  (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Key_F,
    ___,                                    Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_B,                                  ___,
-   Key_LeftShift,                          Key_Backspace,                          Key_Enter,                              OSM(LeftGui),
+   Key_LeftShift,                          Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT),                    Key_Y,                                  ___,
+   ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT),                    Key_Y,                                  Key_PcApplication,
                                            Key_L,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Apostrophe_sh_QuestionMark,
-   Key_Insert,                             Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  ___,
-   Key_RightAlt,                           Key_Tab,                                Space_sh_Underscore,                    OSM(LeftShift),
-   M(MACRO_ALT_SPACE)),
+   ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
+   ___,                                    Key_Tab,                                Space_sh_Underscore,                    OSM(LeftShift),
+   ___),
 
   [BEPO_ON_AZERTY_LINUX] = KEYMAP_STACKED
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_SET_OS_WINDOWS),                Key_PrintScreen,                        LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            ___,
@@ -489,7 +490,7 @@ KEYMAPS(
    ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          Apostrophe_sh_QuestionMark,                M(MACRO_U_CIRCUMFLEX),                  ___,
                                            LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            M(MACRO_I_CIRCUMFLEX),                  M(MACRO_I_DIAERESIS),                   M(MACRO_U_GRAVE),                       ___,
    ___,                                    Period_sh_Colon,                        Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
-   ___,                                    ___,                                    Apostrophe_sh_QuestionMark,             ___,
+   ___,                                    ___,                                    M(MACRO_SPACE_EQUALS_SPACE),            ___,
    ___)
 
 ) // KEYMAPS(
@@ -1389,6 +1390,12 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
+  case MACRO_SPACE_EQUALS_SPACE:
+    if (keyToggledOn(event.state)) {
+      return MACRO(T(Space), T(Equals), T(Space));
+    }
+    break;
+
   case MACRO_U_CIRCUMFLEX:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
@@ -1745,7 +1752,7 @@ void setup() {
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 3), Key_LeftControl),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 4), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 11), Key_LeftShift),
+//        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 11), Key_LeftShift),
 //        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 12), Key_LeftControl),
 //        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 13), Key_LeftAlt),
 //        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 14), Key_LeftGui),
