@@ -130,11 +130,13 @@
 
 enum { MACRO_A_CIRCUMFLEX,
        MACRO_A_GRAVE,
+       MACRO_APP_CLOSE,
+       MACRO_APP_MAXIMIZE,
+       MACRO_APP_MINIMIZE,
+       MACRO_APP_NEXT,
+       MACRO_APP_PREVIOUS,
        MACRO_AT,
-       MACRO_ALT_SPACE,
-       MACRO_ALT_SPACE_LESS_THAN_BACKSPACE,
        MACRO_C_CEDILLA,
-       MACRO_CLOSE_APP,
        MACRO_CTRL_A,
        MACRO_CTRL_B,
        MACRO_CTRL_C,
@@ -181,13 +183,9 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_ESCAPE_ALT_F12_CTRL_P,
        MACRO_I_CIRCUMFLEX,
        MACRO_I_DIAERESIS,
-       MACRO_MAXIMIZE,
-       MACRO_MINIMIZE,
        MACRO_MOVE_LEFT,
        MACRO_MOVE_RIGHT,
-       MACRO_NEXT_HISTORY,
        MACRO_O_CIRCUMFLEX,
-       MACRO_PREVIOUS_HISTORY,
        MACRO_PRINT_OS,
        MACRO_SET_OS_LINUX,
        MACRO_SET_OS_MACOS,
@@ -416,13 +414,13 @@ KEYMAPS(
                                            Key_C,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Key_Semicolon,
    Key_Insert,                             Apostrophe_sh_QuestionMark,             Key_A,                                  Key_G,                                  Key_H,                                  Key_F,                                  ___,
    Key_RightAlt,                           OSL(SYMBOL),                            Space_sh_Underscore,                    OSM(LeftShift),
-   M(MACRO_ALT_SPACE)),
+   ___),
 
   [NAV] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_TAB),                      M(MACRO_CLOSE_APP),                     ___,
+   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_TAB),                      M(MACRO_APP_CLOSE),                     ___,
    Key_Delete,                             M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        LALT(Key_F7),
-   LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          AltRightArrow_x2_CtrlAltTab,            M(MACRO_CTRL_B),                        ___,
+   LCTRL(Key_KeypadDivide),                M(MACRO_APP_PREVIOUS),                  Key_UpArrow,                            Key_DownArrow,                          AltRightArrow_x2_CtrlAltTab,            M(MACRO_CTRL_B),                        ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -437,7 +435,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_F11,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                ___,
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,
-   Key_LeftGui,                            LGUI(Key_LeftArrow),                    LGUI(Key_DownArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_RightArrow),                   LALT(Key_F4),                           ___,
+   Key_LeftGui,                            LGUI(Key_LeftArrow),                    M(MACRO_APP_MAXIMIZE),                  M(MACRO_APP_MINIMIZE),                  LGUI(Key_RightArrow),                   LALT(Key_F4),                           ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -648,6 +646,56 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
+  case MACRO_APP_CLOSE:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftGui), T(A), U(LeftGui));
+      } else {
+        return MACRO(D(LeftAlt), T(F4), U(LeftAlt));
+      }
+    }
+    break;
+
+  case MACRO_APP_MAXIMIZE:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(T(LeftControl), T(Apple_Globe), T(F));
+      } else {
+        return MACRO(D(LeftGui), T(UpArrow), U(LeftGui));
+      }
+    }
+    break;
+
+  case MACRO_APP_MINIMIZE:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftGui), T(M), U(LeftGui));
+      } else {
+        return MACRO(D(LeftGui), T(DownArrow), U(LeftGui));
+      }
+    }
+    break;
+
+  case MACRO_APP_PREVIOUS:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftGui), T(LeftArrow), U(LeftGui));
+      } else {
+        return MACRO(D(LeftAlt), T(LeftArrow), U(LeftAlt));
+      }
+    }
+    break;
+
+  case MACRO_APP_NEXT:
+    if (keyToggledOn(event.state)) {
+      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
+        return MACRO(D(LeftGui), T(RightArrow), U(LeftGui));
+      } else {
+        return MACRO(D(LeftAlt), T(RightArrow), U(LeftAlt));
+      }
+    }
+    break;
+
   case MACRO_AT:
     if (keyToggledOn(event.state)) {
       if (HostOS.os() == kaleidoscope::hostos::MACOS) {
@@ -658,27 +706,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_ALT_SPACE:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(Space), U(LeftGui));
-      } else {
-        return MACRO(D(LeftAlt), T(Space), U(LeftAlt));
-      }
-    }
-    break;
-
-  case MACRO_ALT_SPACE_LESS_THAN_BACKSPACE:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(Space), U(LeftGui));
-      } else {
-        return MACRO(D(LeftAlt), T(Space), U(LeftAlt), W(32), T(NonUsBackslashAndPipe), T(Backspace));
-      }
-    }
-    break;
-
-
   case MACRO_C_CEDILLA:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
@@ -687,16 +714,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
         ShiftBlocker.disable();
       } else {
         return MACRO(T(9));
-      }
-    }
-    break;
-
-  case MACRO_CLOSE_APP:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(A), U(LeftGui));
-      } else {
-        return MACRO(D(LeftAlt), T(F4), U(LeftAlt));
       }
     }
     break;
@@ -1193,26 +1210,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_MAXIMIZE:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(T(LeftControl), T(Apple_Globe), T(F));
-      } else {
-        return MACRO(D(LeftGui), T(UpArrow), U(LeftGui));
-      }
-    }
-    break;
-
-  case MACRO_MINIMIZE:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(M), U(LeftGui));
-      } else {
-        return MACRO(D(LeftGui), T(DownArrow), U(LeftGui));
-      }
-    }
-    break;
-
   case MACRO_MOVE_LEFT:
     if (keyToggledOn(event.state)) {
       if (HostOS.os() == kaleidoscope::hostos::MACOS) {
@@ -1233,16 +1230,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_NEXT_HISTORY:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(RightArrow), U(LeftGui));
-      } else {
-        return MACRO(D(LeftAlt), T(RightArrow), U(LeftAlt));
-      }
-    }
-    break;
-
   case MACRO_O_CIRCUMFLEX:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
@@ -1252,16 +1239,6 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
         return MACRO(T(O));
       } else {
         return MACRO(T(LeftBracket), T(O));
-      }
-    }
-    break;
-
-  case MACRO_PREVIOUS_HISTORY:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(LeftArrow), U(LeftGui));
-      } else {
-        return MACRO(D(LeftAlt), T(LeftArrow), U(LeftAlt));
       }
     }
     break;
