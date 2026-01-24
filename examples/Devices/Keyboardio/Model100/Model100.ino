@@ -134,7 +134,7 @@ enum { MACRO_A_CIRCUMFLEX,
        MACRO_ALT_SPACE,
        MACRO_ALT_SPACE_LESS_THAN_BACKSPACE,
        MACRO_C_CEDILLA,
-       MACRO_CLOSE,
+       MACRO_CLOSE_APP,
        MACRO_CTRL_A,
        MACRO_CTRL_B,
        MACRO_CTRL_C,
@@ -374,7 +374,7 @@ KEYMAPS(
 #endif
 
   [ERGOL_ON_AZERTY_LINUX] = KEYMAP_STACKED
-  (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  ___,                                    ___,                                    ___,                                    ___,                                    ___,
+  (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Key_F,
    ___,                                    Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_B,                                  ___,
@@ -420,8 +420,8 @@ KEYMAPS(
 
   [NAV] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_TAB),                      M(MACRO_CTRL_Z),                        ___,
-   Key_Delete,                             M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
+   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_TAB),                      M(MACRO_CLOSE_APP),                     ___,
+   Key_Delete,                             M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        LALT(Key_F7),
    LCTRL(Key_KeypadDivide),                M(MACRO_PREVIOUS_HISTORY),              Key_UpArrow,                            Key_DownArrow,                          AltRightArrow_x2_CtrlAltTab,            M(MACRO_CTRL_B),                        ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
@@ -691,7 +691,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_CLOSE:
+  case MACRO_CLOSE_APP:
     if (keyToggledOn(event.state)) {
       if (HostOS.os() == kaleidoscope::hostos::MACOS) {
         return MACRO(D(LeftGui), T(A), U(LeftGui));
@@ -1812,8 +1812,8 @@ void setup() {
   CHORDS(
     CHORD(Key_Q, Key_E), Key_Escape,
     CHORD(Key_Q, Key_U), Key_Escape,
-    CHORD(Key_U, Key_I), Key_Escape,
-    CHORD(Key_I, Key_E), LALT(Key_Space),
+    CHORD(Key_U, Key_I), LALT(Key_Space),
+    CHORD(Key_I, Key_E), Key_Tab,
   )
 
   //  AutoShift for letter keys and number keys only:
