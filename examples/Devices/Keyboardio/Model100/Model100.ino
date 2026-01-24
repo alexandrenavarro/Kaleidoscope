@@ -373,14 +373,14 @@ KEYMAPS(
   [ERGOL_ON_AZERTY_LINUX] = KEYMAP_STACKED
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
-   Key_Escape,                             Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Key_F,
+   Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    ___,                                    Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_B,                                  ___,
    Key_LeftShift,                          Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT),                    Key_Y,                                  Key_PcApplication,
-                                           Key_L,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Apostrophe_sh_QuestionMark,
+                                           Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
    ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
    ___,                                    Key_Tab,                                Space_sh_Underscore,                    OSM(LeftShift),
    ___),
@@ -388,14 +388,14 @@ KEYMAPS(
   [ERGOL_ON_AZERTY_MACOS] = KEYMAP_STACKED
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
-   Key_Escape,                             Key_Q,                                  Key_U,                                  Key_I,                                  Key_E,                                  Key_F,
+   Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    ___,                                    Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_B,                                  ___,
    Key_LeftShift,                          Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT),                    Key_Y,                                  Key_PcApplication,
-                                           Key_L,                                  Key_T,                                  Key_S,                                  Key_R,                                  Key_N,                                  Apostrophe_sh_QuestionMark,
+                                           Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
    ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
    ___,                                    Key_Tab,                                Space_sh_Underscore,                    OSM(LeftShift),
    ___),
@@ -1764,11 +1764,11 @@ void setup() {
   );
 
   CHORDS(
+    CHORD(Key_Q, Key_S), Key_Escape,
     CHORD(Key_Q, Key_E), Key_Escape,
-    CHORD(Key_Q, Key_U), Key_Escape,
-    CHORD(Key_U, Key_E), Key_Escape,
-    CHORD(Key_U, Key_I), LALT(Key_Space),
-    CHORD(Key_I, Key_E), Key_Tab,
+    CHORD(Key_S, Key_N), Key_Escape,
+    CHORD(Key_S, Key_E), LALT(Key_Space),
+    CHORD(Key_E, Key_N), Key_Tab,
   )
 
   //  AutoShift for letter keys and number keys only:
