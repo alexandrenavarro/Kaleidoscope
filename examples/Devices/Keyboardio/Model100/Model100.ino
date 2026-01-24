@@ -402,7 +402,7 @@ KEYMAPS(
 
   [NAV] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   M(MACRO_CTRL_N),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_TAB),                      M(MACRO_APP_CLOSE),                     ___,
+   ___,                                    M(MACRO_CTRL_O),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_TAB),                      M(MACRO_APP_CLOSE),                     ___,
    Key_Delete,                             M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        LALT(Key_F7),
    LCTRL(Key_KeypadDivide),                M(MACRO_APP_PREVIOUS),                  Key_UpArrow,                            Key_DownArrow,                          AltRightArrow_x2_CtrlAltTab,            M(MACRO_CTRL_B),                        ___,
    ___,                                    ___,                                    ___,                                    ___,
@@ -419,7 +419,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_F11,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                ___,
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,
-   Key_LeftGui,                            LGUI(Key_LeftArrow),                    M(MACRO_APP_MAXIMIZE),                  M(MACRO_APP_MINIMIZE),                  LGUI(Key_RightArrow),                   LALT(Key_F4),                           ___,
+   ___,                                    LGUI(Key_LeftArrow),                    M(MACRO_APP_MAXIMIZE),                  M(MACRO_APP_MINIMIZE),                  LGUI(Key_RightArrow),                   M(MACRO_APP_CLOSE),                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
