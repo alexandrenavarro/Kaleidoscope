@@ -404,7 +404,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    M(MACRO_CTRL_O),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        LALT(Key_F7),                           M(MACRO_APP_CLOSE),                     ___,
    Key_Delete,                             M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
-   LCTRL(Key_KeypadDivide),                M(MACRO_APP_PREVIOUS),                  Key_UpArrow,                            Key_DownArrow,                          AltRightArrow_x2_CtrlAltTab,            M(MACRO_CTRL_B),                        ___,
+   LCTRL(Key_KeypadDivide),                M(MACRO_APP_PREVIOUS),                  Key_UpArrow,                            Key_DownArrow,                          M(MACRO_APP_NEXT),                      M(MACRO_CTRL_B),                        ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -1766,11 +1766,11 @@ void setup() {
   );
 
   CHORDS(
-    CHORD(Key_Q, Key_S), Key_Escape,
-    CHORD(Key_Q, Key_E), Key_Escape,
-    CHORD(Key_S, Key_N), Key_Escape,
+//     CHORD(Key_Q, Key_S), Key_Escape,
+//     CHORD(Key_Q, Key_E), Key_Escape,
+//     CHORD(Key_S, Key_N), Key_Escape,
     CHORD(Key_S, Key_E), LALT(Key_Space),
-    CHORD(Key_E, Key_N), Key_Tab,
+//     CHORD(Key_E, Key_N), Key_Tab,
   )
 
   //  AutoShift for letter keys and number keys only:
