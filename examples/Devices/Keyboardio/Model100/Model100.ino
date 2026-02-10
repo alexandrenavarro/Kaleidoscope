@@ -374,7 +374,7 @@ KEYMAPS(
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
-   Key_LeftGui,                            Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_B,                                  ___,
+   ___,                                    Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_B,                                  ___,
    Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
@@ -382,14 +382,14 @@ KEYMAPS(
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT),                    Key_Y,                                  Key_PcApplication,
                                            Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
    ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
-   ___,                                    ___,                                    Space_sh_Underscore,                    OSM(LeftShift),
+   ___,                                    OSL(SYMBOL),                            Space_sh_Underscore,                    OSM(LeftShift),
    ___),
 
   [ERGOL_ON_AZERTY_MACOS] = KEYMAP_STACKED
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
-   Key_LeftGui,                            Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_B,                                  ___,
+   ___,                                    Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_B,                                  ___,
    Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
@@ -1681,11 +1681,11 @@ void setup() {
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(0, 7), Key_LeftShift),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 7), ShiftToLayer(FUNCTION)),
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(SYMBOL)),
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 8), ShiftToLayer(NUMPAD)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 8), ShiftToLayer(SYMBOL)),
 
 // Homerow
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 3), Key_LeftControl),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 4), Key_LeftShift),
@@ -1700,11 +1700,11 @@ void setup() {
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(0, 7), Key_LeftShift),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 7), ShiftToLayer(FUNCTION)),
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 8), ShiftToLayer(SYMBOL)),
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 8), ShiftToLayer(NUMPAD)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 8), ShiftToLayer(SYMBOL)),
 
 // Homerow
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 3), Key_LeftControl),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 4), Key_LeftShift),
