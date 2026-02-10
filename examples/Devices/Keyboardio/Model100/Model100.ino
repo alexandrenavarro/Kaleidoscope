@@ -471,7 +471,7 @@ KEYMAPS(
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          Apostrophe_sh_QuestionMark,                M(MACRO_U_CIRCUMFLEX),                  ___,
                                            LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            M(MACRO_I_CIRCUMFLEX),                  M(MACRO_I_DIAERESIS),                   M(MACRO_U_GRAVE),                       ___,
-   ___,                                    Period_sh_Colon,                        Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
+   ___,                                    Key_Period,                             Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
    ___,                                    RALT(Key_6),                            M(MACRO_SPACE_EQUALS_SPACE),            ___,
    ___)
 
