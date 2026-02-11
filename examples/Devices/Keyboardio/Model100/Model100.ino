@@ -402,7 +402,7 @@ KEYMAPS(
 
   [NAV] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    M(MACRO_CTRL_O),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        LALT(Key_F7),                           M(MACRO_APP_CLOSE),                     ___,
+   M(MACRO_CTRL_O),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        LALT(Key_F7),                           M(MACRO_APP_CLOSE),                     ___,
    Key_Delete,                             M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
    LCTRL(Key_KeypadDivide),                M(MACRO_APP_PREVIOUS),                  Key_UpArrow,                            Key_DownArrow,                          M(MACRO_APP_NEXT),                      M(MACRO_CTRL_B),                        ___,
    ___,                                    ___,                                    ___,                                    ___,
