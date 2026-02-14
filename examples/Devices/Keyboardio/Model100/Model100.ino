@@ -286,6 +286,7 @@ enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, NAV, FUNCTION, NUMPAD, SYMB
 #define Comma_sh_SemiColon           CS(4)
 #define Period_sh_Colon              CS(5)
 #define Apostrophe_sh_QuestionMark   CS(6)
+#define Minus_sh_Slash               CS(7)
 
 #define AltRightArrow_x2_CtrlAltTab  TD(0)
 
@@ -374,7 +375,7 @@ KEYMAPS(
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
-   ___,                                    Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_B,                                  ___,
+   ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Slash,                         Key_V,                                  Key_B,                                  ___,
    Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
@@ -389,7 +390,7 @@ KEYMAPS(
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
-   ___,                                    Key_W,                                  Key_X,                                  Key_6,                                  Key_V,                                  Key_B,                                  ___,
+   ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Slash,                         Key_V,                                  Key_B,                                  ___,
    Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
@@ -402,9 +403,9 @@ KEYMAPS(
 
   [NAV] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   M(MACRO_CTRL_O),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        LALT(Key_F7),                           M(MACRO_APP_CLOSE),                     ___,
+   LCTRL(Key_KeypadDivide),                M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_Z),                        M(MACRO_APP_CLOSE),                     ___,
    Key_Delete,                             M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
-   LCTRL(Key_KeypadDivide),                M(MACRO_APP_PREVIOUS),                  Key_UpArrow,                            Key_DownArrow,                          M(MACRO_APP_NEXT),                      M(MACRO_CTRL_B),                        ___,
+   LALT(Key_F7),                           M(MACRO_APP_PREVIOUS),                  Key_UpArrow,                            Key_DownArrow,                          M(MACRO_APP_NEXT),                      M(MACRO_CTRL_B),                        ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -424,24 +425,24 @@ KEYMAPS(
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_F16,                                Key_F17,                                Key_F18,                                Key_F19,                                Key_F20,                                Key_F21,
-                                           Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+                                           Key_F16,                                Key_F17,                                Key_F18,                                Key_F19,                                Key_F20,                                Key_F21,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
 
   [NUMPAD] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,                                 ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   ___,                                    RALT(Key_2),                            RALT(Key_5),                            Key_6,                                  Key_8,                                  RALT(Key_3),                            ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_Backspace,                          ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
-                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          Period_sh_Colon,
-   ___,                                    RALT(Key_6),                            Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
+   ___,                                    Key_Equals,                             LSHIFT(Key_Equals),                     Key_Backslash,                          LSHIFT(Key_Period),                     Key_6,                                  ___,
+                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          ___,
+   ___,                                    Period_sh_Colon,                        Key_Slash,                              Key_Comma,                              Comma_sh_SemiColon,                     LSHIFT(Key_M),                          ___,
    ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
 
@@ -1763,6 +1764,7 @@ void setup() {
     kaleidoscope::plugin::CharShift::KeyPair(Key_M, Key_Comma),                     // #define Comma_sh_SemiColon                           CS(4)
     kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),        // #define Period_sh_Colon                              CS(5)
     kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_sh_QuestionMark                   CS(6)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_6, LSHIFT(Key_Period)),            // #define Minus_sh_Slash                               CS(7)
   );
 
   CHORDS(
