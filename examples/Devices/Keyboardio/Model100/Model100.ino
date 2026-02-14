@@ -1678,7 +1678,7 @@ void setup() {
 
 // On ERGOL_ON_AZERTY_LINUX layer
 // Thumb keys
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(0, 7), Key_LeftShift),
+       // kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(0, 7), Key_LeftShift),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 7), ShiftToLayer(FUNCTION)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
@@ -1697,7 +1697,7 @@ void setup() {
 
 // On ERGOL_ON_AZERTY_MACOS layer
 // Thumb keys
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(0, 7), Key_LeftShift),
+       // kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(0, 7), Key_LeftShift),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 7), ShiftToLayer(FUNCTION)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
