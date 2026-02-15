@@ -258,7 +258,7 @@ enum { MACRO_A_CIRCUMFLEX,
   *
   */
 
-enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, NAV, FUNCTION, NUMPAD, SYMBOL, LETTER_VARIANT}; // layers
+enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, NAV, FUNCTION, NUMPAD, SYMBOL_LINUX, SYMBOL_MACOS, LETTER_VARIANT}; // layers
 
 
 /**
@@ -384,7 +384,7 @@ KEYMAPS(
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT),                    Key_Y,                                  Key_PcApplication,
                                            Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
    ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
-   ___,                                    OSL(SYMBOL),                            Space_sh_Underscore,                    OSM(LeftShift),
+   ___,                                    OSL(SYMBOL_LINUX),                      Space_sh_Underscore,                    OSM(LeftShift),
    ___),
 
   [ERGOL_ON_AZERTY_MACOS] = KEYMAP_STACKED
@@ -399,7 +399,7 @@ KEYMAPS(
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT),                    Key_Y,                                  Key_PcApplication,
                                            Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
    ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
-   ___,                                    ___,                                    Space_sh_Underscore,                    OSM(LeftShift),
+   ___,                                    OSL(SYMBOL_MACOS),                      Space_sh_Underscore,                    OSM(LeftShift),
    ___),
 
   [NAV] =  KEYMAP_STACKED
@@ -447,7 +447,7 @@ KEYMAPS(
    ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
 
-  [SYMBOL] =  KEYMAP_STACKED
+  [SYMBOL_LINUX] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_LeftBracket,                        Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_RightBracket,                       LSHIFT(Key_Quote),                      ___,
    ___,                                    RALT(Key_4),                            LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            RALT(Key_Equals),                       Key_Equals,
@@ -462,6 +462,20 @@ KEYMAPS(
    ___,                                    ___,                                    ___,                                    ___,
    ___),
 
+  [SYMBOL_MACOS] =  KEYMAP_STACKED
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_LeftBracket,                        Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_RightBracket,                       LSHIFT(Key_Quote),                      ___,
+   ___,                                    RALT(Key_4),                            LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            RALT(Key_Equals),                       Key_Equals,
+   ___,                                    RALT(Key_2),                            RALT(Key_5),                            RALT(Key_Minus),                        Key_8,                                  RALT(Key_3),                            ___,
+   Key_Backspace,                          Key_Space,                              ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          Apostrophe_sh_QuestionMark,             RALT(Key_7),                            ___,
+                                           RALT(Key_8),                            LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_3,                                  ___,
+   ___,                                    RALT(Key_6),                            Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___),
   [LETTER_VARIANT] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    M(MACRO_A_CIRCUMFLEX),                  M(MACRO_C_CEDILLA),                     LSHIFT(Key_NonUsBackslashAndPipe),      M(MACRO_O_CIRCUMFLEX),                  LSHIFT(Key_Quote),                      ___,
@@ -1684,7 +1698,7 @@ void setup() {
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 7), ShiftToLayer(FUNCTION)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 8), ShiftToLayer(SYMBOL)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 8), ShiftToLayer(SYMBOL_LINUX)),
 
 // Homerow
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 1), Key_LeftGui),
@@ -1703,7 +1717,7 @@ void setup() {
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 7), ShiftToLayer(NAV)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 7), ShiftToLayer(FUNCTION)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 8), ShiftToLayer(SYMBOL)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 8), ShiftToLayer(SYMBOL_MACOS)),
 
 // Homerow
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 1), Key_LeftGui),
