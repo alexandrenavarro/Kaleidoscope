@@ -404,7 +404,7 @@ KEYMAPS(
 
   [NAV] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   LCTRL(Key_KeypadDivide),                M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_Z),                        M(MACRO_APP_CLOSE),                     ___,
+   M(MACRO_CTRL_O),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_Z),                        M(MACRO_APP_CLOSE),                     ___,
    Key_Delete,                             M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
    LALT(Key_F7),                           M(MACRO_APP_PREVIOUS),                  Key_UpArrow,                            Key_DownArrow,                          M(MACRO_APP_NEXT),                      M(MACRO_CTRL_B),                        ___,
    ___,                                    ___,                                    ___,                                    ___,
@@ -421,13 +421,13 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_F11,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                ___,
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,
-   ___,                                    LGUI(Key_LeftArrow),                    M(MACRO_APP_MAXIMIZE),                  M(MACRO_APP_MINIMIZE),                  LGUI(Key_RightArrow),                   M(MACRO_APP_CLOSE),                    ___,
+   LCTRL(Key_KeypadDivide),                LGUI(Key_LeftArrow),                    M(MACRO_APP_MAXIMIZE),                  M(MACRO_APP_MINIMIZE),                  LGUI(Key_RightArrow),                   M(MACRO_APP_CLOSE),                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-                                           Key_F16,                                Key_F17,                                Key_F18,                                Key_F19,                                Key_F20,                                Key_F21,
+   ___,                                    Key_F16,                                Key_F17,                                Key_F18,                                Key_F19,                                Key_F20,                                Key_F21,
+                                           Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
