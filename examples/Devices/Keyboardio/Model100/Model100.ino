@@ -395,7 +395,7 @@ KEYMAPS(
    Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   Key_Backtick,                           Key_Semicolon,                          Key_Quote,                              Key_Minus,                              Key_NonUsPound,                         Key_International1,                     Key_International2,
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT),                    Key_Y,                                  Key_PcApplication,
                                            Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
    ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
@@ -464,16 +464,16 @@ KEYMAPS(
 
   [SYMBOL_MACOS] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_LeftBracket,                        Key_NonUsBackslashAndPipe,              LSHIFT(Key_NonUsBackslashAndPipe),      Key_RightBracket,                       LSHIFT(Key_Quote),                      ___,
-   ___,                                    RALT(Key_4),                            LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            RALT(Key_Equals),                       Key_Equals,
-   ___,                                    RALT(Key_2),                            RALT(Key_5),                            RALT(Key_Minus),                        Key_8,                                  RALT(Key_3),                            ___,
+   ___,                                    Key_LeftBracket,                        Key_Backtick,                           LSHIFT(Key_Backtick),                   Key_RightBracket,                       LSHIFT(Key_Quote),                      ___,
+   ___,                                    RALT(Key_5),                            LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            RALT(Key_Minus),                        Key_Slash,
+   ___,                                    RALT(Key_N),                            LSHIFT(RALT(Key_5)),                    LSHIFT(RALT(Key_Minus)),                LSHIFT(Key_Equals),                     LSHIFT(Key_NonUsBackslashAndPipe),      ___,
    Key_Backspace,                          Key_Space,                              ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          Apostrophe_sh_QuestionMark,             RALT(Key_7),                            ___,
-                                           RALT(Key_8),                            LSHIFT(Key_Equals),                     Key_6,                                  LSHIFT(Key_Period),                     Key_3,                                  ___,
-   ___,                                    RALT(Key_6),                            Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
+   ___,                                    Key_NonUsBackslashAndPipe,              Key_1,                                  LSHIFT(Key_RightBracket),               Apostrophe_sh_QuestionMark,             Key_Backslash,                          ___,
+                                           LSHIFT(RALT(Key_Period)),               LSHIFT(Key_Slash),                      Key_Equals,                             LSHIFT(Key_Period),                     Key_3,                                  ___,
+   ___,                                    LSHIFT(RALT(Key_L)),                    Key_8,                                  Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___),
   [LETTER_VARIANT] =  KEYMAP_STACKED
@@ -1780,7 +1780,7 @@ void setup() {
     kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),        // #define Period_sh_Colon                              CS(5)
     kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_sh_QuestionMark                   CS(6)
     kaleidoscope::plugin::CharShift::KeyPair(Key_6, Key_8),                         // #define Minus_sh_Underscore                          CS(7)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_Equals, Key_8),                    // #define Minus_sh_Underscore_mac                      CS(8)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_Equals, LSHIFT(Key_Equals)),       // #define Minus_sh_Underscore_mac                      CS(8)
   );
 
   CHORDS(
