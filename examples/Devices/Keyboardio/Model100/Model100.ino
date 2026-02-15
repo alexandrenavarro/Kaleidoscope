@@ -286,7 +286,8 @@ enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, NAV, FUNCTION, NUMPAD, SYMB
 #define Comma_sh_SemiColon           CS(4)
 #define Period_sh_Colon              CS(5)
 #define Apostrophe_sh_QuestionMark   CS(6)
-#define Minus_sh_Slash               CS(7)
+#define Minus_sh_Underscore          CS(7)
+#define Minus_sh_Underscore_mac      CS(8)
 
 #define AltRightArrow_x2_CtrlAltTab  TD(0)
 
@@ -375,7 +376,7 @@ KEYMAPS(
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
-   ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Slash,                         Key_V,                                  Key_B,                                  ___,
+   ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Underscore,                    Key_V,                                  Key_B,                                  ___,
    Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
@@ -390,7 +391,7 @@ KEYMAPS(
   (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
-   ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Slash,                         Key_V,                                  Key_B,                                  ___,
+   ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Underscore_mac,                Key_V,                                  Key_B,                                  ___,
    Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
@@ -1764,7 +1765,8 @@ void setup() {
     kaleidoscope::plugin::CharShift::KeyPair(Key_M, Key_Comma),                     // #define Comma_sh_SemiColon                           CS(4)
     kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),        // #define Period_sh_Colon                              CS(5)
     kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_sh_QuestionMark                   CS(6)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_6, LSHIFT(Key_Period)),            // #define Minus_sh_Slash                               CS(7)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_6, Key_8),                         // #define Minus_sh_Underscore                          CS(7)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_Equals, Key_8),                    // #define Minus_sh_Underscore_mac                      CS(8)
   );
 
   CHORDS(
