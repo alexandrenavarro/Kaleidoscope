@@ -128,85 +128,20 @@
   * a macro key is pressed.
   */
 
-enum { MACRO_A_CIRCUMFLEX,
-       MACRO_A_GRAVE,
-       MACRO_APP_CLOSE,
-       MACRO_APP_MAXIMIZE,
-       MACRO_APP_MINIMIZE,
-       MACRO_APP_NEXT,
-       MACRO_APP_PREVIOUS,
-       MACRO_AT,
-       MACRO_C_CEDILLA,
-       MACRO_CTRL_A,
-       MACRO_CTRL_B,
-       MACRO_CTRL_C,
-       MACRO_CTRL_D,
-       MACRO_CTRL_DOWN,
-       MACRO_CTRL_E,
-       MACRO_CTRL_END,
-       MACRO_CTRL_ENTER,
-       MACRO_CTRL_F,
-       MACRO_CTRL_G,
-       MACRO_CTRL_H,
-       MACRO_CTRL_I,
-       MACRO_CTRL_J,
-       MACRO_CTRL_K,
-       MACRO_CTRL_INSERT,
-       MACRO_CTRL_HOME,
-       MACRO_CTRL_L,
-       MACRO_CTRL_LEFT,
-       MACRO_CTRL_M,
-       MACRO_CTRL_N,
-       MACRO_CTRL_O,
-       MACRO_CTRL_P,
-       MACRO_CTRL_PAGE_DOWN,
-       MACRO_CTRL_PAGE_UP,
-       MACRO_CTRL_Q,
-       MACRO_CTRL_R,
-       MACRO_CTRL_RIGHT,
-       MACRO_CTRL_S,
-       MACRO_CTRL_SHIFT_F10,
-       MACRO_CTRL_SPACE,
-       MACRO_CTRL_T,
-       MACRO_CTRL_TAB,
-       MACRO_CTRL_U,
-       MACRO_CTRL_UP,
-       MACRO_CTRL_V,
-       MACRO_CTRL_W,
-       MACRO_CTRL_X,
-       MACRO_CTRL_Y,
-       MACRO_CTRL_Z,
-       MACRO_E_ACUTE,
-       MACRO_E_CIRCUMFLEX,
-       MACRO_E_DIAERESIS,
-       MACRO_E_GRAVE,
-       MACRO_ESCAPE_ALT_F12_CTRL_P,
-       MACRO_I_CIRCUMFLEX,
-       MACRO_I_DIAERESIS,
-       MACRO_MOVE_LEFT,
-       MACRO_MOVE_RIGHT,
-       MACRO_O_CIRCUMFLEX,
-       MACRO_PRINT_OS,
-       MACRO_SET_OS_LINUX,
-       MACRO_SET_OS_MACOS,
-       MACRO_SHIFT_CTRL_DOWN_X,
-       MACRO_SHIFT_CTRL_END_X,
-       MACRO_SHIFT_CTRL_HOME_X,
-       MACRO_SHIFT_CTRL_LEFT_X,
-       MACRO_SHIFT_CTRL_RIGHT_X,
-       MACRO_SHIFT_CTRL_UP_X,
-       MACRO_SHIFT_DOWN_CTRL_X,
-       MACRO_SHIFT_END_CTRL_X,
-       MACRO_SHIFT_HOME_CTRL_X,
-       MACRO_SHIFT_PERCENT,
-       MACRO_SHIFT_PG_DOWN_CTRL_X,
-       MACRO_SHIFT_PG_UP_CTRL_X,
-       MACRO_SHIFT_UP_CTRL_X,
-       MACRO_SHIFT_SUPER_Z,
-       MACRO_SPACE_EQUALS_SPACE,
-       MACRO_U_CIRCUMFLEX,
-       MACRO_U_GRAVE,
-       MACRO_U_DIAERESIS
+enum {
+       A_CIRCUMFLEX,
+       A_GRAVE,
+       C_CEDILLA,
+       E_CIRCUMFLEX,
+       I_CIRCUMFLEX,
+       I_DIAERESIS,
+       O_CIRCUMFLEX,
+       PRINT_OS,
+       SET_OS_LINUX,
+       SET_OS_MACOS,
+       SPACE_EQUALS_SPACE,
+       U_CIRCUMFLEX,
+       U_GRAVE,
      };
 
 
@@ -258,7 +193,7 @@ enum { MACRO_A_CIRCUMFLEX,
   *
   */
 
-enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, NAV, FUNCTION, SYMBOL_LINUX, SYMBOL_MACOS, LETTER_VARIANT_LINUX, LETTER_VARIANT_MACOS, NUMPAD}; // layers
+enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, SYMBOL_LINUX, SYMBOL_MACOS, LETTER_VARIANT_LINUX, LETTER_VARIANT_MACOS, NAV_LINUX, NAV_MACOS, FUNCTION_LINUX, FUNCTION_MACOS, NUMROW_LINUX, NUMROW_MACOS}; // layers
 
 
 /**
@@ -373,7 +308,7 @@ KEYMAPS(
 #endif
 
   [ERGOL_ON_AZERTY_LINUX] = KEYMAP_STACKED
-  (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    ___,
+  (M(SET_OS_LINUX),                        M(SET_OS_MACOS),                        M(PRINT_OS),                            ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Underscore_linux,              Key_V,                                  Key_B,                                  ___,
@@ -388,7 +323,7 @@ KEYMAPS(
    ___),
 
   [ERGOL_ON_AZERTY_MACOS] = KEYMAP_STACKED
-  (M(MACRO_SET_OS_LINUX),                  M(MACRO_SET_OS_MACOS),                  M(MACRO_PRINT_OS),                      ___,                                    ___,                                    ___,                                    ___,
+  (M(SET_OS_LINUX),                        M(SET_OS_MACOS),                        M(PRINT_OS),                            ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Underscore_mac,                Key_V,                                  Key_B,                                  ___,
@@ -400,36 +335,6 @@ KEYMAPS(
                                            Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
    ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
    ___,                                    OSL(SYMBOL_MACOS),                      Key_Space,                              OSM(LeftShift),
-   ___),
-
-  [NAV] =  KEYMAP_STACKED
-  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   M(MACRO_CTRL_O),                        M(MACRO_CTRL_S),                        M(MACRO_CTRL_T),                        M(MACRO_CTRL_L),                        M(MACRO_CTRL_Z),                        M(MACRO_APP_CLOSE),                     ___,
-   Key_Delete,                             M(MACRO_CTRL_W),                        M(MACRO_CTRL_X),                        M(MACRO_CTRL_C),                        M(MACRO_CTRL_V),                        M(MACRO_CTRL_F),
-   LALT(Key_F7),                           M(MACRO_APP_PREVIOUS),                  Key_UpArrow,                            Key_DownArrow,                          M(MACRO_APP_NEXT),                      M(MACRO_CTRL_B),                        ___,
-   ___,                                    ___,                                    ___,                                    ___,
-   ___,
-
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
-                                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
-   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
-   ___,                                    Key_Enter,                              Key_Space,                              ___,
-   ___),
-
-  [FUNCTION] =  KEYMAP_STACKED
-  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   Key_F11,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                ___,
-   Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,
-   LCTRL(Key_KeypadDivide),                LGUI(Key_LeftArrow),                    M(MACRO_APP_MAXIMIZE),                  M(MACRO_APP_MINIMIZE),                  LGUI(Key_RightArrow),                   M(MACRO_APP_CLOSE),                    ___,
-   ___,                                    ___,                                    ___,                                    ___,
-   ___,
-
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_F16,                                Key_F17,                                Key_F18,                                Key_F19,                                Key_F20,                                Key_F21,
-                                           Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
 
   [SYMBOL_LINUX] =  KEYMAP_STACKED
@@ -464,38 +369,113 @@ KEYMAPS(
 
   [LETTER_VARIANT_LINUX] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    M(MACRO_A_CIRCUMFLEX),                  M(MACRO_C_CEDILLA),                     LSHIFT(Key_NonUsBackslashAndPipe),      M(MACRO_O_CIRCUMFLEX),                  LSHIFT(Key_Quote),                      ___,
-   ___,                                    M(MACRO_A_GRAVE),                       Key_2,                                  Key_7,                                  M(MACRO_E_CIRCUMFLEX),                  Key_Equals,
+   ___,                                    M(A_CIRCUMFLEX),                        M(C_CEDILLA),                           LSHIFT(Key_NonUsBackslashAndPipe),      M(O_CIRCUMFLEX),                        LSHIFT(Key_Quote),                      ___,
+   ___,                                    M(A_GRAVE),                             Key_2,                                  Key_7,                                  M(E_CIRCUMFLEX),                        Key_Equals,
    ___,                                    RALT(Key_2),                            RALT(Key_5),                            RALT(Key_Minus),                        Key_8,                                  RALT(Key_3),                            ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          LSHIFT(Key_LeftBracket),                M(MACRO_U_CIRCUMFLEX),                  ___,
-                                           LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            M(MACRO_I_CIRCUMFLEX),                  M(MACRO_I_DIAERESIS),                   M(MACRO_U_GRAVE),                       ___,
+   ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          LSHIFT(Key_LeftBracket),                M(U_CIRCUMFLEX),                        ___,
+                                           LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            M(I_CIRCUMFLEX),                        M(I_DIAERESIS),                         M(U_GRAVE),                               ___,
    ___,                                    Key_Period,                             Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
-   ___,                                    RALT(Key_6),                            M(MACRO_SPACE_EQUALS_SPACE),            ___,
+   ___,                                    RALT(Key_6),                            M(SPACE_EQUALS_SPACE),                  ___,
    ___),
 
   [LETTER_VARIANT_MACOS] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_LeftBracket,                        Key_Backtick,                           LSHIFT(Key_Backtick),                   M(MACRO_O_CIRCUMFLEX),                  LSHIFT(Key_Quote),                      ___,
-   ___,                                    M(MACRO_A_GRAVE),                       Key_2,                                  Key_7,                                  M(MACRO_E_CIRCUMFLEX),                  Key_Slash,
+   ___,                                    Key_LeftBracket,                        Key_Backtick,                           LSHIFT(Key_Backtick),                   M(O_CIRCUMFLEX),                        LSHIFT(Key_Quote),                      ___,
+   ___,                                    M(A_GRAVE),                             Key_2,                                  Key_7,                                  M(E_CIRCUMFLEX),                        Key_Slash,
    ___,                                    RALT(Key_N),                            LSHIFT(RALT(Key_5)),                    LSHIFT(RALT(Key_Minus)),                LSHIFT(Key_Equals),                     LSHIFT(Key_NonUsBackslashAndPipe),      ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_NonUsBackslashAndPipe,              Key_1,                                  LSHIFT(Key_RightBracket),               LSHIFT(Key_LeftBracket),                M(MACRO_U_CIRCUMFLEX),                  ___,
-                                           LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            M(MACRO_I_CIRCUMFLEX),                  M(MACRO_I_DIAERESIS),                   M(MACRO_U_GRAVE),                       ___,
+   ___,                                    Key_NonUsBackslashAndPipe,              Key_1,                                  LSHIFT(Key_RightBracket),               LSHIFT(Key_LeftBracket),                M(U_CIRCUMFLEX),                        ___,
+                                           LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            M(I_CIRCUMFLEX),                        M(I_DIAERESIS),                         M(U_GRAVE),                             ___,
    ___,                                    Key_Period,                             Key_8,                                  Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
-   ___,                                    RALT(Key_6),                            M(MACRO_SPACE_EQUALS_SPACE),            ___,
+   ___,                                    RALT(Key_6),                            M(SPACE_EQUALS_SPACE),                  ___,
    ___),
 
-  [NUMPAD] =  KEYMAP_STACKED
+  [NAV_LINUX] =  KEYMAP_STACKED
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   LCTRL(Key_N),                           LCTRL(Key_O),                           LCTRL(Key_S),                           LCTRL(Key_T),                           LCTRL(Key_Z),                           LALT(Key_F4),                           ___,
+   Key_Delete,                             LCTRL(Key_W),                           LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
+   LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    Key_UpArrow,                            Key_DownArrow,                          LALT(Key_RightArrow),                   LCTRL(Key_B),                           ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
+                                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
+   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
+   ___,                                    Key_Enter,                              Key_Space,                              ___,
+   ___),
+
+  [NAV_MACOS] =  KEYMAP_STACKED
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   LCTRL(Key_N),                           LCTRL(Key_O),                           LCTRL(Key_S),                           LCTRL(Key_T),                           LCTRL(Key_Z),                           LALT(Key_F4),                           ___,
+   Key_Delete,                             LCTRL(Key_W),                           LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
+   LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    Key_UpArrow,                            Key_DownArrow,                          LALT(Key_RightArrow),                   LCTRL(Key_B),                           ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
+                                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
+   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
+   ___,                                    Key_Enter,                              Key_Space,                              ___,
+   ___),
+
+  [FUNCTION_LINUX] =  KEYMAP_STACKED
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   Key_F11,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                ___,
+   Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,
+   LCTRL(Key_KeypadDivide),                LGUI(Key_LeftArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_DownArrow),                    LGUI(Key_RightArrow),                   LALT(Key_F4),                    ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_F16,                                Key_F17,                                Key_F18,                                Key_F19,                                Key_F20,                                Key_F21,
+                                           Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_Enter,                              ___,                                    ___,
+   ___),
+
+  [FUNCTION_MACOS] =  KEYMAP_STACKED
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   Key_F11,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                ___,
+   Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,
+   LCTRL(Key_KeypadDivide),                LGUI(Key_LeftArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_DownArrow),                    LGUI(Key_RightArrow),                   LALT(Key_F4),                    ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_F16,                                Key_F17,                                Key_F18,                                Key_F19,                                Key_F20,                                Key_F21,
+                                           Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_Enter,                              ___,                                    ___,
+   ___),
+
+  [NUMROW_LINUX] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   M(MACRO_CTRL_G),                        LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
+   LCTRL(Key_G),                           LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   Key_Backspace,                          ___,                                    ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_Equals,                             LSHIFT(Key_Equals),                     Key_Backslash,                          LSHIFT(Key_Period),                     Key_6,                                  ___,
+                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          ___,
+   ___,                                    Period_sh_Colon,                        Key_Slash,                              Key_Comma,                              Comma_sh_SemiColon,                     LSHIFT(Key_M),                          ___,
+   ___,                                    Key_Enter,                              ___,                                    ___,
+   ___),
+
+  [NUMROW_MACOS] =  KEYMAP_STACKED
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   LCTRL(Key_G),                           LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_Backspace,                          ___,                                    ___,                                    ___,
    ___,
@@ -637,7 +617,7 @@ void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count
 const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
   switch (macro_id) {
 
-  case MACRO_A_CIRCUMFLEX:
+  case A_CIRCUMFLEX:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
         ShiftBlocker.enable();
@@ -650,7 +630,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_A_GRAVE:
+  case A_GRAVE:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
         ShiftBlocker.enable();
@@ -662,67 +642,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_APP_CLOSE:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(A), U(LeftGui));
-      } else {
-        return MACRO(D(LeftAlt), T(F4), U(LeftAlt));
-      }
-    }
-    break;
-
-  case MACRO_APP_MAXIMIZE:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(T(LeftControl), T(Apple_Globe), T(F));
-      } else {
-        return MACRO(D(LeftGui), T(UpArrow), U(LeftGui));
-      }
-    }
-    break;
-
-  case MACRO_APP_MINIMIZE:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(M), U(LeftGui));
-      } else {
-        return MACRO(D(LeftGui), T(DownArrow), U(LeftGui));
-      }
-    }
-    break;
-
-  case MACRO_APP_PREVIOUS:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(LeftArrow), U(LeftGui));
-      } else {
-        return MACRO(D(LeftAlt), T(LeftArrow), U(LeftAlt));
-      }
-    }
-    break;
-
-  case MACRO_APP_NEXT:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(RightArrow), U(LeftGui));
-      } else {
-        return MACRO(D(LeftAlt), T(RightArrow), U(LeftAlt));
-      }
-    }
-    break;
-
-  case MACRO_AT:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(Space), U(LeftGui));
-      } else {
-        return MACRO(D(RightAlt), T(0), U(RightAlt));
-      }
-    }
-    break;
-
-  case MACRO_C_CEDILLA:
+  case C_CEDILLA:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
         ShiftBlocker.enable();
@@ -734,425 +654,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_CTRL_A:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(A), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(A), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_B:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(B), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(B), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_C:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(C), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(C), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_D:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(D), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(D), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_DOWN:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftControl), T(DownArrow), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_E:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(E), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(E), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_ENTER:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(Enter), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(Enter), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_END:
-    if (keyToggledOn(event.state)) {
-       if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-          Macros.play(MACRO(D(LeftShift)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftAlt)) {
-        Macros.play(MACRO(D(LeftAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightAlt)) {
-        Macros.play(MACRO(D(RightAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftGui) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightGui)) {
-        Macros.play(MACRO(D(LeftGui)));
-      }
-      return MACRO(D(LeftControl), T(End), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_F:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(F), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(F), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_G:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(G), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(G), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_H:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(H), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(H), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_I:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(I), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(I), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_INSERT:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(Insert), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(Insert), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_J:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(J), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(J), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_K:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(K), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(K), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_HOME:
-    if (keyToggledOn(event.state)) {
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-        Macros.play(MACRO(D(LeftShift)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftAlt)) {
-        Macros.play(MACRO(D(LeftAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightAlt)) {
-        Macros.play(MACRO(D(RightAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftGui) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightGui)) {
-        Macros.play(MACRO(D(LeftGui)));
-      }
-      return MACRO(D(LeftControl), T(Home), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_L:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(L), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(L), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_LEFT:
-    if (keyToggledOn(event.state)) {
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-        Macros.play(MACRO(D(LeftShift)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftAlt)) {
-        Macros.play(MACRO(D(LeftAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightAlt)) {
-        Macros.play(MACRO(D(RightAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftGui) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightGui)) {
-        Macros.play(MACRO(D(LeftGui)));
-      }
-      return MACRO(D(LeftControl), T(LeftArrow), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_M:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(M), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(M), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_N:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(N), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(N), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_O:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(O), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(O), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_P:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(P), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(P), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_PAGE_DOWN:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftControl), T(PageDown), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_PAGE_UP:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftControl), T(PageUp), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_Q:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(Q), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(Q), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_R:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(R), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(R), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_RIGHT:
-    if (keyToggledOn(event.state)) {
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftShift) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightShift)) {
-        Macros.play(MACRO(D(LeftShift)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftAlt)) {
-        Macros.play(MACRO(D(LeftAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightAlt)) {
-        Macros.play(MACRO(D(RightAlt)));
-      }
-      if (Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_LeftGui) || Kaleidoscope.hid().keyboard().wasModifierKeyActive(Key_RightGui)) {
-        Macros.play(MACRO(D(LeftGui)));
-      }
-      return MACRO(D(LeftControl), T(RightArrow), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_S:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(S), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(S), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_SHIFT_F10:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(S), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), D(LeftShift), T(F10), U(LeftShift), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_SPACE:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(Space), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(Space), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_T:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(T), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(T), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_TAB:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(Tab), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(Tab), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_U:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(U), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(U), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_UP:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftControl), T(UpArrow), U(LeftControl));
-    }
-    break;
-
-  case MACRO_CTRL_V:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(V), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(V), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_W:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(W), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(W), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_X:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(X), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(X), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_Y:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(Y), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(Y), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_CTRL_Z:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftGui), T(Z), U(LeftGui));
-      } else {
-        return MACRO(D(LeftControl), T(Z), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_E_ACUTE:
-    if (keyToggledOn(event.state)) {
-      if (isShiftKeyHeld()) {
-        ShiftBlocker.enable();
-        Macros.play(MACRO(T(CapsLock), T(2), T(CapsLock)));
-        ShiftBlocker.disable();
-      } else {
-        return MACRO(T(2));
-      }
-    }
-    break;
-
-  case MACRO_E_CIRCUMFLEX:
+  case E_CIRCUMFLEX:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
         ShiftBlocker.enable();
@@ -1165,42 +667,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_E_DIAERESIS:
-    if (keyToggledOn(event.state)) {
-      if (isShiftKeyHeld()) {
-        return MACRO(T(LeftBracket),  T(E));
-      } else {
-        Macros.play(MACRO(D(LeftShift), T(LeftBracket), U(LeftShift)));
-        ShiftBlocker.enable();
-        Macros.play(MACRO(T(E)));
-        ShiftBlocker.disable();
-      }
-    }
-    break;
-
-  case MACRO_E_GRAVE:
-    if (keyToggledOn(event.state)) {
-      if (isShiftKeyHeld()) {
-        ShiftBlocker.enable();
-        Macros.play(MACRO(T(CapsLock), T(7), T(CapsLock)));
-        ShiftBlocker.disable();
-      } else {
-        return MACRO(T(7));
-      }
-    }
-    break;
-
-  case MACRO_ESCAPE_ALT_F12_CTRL_P:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(T(Escape), D(LeftAlt), T(F12), U(LeftAlt), D(LeftControl), T(P), U(LeftControl));
-      } else {
-        return MACRO(T(Escape), D(LeftAlt), T(F12), U(LeftAlt), D(LeftControl), T(P), U(LeftControl));
-      }
-    }
-    break;
-
-  case MACRO_I_CIRCUMFLEX:
+  case I_CIRCUMFLEX:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
         ShiftBlocker.enable();
@@ -1213,7 +680,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_I_DIAERESIS:
+  case I_DIAERESIS:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
         return MACRO(T(LeftBracket),  T(I));
@@ -1226,27 +693,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_MOVE_LEFT:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftControl), D(Apple_Globe), T(LeftArrow), U(Apple_Globe), U(LeftControl));
-      } else {
-        return MACRO(D(LeftGui), D(Apple_Globe), T(LeftArrow), U(Apple_Globe), U(LeftGui));
-      }
-    }
-    break;
-
-  case MACRO_MOVE_RIGHT:
-    if (keyToggledOn(event.state)) {
-      if (HostOS.os() == kaleidoscope::hostos::MACOS) {
-        return MACRO(D(LeftControl), T(RightArrow), U(LeftControl));
-      } else {
-        return MACRO(D(LeftGui), T(RightArrow), U(LeftGui));
-      }
-    }
-    break;
-
-  case MACRO_O_CIRCUMFLEX:
+  case O_CIRCUMFLEX:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
         ShiftBlocker.enable();
@@ -1259,7 +706,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_PRINT_OS:
+  case PRINT_OS:
     if (keyToggledOn(event.state)) {
       if (HostOS.os() == kaleidoscope::hostos::LINUX) {
         Macros.type(PSTR("Linux"));
@@ -1276,112 +723,27 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_SET_OS_LINUX:
+  case SET_OS_LINUX:
     if (keyToggledOn(event.state)) {
         HostOS.os(kaleidoscope::hostos::LINUX);
         return MACRO(Tr(LockLayer(ERGOL_ON_AZERTY_LINUX)));
     }
     break;
 
-  case MACRO_SET_OS_MACOS:
+  case SET_OS_MACOS:
     if (keyToggledOn(event.state)) {
         HostOS.os(kaleidoscope::hostos::MACOS);
         return MACRO(Tr(LockLayer(ERGOL_ON_AZERTY_MACOS)));
     }
     break;
 
-  case MACRO_SHIFT_CTRL_DOWN_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), D(LeftControl), T(DownArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
-
-  case MACRO_SHIFT_CTRL_END_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), D(LeftControl), T(End), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
-
-  case MACRO_SHIFT_CTRL_HOME_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), D(LeftControl), T(Home), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
-
-  case MACRO_SHIFT_CTRL_LEFT_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), D(LeftControl), T(LeftArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
-
-
-  case MACRO_SHIFT_CTRL_RIGHT_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), D(LeftControl), T(RightArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
-
-  case MACRO_SHIFT_CTRL_UP_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), D(LeftControl), T(UpArrow), U(LeftControl), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
-
-  case MACRO_SHIFT_DOWN_CTRL_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), T(DownArrow), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
-
-  case MACRO_SHIFT_END_CTRL_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), T(End), U(LeftShift), D(LeftControl), T(X), U(LeftControl), T(Space), T(Space), T(Backspace), T(Backspace));
-    }
-    break;
-
-  case MACRO_SHIFT_HOME_CTRL_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), T(Home), U(LeftShift), D(LeftControl), T(X), U(LeftControl), T(Space), T(Backspace));
-    }
-    break;
-
-  case MACRO_SHIFT_PERCENT:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), T(Equals), U(LeftShift));
-    }
-    break;
-
-  case MACRO_SHIFT_PG_DOWN_CTRL_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), T(PageDown), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
-
-  case MACRO_SHIFT_PG_UP_CTRL_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), T(PageUp), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
-
-  case MACRO_SHIFT_UP_CTRL_X:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), T(UpArrow), U(LeftShift), D(LeftControl), T(X), U(LeftControl));
-    }
-    break;
-
-  case MACRO_SHIFT_SUPER_Z:
-    if (keyToggledOn(event.state)) {
-      return MACRO(D(LeftShift), D(LeftGui), T(LeftBracket), U(LeftGui), U(LeftShift));
-    }
-    break;
-
-  case MACRO_SPACE_EQUALS_SPACE:
+  case SPACE_EQUALS_SPACE:
     if (keyToggledOn(event.state)) {
       return MACRO(T(Space), T(Equals), T(Space));
     }
     break;
 
-  case MACRO_U_CIRCUMFLEX:
+  case U_CIRCUMFLEX:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
         ShiftBlocker.enable();
@@ -1394,20 +756,7 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
-  case MACRO_U_DIAERESIS:
-    if (keyToggledOn(event.state)) {
-      if (isShiftKeyHeld()) {
-        return MACRO(T(LeftBracket),  T(U));
-      } else {
-        Macros.play(MACRO(D(LeftShift), T(LeftBracket), U(LeftShift)));
-        ShiftBlocker.enable();
-        Macros.play(MACRO(T(U)));
-        ShiftBlocker.disable();
-      }
-    }
-    break;
-
-  case MACRO_U_GRAVE:
+  case U_GRAVE:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
         ShiftBlocker.enable();
@@ -1710,9 +1059,9 @@ void setup() {
 
 // On ERGOL_ON_AZERTY_LINUX layer
 // Thumb keys
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 7), ShiftToLayer(NAV)),
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 7), ShiftToLayer(FUNCTION)),
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 7), ShiftToLayer(NAV_LINUX)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 7), ShiftToLayer(FUNCTION_LINUX)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMROW_LINUX)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 8), ShiftToLayer(SYMBOL_LINUX)),
 
 // Homerow
@@ -1724,9 +1073,9 @@ void setup() {
 
 // On ERGOL_ON_AZERTY_MACOS layer
 // Thumb keys
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 7), ShiftToLayer(NAV)),
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 7), ShiftToLayer(FUNCTION)),
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 8), ShiftToLayer(NUMPAD)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 7), ShiftToLayer(NAV_MACOS)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 7), ShiftToLayer(FUNCTION_MACOS)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 8), ShiftToLayer(NUMROW_MACOS)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 8), ShiftToLayer(SYMBOL_MACOS)),
 
 // Homerow
@@ -1735,37 +1084,65 @@ void setup() {
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 3), Key_LeftGui),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 4), Key_LeftShift),
 
-// On NAV layer
-// For Alt+Tab
-       kaleidoscope::plugin::Qukey(NAV, KeyAddr(1, 3), Key_LeftAlt),
+// On NAV_LINUX layer
 // Homerow
-       kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 1), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 2), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 3), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(NAV, KeyAddr(2, 4), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(2, 2), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(2, 3), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(2, 4), Key_LeftShift),
 
 
-// On FUNCTION layer
+// On NAV_MACOS layer
 // Homerow
-       kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 1), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 2), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 3), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 4), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 11), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 12), Key_LeftControl),
-//        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 13), Key_LeftAlt),
-//        kaleidoscope::plugin::Qukey(FUNCTION, KeyAddr(2, 14), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(2, 2), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(2, 3), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(2, 4), Key_LeftShift),
 
-// On NUMPAD layer
+// On FUNCTION_LINUX layer
 // Homerow
-       kaleidoscope::plugin::Qukey(NUMPAD, KeyAddr(2, 1), Key_LeftGui),
-       kaleidoscope::plugin::Qukey(NUMPAD, KeyAddr(2, 2), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(NUMPAD, KeyAddr(2, 3), Key_LeftControl),
-//        kaleidoscope::plugin::Qukey(NUMPAD, KeyAddr(2, 4), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(NUMPAD, KeyAddr(2, 11), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(NUMPAD, KeyAddr(2, 12), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(NUMPAD, KeyAddr(2, 13), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(NUMPAD, KeyAddr(2, 14), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 2), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 3), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 4), Key_LeftShift),
+//        kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 11), Key_LeftShift),
+//        kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 12), Key_LeftControl),
+//        kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 13), Key_LeftAlt),
+//        kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 14), Key_LeftGui),
+
+// On FUNCTION_MACOS layer
+// Homerow
+       kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 2), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 3), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 4), Key_LeftShift),
+//        kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 11), Key_LeftShift),
+//        kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 12), Key_LeftControl),
+//        kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 13), Key_LeftAlt),
+//        kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 14), Key_LeftGui),
+
+
+// On NUMROW_LINUX layer
+// Homerow
+       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 1), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 2), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 3), Key_LeftControl),
+//        kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 4), Key_LeftShift),
+//        kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 11), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 12), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 13), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 14), Key_LeftGui),
+
+// On NUMROW_MACOS layer
+// Homerow
+       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 1), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 2), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 3), Key_LeftGui),
+//        kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 4), Key_LeftShift),
+//        kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 11), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 12), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 13), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 14), Key_LeftControl),
   )
 
   //Qukeys.setHoldTimeout(300);
@@ -1816,23 +1193,23 @@ void setup() {
   //                      (0, 7) (1, 7) (2, 7) (3, 7) | (3, 8) (2, 8)  (1, 8)  (0, 8)
   //                                           (3, 6) | (3, 9)
   COLORMAP_OVERLAYS(
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(0, 11), 23),  // 7
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(1, 11), 23),  // 4
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(2, 11), 23),  // 1
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(3, 11), 23),  // 0
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(0, 12), 23),  // 8
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(1, 12), 23),  // 5
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(2, 12), 23),  // 2
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(3, 12), 23),  // period
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(0, 13), 23),  // 9
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(1, 13), 23),  // 6
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(2, 13), 23),  // 3
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(3, 13), 23),  // multiply
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(0, 14), 23),  // substract
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(1, 14), 23),  // add
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(2, 14), 23),  // equals
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(3, 14), 23),  // divide
-    kaleidoscope::plugin::Overlay(NUMPAD, KeyAddr(3, 15), 23),  // enter
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(0, 11), 23),  // 7
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(1, 11), 23),  // 4
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(2, 11), 23),  // 1
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(3, 11), 23),  // 0
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(0, 12), 23),  // 8
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(1, 12), 23),  // 5
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(2, 12), 23),  // 2
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(3, 12), 23),  // period
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(0, 13), 23),  // 9
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(1, 13), 23),  // 6
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(2, 13), 23),  // 3
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(3, 13), 23),  // multiply
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(0, 14), 23),  // substract
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(1, 14), 23),  // add
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(2, 14), 23),  // equals
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(3, 14), 23),  // divide
+    kaleidoscope::plugin::Overlay(NUMROW_LINUX, KeyAddr(3, 15), 23),  // enter
     )                                                           // COLORMAP_OVERLAYS(
 
   // Set the hue of the boot greeting effect to something that will result in a
