@@ -330,7 +330,7 @@ KEYMAPS(
    Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
-   Key_Backtick,                           Key_Semicolon,                          Key_Quote,                              Key_Minus,                              Key_NonUsPound,                         Key_International1,                     Key_International2,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT_MACOS),              Key_Y,                                  Key_PcApplication,
                                            Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
    ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
