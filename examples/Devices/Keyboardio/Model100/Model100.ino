@@ -412,8 +412,8 @@ KEYMAPS(
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
-                                           LCTRL(Key_LeftArrow),                   Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LCTRL(Key_RightArrow),
-   ___,                                    LCTRL(Key_Home),                        Key_Home,                               LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      Key_End,                                LCTRL(Key_End),
+                                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
+   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
    ___,                                    Key_Enter,                              Key_Space,                              ___,
    ___),
 
