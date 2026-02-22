@@ -225,6 +225,8 @@ enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, SYMBOL_LINUX, SYMBOL_MACOS,
 #define Minus_sh_Underscore_mac      CS(8)
 
 #define AltRightArrow_x2_CtrlAltTab  TD(0)
+#define Backspace_x2_CtrlBackspace   TD(1)
+#define Backspace_x2_SuperBackspace  TD(2)
 
 
 /* This comment temporarily turns off astyle's indent enforcement
@@ -312,7 +314,7 @@ KEYMAPS(
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Underscore_linux,              Key_V,                                  Key_B,                                  ___,
-   Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
+   Key_Tab,                                Backspace_x2_CtrlBackspace,             Key_Enter,                              ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
@@ -323,11 +325,11 @@ KEYMAPS(
    ___),
 
   [ERGOL_ON_AZERTY_MACOS] = KEYMAP_STACKED
-  (M(SET_OS_LINUX),                        M(SET_OS_MACOS),                        M(PRINT_OS),                            ___,                                    ___,                                    ___,                                    ___,
+  (M(SET_OS_LINUX),                        M(SET_OS_MACOS),                        M(PRINT_OS),                            Consumer_AC_NextKeyboardLayoutSelect,   ___,                                    ___,                                    Consumer_AC_NextKeyboardLayoutSelect,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Underscore_mac,                Key_V,                                  Key_B,                                  ___,
-   Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
+   Key_Tab,                                Backspace_x2_SuperBackspace,            Key_Enter,                              ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
@@ -597,6 +599,12 @@ void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count
   switch (tap_dance_index) {
   case 0:
     return tapDanceActionKeys(tap_count, tap_dance_action, LALT(Key_RightArrow), LCTRL(LALT(Key_Tab)));
+
+  case 1:
+    return tapDanceActionKeys(tap_count, tap_dance_action, Key_Backspace, LCTRL(Key_Backspace));
+
+  case 2:
+    return tapDanceActionKeys(tap_count, tap_dance_action, Key_Backspace, LGUI(Key_Backspace));
   }
 
 }
