@@ -408,22 +408,22 @@ KEYMAPS(
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
                                            Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
-   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
+   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LCTRL(Key_RightArrow),                  LCTRL(Key_End),
    ___,                                    Key_Enter,                              Key_Space,                              ___,
    ___),
 
   [NAV_MACOS] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   LCTRL(Key_N),                           LCTRL(Key_O),                           LCTRL(Key_S),                           LCTRL(Key_T),                           LCTRL(Key_Z),                           LALT(Key_F4),                           ___,
-   Key_Delete,                             LCTRL(Key_W),                           LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
-   LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    Key_UpArrow,                            Key_DownArrow,                          LALT(Key_RightArrow),                   LCTRL(Key_B),                           ___,
+   LGUI(Key_N),                            LGUI(Key_O),                            LGUI(Key_S),                            LGUI(Key_T),                            LGUI(Key_Z),                            LGUI(Key_A),                            ___,
+   Key_Delete,                             LGUI(Key_W),                            LGUI(Key_X),                            LGUI(Key_C),                            LGUI(Key_V),                            LGUI(Key_F),
+   LGUI(Key_KeypadDivide),                 LGUI(Key_LeftArrow),                    Key_UpArrow,                            Key_DownArrow,                          LGUI(Key_RightArrow),                   LGUI(Key_B),                            ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
-                                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
-   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LCTRL(Key_RightArrow),                  LCTRL(Key_End),
+   ___,                                    LALT(Key_Backspace),                    Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LALT(Key_Delete),
+                                           LGUI(Key_LeftArrow),                    Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LGUI(Key_RightArrow),
+   ___,                                    LGUI(Key_UpArrow),                      LALT(Key_LeftArrow),                    LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LALT(Key_RightArrow),                   LGUI(Key_DownArrow),
    ___,                                    Key_Enter,                              Key_Space,                              ___,
    ___),
 
@@ -431,7 +431,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_F11,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                ___,
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,
-   LCTRL(Key_KeypadDivide),                LGUI(Key_LeftArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_DownArrow),                    LGUI(Key_RightArrow),                   LALT(Key_F4),                    ___,
+   LCTRL(Key_KeypadDivide),                LGUI(Key_LeftArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_DownArrow),                    LGUI(Key_RightArrow),                   LALT(Key_F4),                           ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -446,7 +446,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_F11,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                ___,
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,
-   LCTRL(Key_KeypadDivide),                LGUI(Key_LeftArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_DownArrow),                    LGUI(Key_RightArrow),                   LALT(Key_F4),                    ___,
+   LGUI(Key_KeypadDivide),                 LGUI(Key_LeftArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_DownArrow),                    LGUI(Key_RightArrow),                   LGUI(Key_A),                            ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -475,7 +475,7 @@ KEYMAPS(
   [NUMROW_MACOS] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   LCTRL(Key_G),                           LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
+   LGUI(Key_L),                            LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_Backspace,                          ___,                                    ___,                                    ___,
    ___,
