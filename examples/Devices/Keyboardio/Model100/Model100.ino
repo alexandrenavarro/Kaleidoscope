@@ -409,7 +409,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    LCTRL(Key_N),                           LCTRL(Key_O),                           LCTRL(Key_S),                           LCTRL(Key_T),                           LCTRL(Key_Z),                           LALT(Key_F4),                           ___,
    Key_Delete,                             LCTRL(Key_W),                           LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
-   LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    Key_UpArrow,                            Key_DownArrow,                          LALT(Key_RightArrow),                   LCTRL(Key_B),                           ___,
+   LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    LCTRL(Key_H),                           LCTRL(Key_R),                           LALT(Key_RightArrow),                   LCTRL(Key_B),                           ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -424,7 +424,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    LGUI(Key_N),                            LGUI(Key_O),                            LGUI(Key_S),                            LGUI(Key_T),                            LGUI(Key_Z),                            LGUI(Key_A),                            ___,
    Key_Delete,                             LGUI(Key_W),                            LGUI(Key_X),                            LGUI(Key_C),                            LGUI(Key_V),                            LGUI(Key_F),
-   LGUI(Key_KeypadDivide),                 LGUI(Key_LeftArrow),                    Key_UpArrow,                            Key_DownArrow,                          LGUI(Key_RightArrow),                   LGUI(Key_B),                            ___,
+   LGUI(Key_KeypadDivide),                 LGUI(Key_LeftArrow),                    LGUI(Key_H),                            LGUI(Key_R),                            LGUI(Key_RightArrow),                   LGUI(Key_B),                            ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
