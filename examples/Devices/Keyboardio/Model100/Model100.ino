@@ -135,7 +135,12 @@ enum {
        E_CIRCUMFLEX,
        I_CIRCUMFLEX,
        I_DIAERESIS,
+       MAXIMIZE_WINDOW_MACOS,
+       MOVE_WINDOW_TO_HALF_LEFT_MACOS,
+       MOVE_WINDOW_TO_HALF_RIGHT_MACOS,
        O_CIRCUMFLEX,
+       PAGE_DOWN_MACOS,
+       PAGE_UP_MACOS,
        PRINT_OS,
        SET_OS_LINUX,
        SET_OS_MACOS,
@@ -223,6 +228,7 @@ enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, SYMBOL_LINUX, SYMBOL_MACOS,
 #define Apostrophe_sh_QuestionMark   CS(6)
 #define Minus_sh_Underscore_linux    CS(7)
 #define Minus_sh_Underscore_mac      CS(8)
+#define Slash                        CS(9)
 
 #define AltRightArrow_x2_CtrlAltTab  TD(0)
 #define Backspace_x2_CtrlBackspace   TD(1)
@@ -313,11 +319,11 @@ KEYMAPS(
   (M(SET_OS_LINUX),                        M(SET_OS_MACOS),                        M(PRINT_OS),                            ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
-   ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Underscore_linux,              Key_V,                                  Key_B,                                  ___,
+   Slash,                                  Key_W,                                  Key_X,                                  Minus_sh_Underscore_linux,              Key_V,                                  Key_B,                                  ___,
    Key_Tab,                                Backspace_x2_CtrlBackspace,             Key_Enter,                              ___,
    ___,
 
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   Key_CapsLock,                           ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT_LINUX),              Key_Y,                                  Key_PcApplication,
                                            Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
    ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
@@ -328,11 +334,11 @@ KEYMAPS(
   (M(SET_OS_LINUX),                        M(SET_OS_MACOS),                        M(PRINT_OS),                            Consumer_AC_NextKeyboardLayoutSelect,   ___,                                    ___,                                    Consumer_AC_NextKeyboardLayoutSelect,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
-   ___,                                    Key_W,                                  Key_X,                                  Minus_sh_Underscore_mac,                Key_V,                                  Key_B,                                  ___,
+   Slash,                                  Key_W,                                  Key_X,                                  Minus_sh_Underscore_mac,                Key_V,                                  Key_B,                                  ___,
    Key_Tab,                                Backspace_x2_SuperBackspace,            Key_Enter,                              ___,
    ___,
 
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   Key_CapsLock,                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT_MACOS),              Key_Y,                                  Key_PcApplication,
                                            Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
    ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
@@ -423,9 +429,9 @@ KEYMAPS(
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    LALT(Key_Backspace),                    Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LALT(Key_Delete),
+   ___,                                    LALT(Key_Backspace),                    Key_Backspace,                          M(PAGE_DOWN_MACOS),                     M(PAGE_UP_MACOS),                       Key_Delete,                             LALT(Key_Delete),
                                            LGUI(Key_LeftArrow),                    Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LGUI(Key_RightArrow),
-   ___,                                    LGUI(Key_UpArrow),                      LALT(Key_LeftArrow),                    LALT(Key_DownArrow),                    LALT(Key_UpArrow),                      LALT(Key_RightArrow),                   LGUI(Key_DownArrow),
+   ___,                                    LGUI(Key_UpArrow),                      LALT(Key_LeftArrow),                    LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LALT(Key_RightArrow),                   LGUI(Key_DownArrow),
    ___,                                    Key_Enter,                              Key_Space,                              ___,
    ___),
 
@@ -433,7 +439,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_F11,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                ___,
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,
-   LCTRL(Key_KeypadDivide),                LGUI(Key_LeftArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_DownArrow),                    LGUI(Key_RightArrow),                   LALT(Key_F4),                           ___,
+   ___,                                    LGUI(Key_LeftArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_DownArrow),                    LGUI(Key_RightArrow),                   LALT(Key_F4),                           ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -448,7 +454,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_F11,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                ___,
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,
-   LGUI(Key_KeypadDivide),                 LGUI(Key_LeftArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_DownArrow),                    LGUI(Key_RightArrow),                   LGUI(Key_A),                            ___,
+   ___,                                    M(MOVE_WINDOW_TO_HALF_LEFT_MACOS),      M(MAXIMIZE_WINDOW_MACOS),               LGUI(Key_Semicolon),                    M(MOVE_WINDOW_TO_HALF_LEFT_MACOS),      LGUI(Key_A),                            ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -701,6 +707,24 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
+  case MAXIMIZE_WINDOW_MACOS:
+    if (keyToggledOn(event.state)) {
+      return (MACRO(D(CapsLock), D(LeftControl), T(F), U(LeftControl), U(CapsLock)));
+    }
+    break;
+
+  case MOVE_WINDOW_TO_HALF_LEFT_MACOS:
+    if (keyToggledOn(event.state)) {
+      return (MACRO(D(CapsLock), D(LeftControl), T(LeftArrow), U(LeftControl), U(CapsLock)));
+    }
+    break;
+
+  case MOVE_WINDOW_TO_HALF_RIGHT_MACOS:
+    if (keyToggledOn(event.state)) {
+      return (MACRO(D(CapsLock), D(LeftControl), T(RightArrow), U(LeftControl), U(CapsLock)));
+    }
+    break;
+
   case O_CIRCUMFLEX:
     if (keyToggledOn(event.state)) {
       if (isShiftKeyHeld()) {
@@ -711,6 +735,18 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
       } else {
         return MACRO(T(LeftBracket), T(O));
       }
+    }
+    break;
+
+  case PAGE_DOWN_MACOS:
+    if (keyToggledOn(event.state)) {
+      return (MACRO(D(CapsLock), T(DownArrow), U(CapsLock)));
+    }
+    break;
+
+  case PAGE_UP_MACOS:
+    if (keyToggledOn(event.state)) {
+      return (MACRO(D(CapsLock), T(UpArrow), U(CapsLock)));
     }
     break;
 
@@ -1163,15 +1199,16 @@ void setup() {
 
   // CharShift
   CS_KEYS(
-    kaleidoscope::plugin::CharShift::KeyPair(Key_Space, Key_8),                     // #define Space_sh_Underscore                          CS(0)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),        // #define Dollar_sh_Hash                               CS(1)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_5, RALT(Key_5)),                   // #define LeftParenthesis_sh_Bracket                   CS(2)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_Minus, RALT(Key_Minus)),           // #define RightParenthesis_sh_Bracket                  CS(3)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_M, Key_Comma),                     // #define Comma_sh_SemiColon                           CS(4)
-    kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),        // #define Period_sh_Colon                              CS(5)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                 // #define Apostrophe_sh_QuestionMark                   CS(6)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_6, Key_8),                         // #define Minus_sh_Underscore_linux                    CS(7)
-    kaleidoscope::plugin::CharShift::KeyPair(Key_Equals, LSHIFT(Key_Equals)),       // #define Minus_sh_Underscore_mac                      CS(8)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_Space, Key_8),                      // #define Space_sh_Underscore                          CS(0)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_RightBracket, RALT(Key_3)),         // #define Dollar_sh_Hash                               CS(1)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_5, RALT(Key_5)),                    // #define LeftParenthesis_sh_Bracket                   CS(2)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_Minus, RALT(Key_Minus)),            // #define RightParenthesis_sh_Bracket                  CS(3)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_M, Key_Comma),                      // #define Comma_sh_SemiColon                           CS(4)
+    kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Comma), Key_Period),         // #define Period_sh_Colon                              CS(5)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_4, LSHIFT(Key_M)),                  // #define Apostrophe_sh_QuestionMark                   CS(6)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_6, Key_8),                          // #define Minus_sh_Underscore_linux                    CS(7)
+    kaleidoscope::plugin::CharShift::KeyPair(Key_Equals, LSHIFT(Key_Equals)),        // #define Minus_sh_Underscore_mac                      CS(8)
+    kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Period), LSHIFT(Key_Period)),// #define Slash                                        CS(9)
   );
 
   CHORDS(
