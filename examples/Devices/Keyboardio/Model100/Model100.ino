@@ -1130,40 +1130,48 @@ void setup() {
 
 // On NAV_LINUX layer
 // Homerow
-       kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(2, 3), Key_LeftControl),
        kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(2, 4), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(3, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(1, 2), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(1, 3), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NAV_LINUX, KeyAddr(3, 4), Key_LeftGui),
 
 
 // On NAV_MACOS layer
 // Homerow
-       kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(2, 1), Key_LeftControl),
        kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(2, 3), Key_LeftGui),
        kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(2, 4), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(3, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(1, 2), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(1, 3), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NAV_MACOS, KeyAddr(3, 4), Key_LeftControl),
 
 // On FUNCTION_LINUX layer
 // Homerow
-       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 2), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 3), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 3), Key_LeftControl),
        kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 4), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 11), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 12), Key_LeftControl),
-//        kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 13), Key_LeftAlt),
-//        kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(2, 14), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(3, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(1, 2), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(1, 3), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(FUNCTION_LINUX, KeyAddr(3, 4), Key_LeftGui),
 
 // On FUNCTION_MACOS layer
 // Homerow
-       kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 1), Key_LeftControl),
        kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 3), Key_LeftGui),
        kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 4), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 11), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 12), Key_LeftControl),
-//        kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 13), Key_LeftAlt),
-//        kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(2, 14), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(3, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(1, 2), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(1, 3), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(FUNCTION_MACOS, KeyAddr(3, 4), Key_LeftControl),
 
 
 // On NUMROW_LINUX layer
@@ -1171,22 +1179,22 @@ void setup() {
        kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 1), Key_LeftGui),
        kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 3), Key_LeftControl),
-//        kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 4), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 11), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 12), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 13), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 14), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(2, 4), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(3, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(1, 2), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(1, 3), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NUMROW_LINUX, KeyAddr(3, 4), Key_LeftGui),
 
 // On NUMROW_MACOS layer
 // Homerow
        kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 1), Key_LeftControl),
        kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 2), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 3), Key_LeftGui),
-//        kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 4), Key_LeftShift),
-//        kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 11), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 12), Key_LeftGui),
-       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 13), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 14), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(2, 4), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(3, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(1, 2), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(1, 3), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NUMROW_MACOS, KeyAddr(3, 4), Key_LeftControl),
   )
 
   //Qukeys.setHoldTimeout(300);
