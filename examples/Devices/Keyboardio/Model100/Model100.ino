@@ -316,7 +316,7 @@ KEYMAPS(
 #endif
 
   [ERGOL_ON_AZERTY_LINUX] = KEYMAP_STACKED
-  (M(SET_OS_LINUX),                        M(SET_OS_MACOS),                        M(PRINT_OS),                            ___,                                    ___,                                    ___,                                    ___,
+  (M(SET_OS_MACOS),                        M(PRINT_OS),                            ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    Slash,                                  Key_W,                                  Key_X,                                  Minus_sh_Underscore_linux,              Key_V,                                  Key_B,                                  ___,
@@ -331,14 +331,14 @@ KEYMAPS(
    ___),
 
   [ERGOL_ON_AZERTY_MACOS] = KEYMAP_STACKED
-  (M(SET_OS_LINUX),                        M(SET_OS_MACOS),                        M(PRINT_OS),                            Consumer_AC_NextKeyboardLayoutSelect,   ___,                                    ___,                                    Consumer_AC_NextKeyboardLayoutSelect,
+  (M(SET_OS_MACOS),                        M(PRINT_OS),                            ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    Slash,                                  Key_W,                                  Key_X,                                  Minus_sh_Underscore_mac,                Key_V,                                  Key_B,                                  ___,
    Key_Tab,                                Backspace_x2_SuperBackspace,            Key_Enter,                              ___,
    ___,
 
-   Key_CapsLock,                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT_MACOS),              Key_Y,                                  Key_PcApplication,
                                            Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
    ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
