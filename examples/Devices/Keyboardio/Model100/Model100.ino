@@ -469,7 +469,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    LCTRL(Key_G),                           LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    Key_8,                                  ___,                                    ___,
    Key_Backspace,                          ___,                                    ___,                                    ___,
    ___,
 
@@ -484,7 +484,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    LGUI(Key_L),                            LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    LSHIFT(Key_Equals),                     ___,                                    ___,
    Key_Backspace,                          ___,                                    ___,                                    ___,
    ___,
 
