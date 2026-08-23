@@ -326,7 +326,7 @@ KEYMAPS(
    Key_CapsLock,                           ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT_LINUX),              Key_Y,                                  Key_PcApplication,
                                            Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
-   ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
+   ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_3,
    ___,                                    OSL(SYMBOL_LINUX),                      Key_Space,                              OSM(LeftShift),
    ___),
 
@@ -341,7 +341,7 @@ KEYMAPS(
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    Key_J,                                  Key_Semicolon,                          Key_D,                                  OSL(LETTER_VARIANT_MACOS),              Key_Y,                                  Key_PcApplication,
                                            Key_L,                                  Key_R,                                  Key_T,                                  Key_I,                                  Key_U,                                  Apostrophe_sh_QuestionMark,
-   ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_PrintScreen,
+   ___,                                    Period_sh_Colon,                        Key_H,                                  Key_G,                                  Comma_sh_SemiColon,                     Key_K,                                  Key_3,
    ___,                                    OSL(SYMBOL_MACOS),                      Key_Space,                              OSM(LeftShift),
    ___),
 
