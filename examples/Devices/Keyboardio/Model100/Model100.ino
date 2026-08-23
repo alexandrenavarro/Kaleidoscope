@@ -231,7 +231,7 @@ enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, SYMBOL_LINUX, SYMBOL_MACOS,
 #define Slash                        CS(9)
 
 #define AltRightArrow_x2_CtrlAltTab  TD(0)
-#define Backspace_x2_CtrlBackspace   TD(1)
+#define Backspace_x2_AltSpace        TD(1)
 #define Backspace_x2_SuperBackspace  TD(2)
 
 
@@ -320,7 +320,7 @@ KEYMAPS(
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    Slash,                                  Key_W,                                  Key_X,                                  Minus_sh_Underscore_linux,              Key_V,                                  Key_B,                                  ___,
-   Key_Tab,                                Backspace_x2_CtrlBackspace,             Key_Enter,                              ___,
+   Key_Tab,                                Backspace_x2_AltSpace,                  Key_Enter,                              ___,
    ___,
 
    Key_CapsLock,                           ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
@@ -607,7 +607,7 @@ void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count
     return tapDanceActionKeys(tap_count, tap_dance_action, LALT(Key_RightArrow), LCTRL(LALT(Key_Tab)));
 
   case 1:
-    return tapDanceActionKeys(tap_count, tap_dance_action, Key_Backspace, LCTRL(Key_Backspace));
+    return tapDanceActionKeys(tap_count, tap_dance_action, Key_Backspace, LALT(Key_Space));
 
   case 2:
     return tapDanceActionKeys(tap_count, tap_dance_action, Key_Backspace, LGUI(Key_Backspace));
@@ -1082,8 +1082,8 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // TapDance
   TapDance,
 
-  // Chord
-  Chord,
+//   // Chord
+//   Chord,
 
   // The hardware test mode, which can be invoked by tapping Prog, LED and the
   // left Fn button at the same time.
@@ -1219,13 +1219,13 @@ void setup() {
     kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Period), LSHIFT(Key_Period)),// #define Slash                                        CS(9)
   );
 
-  CHORDS(
-//     CHORD(Key_Q, Key_S), Key_Escape,
-//     CHORD(Key_Q, Key_E), Key_Escape,
-//     CHORD(Key_S, Key_N), Key_Escape,
-    CHORD(Key_S, Key_E), LALT(Key_Space),
-//     CHORD(Key_E, Key_N), Key_Tab,
-  )
+//   CHORDS(
+// //     CHORD(Key_Q, Key_S), Key_Escape,
+// //     CHORD(Key_Q, Key_E), Key_Escape,
+// //     CHORD(Key_S, Key_N), Key_Escape,
+//     CHORD(Key_S, Key_E), LALT(Key_Space),
+// //     CHORD(Key_E, Key_N), Key_Tab,
+//   )
 
   //  AutoShift for letter keys and number keys only:
 //   AutoShift.setEnabled(AutoShift.letterKeys() | AutoShift.symbolKeys());
