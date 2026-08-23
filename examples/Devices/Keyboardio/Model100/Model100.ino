@@ -439,7 +439,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    Key_F11,                                Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                ___,
    Key_F12,                                Key_F1,                                 Key_F2,                                 Key_F3,                                 Key_F4,                                 Key_F5,
-   ___,                                    LGUI(Key_LeftArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_DownArrow),                    LGUI(Key_RightArrow),                   LALT(Key_F4),                           ___,
+   LGUI(Key_R),                            LGUI(Key_LeftArrow),                    LGUI(Key_UpArrow),                      LGUI(Key_DownArrow),                    LGUI(Key_RightArrow),                   LGUI(Key_F),                            ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
