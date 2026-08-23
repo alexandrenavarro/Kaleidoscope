@@ -144,6 +144,7 @@ enum {
        PRINT_OS,
        SET_OS_LINUX,
        SET_OS_MACOS,
+       SHIFT_SHIFT,
        SPACE_EQUALS_SPACE,
        U_CIRCUMFLEX,
        U_GRAVE,
@@ -317,7 +318,7 @@ KEYMAPS(
 
   [ERGOL_ON_AZERTY_LINUX] = KEYMAP_STACKED
   (M(SET_OS_MACOS),                        M(PRINT_OS),                            ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
+   M(SHIFT_SHIFT),                         Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    Slash,                                  Key_W,                                  Key_X,                                  Minus_sh_Underscore_linux,              Key_V,                                  Key_B,                                  ___,
    Key_Tab,                                Backspace_x2_AltSpace,                  Key_Enter,                              ___,
@@ -778,6 +779,12 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     if (keyToggledOn(event.state)) {
         HostOS.os(kaleidoscope::hostos::MACOS);
         return MACRO(Tr(LockLayer(ERGOL_ON_AZERTY_MACOS)));
+    }
+    break;
+
+  case SHIFT_SHIFT:
+    if (keyToggledOn(event.state)) {
+      return (MACRO(T(LeftShift), T(LeftShift)));
     }
     break;
 
