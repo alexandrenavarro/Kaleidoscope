@@ -231,9 +231,9 @@ enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, SYMBOL_LINUX, SYMBOL_MACOS,
 #define Minus_sh_Underscore_mac      CS(8)
 #define Slash                        CS(9)
 
-#define AltRightArrow_x2_CtrlAltTab  TD(0)
-#define Backspace_x2_AltSpace        TD(1)
-#define Backspace_x2_SuperBackspace  TD(2)
+// #define AltRightArrow_x2_CtrlAltTab  TD(0)
+// #define Backspace_x2_AltSpace        TD(1)
+// #define Backspace_x2_SuperBackspace  TD(2)
 
 
 /* This comment temporarily turns off astyle's indent enforcement
@@ -321,7 +321,7 @@ KEYMAPS(
    M(SHIFT_SHIFT),                         Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    Slash,                                  Key_W,                                  Key_X,                                  Minus_sh_Underscore_linux,              Key_V,                                  Key_B,                                  ___,
-   Key_Tab,                                Backspace_x2_AltSpace,                  Key_Enter,                              ___,
+   Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
    Key_CapsLock,                           ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
@@ -336,7 +336,7 @@ KEYMAPS(
    Key_Insert,                             Key_A,                                  Key_C,                                  Key_O,                                  Key_P,                                  Key_Z,                                  ___,
    Key_Escape,                             Key_Q,                                  Key_S,                                  Key_E,                                  Key_N,                                  Key_F,
    Slash,                                  Key_W,                                  Key_X,                                  Minus_sh_Underscore_mac,                Key_V,                                  Key_B,                                  ___,
-   Key_Tab,                                Backspace_x2_SuperBackspace,            Key_Enter,                              ___,
+   Key_Tab,                                Key_Backspace,                          Key_Enter,                              ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
@@ -601,20 +601,20 @@ static void anyKeyMacro(KeyEvent &event) {
   }
 }
 
-void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count,
-                    kaleidoscope::plugin::TapDance::ActionType tap_dance_action) {
-  switch (tap_dance_index) {
-  case 0:
-    return tapDanceActionKeys(tap_count, tap_dance_action, LALT(Key_RightArrow), LCTRL(LALT(Key_Tab)));
-
-  case 1:
-    return tapDanceActionKeys(tap_count, tap_dance_action, Key_Backspace, LALT(Key_Space));
-
-  case 2:
-    return tapDanceActionKeys(tap_count, tap_dance_action, Key_Backspace, LGUI(Key_Backspace));
-  }
-
-}
+// void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count,
+//                     kaleidoscope::plugin::TapDance::ActionType tap_dance_action) {
+//   switch (tap_dance_index) {
+//   case 0:
+//     return tapDanceActionKeys(tap_count, tap_dance_action, LALT(Key_RightArrow), LCTRL(LALT(Key_Tab)));
+//
+//   case 1:
+//     return tapDanceActionKeys(tap_count, tap_dance_action, Key_Backspace, LALT(Key_Space));
+//
+//   case 2:
+//     return tapDanceActionKeys(tap_count, tap_dance_action, Key_Backspace, LGUI(Key_Backspace));
+//   }
+//
+// }
 
 /** macroAction dispatches keymap events that are tied to a macro
     to that macro. It takes two uint8_t parameters.
@@ -1086,8 +1086,8 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // AutoShift
 //   AutoShift,
 
-  // TapDance
-  TapDance,
+//   // TapDance
+//   TapDance,
 
 //   // Chord
 //   Chord,
