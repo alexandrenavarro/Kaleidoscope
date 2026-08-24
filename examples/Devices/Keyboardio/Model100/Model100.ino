@@ -199,7 +199,7 @@ enum {
   *
   */
 
-enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, SYMBOL_LINUX, SYMBOL_MACOS, LETTER_VARIANT_LINUX, LETTER_VARIANT_MACOS, NAV_LINUX, NAV_MACOS, FUNCTION_LINUX, FUNCTION_MACOS, NUMROW_LINUX, NUMROW_MACOS}; // layers
+enum { ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, SYMBOL_LINUX, SYMBOL_MACOS, LETTER_VARIANT_LINUX, LETTER_VARIANT_MACOS, NAV_LINUX, NAV_MACOS, NAV_ALT_LINUX, NAV_ALT_MACOS, FUNCTION_LINUX, FUNCTION_MACOS, NUMROW_LINUX, NUMROW_MACOS}; // layers
 
 
 /**
@@ -422,6 +422,36 @@ KEYMAPS(
    ___),
 
   [NAV_MACOS] =  KEYMAP_STACKED
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   LGUI(Key_N),                            LGUI(Key_O),                            LGUI(Key_S),                            LGUI(Key_T),                            LGUI(Key_Z),                            LGUI(Key_A),                            ___,
+   Key_Delete,                             LGUI(Key_W),                            LGUI(Key_X),                            LGUI(Key_C),                            LGUI(Key_V),                            LGUI(Key_F),
+   LGUI(Key_KeypadDivide),                 LGUI(Key_LeftArrow),                    LGUI(Key_H),                            LGUI(Key_R),                            LGUI(Key_RightArrow),                   LGUI(Key_B),                            ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    LALT(Key_Backspace),                    Key_Backspace,                          M(PAGE_DOWN_MACOS),                     M(PAGE_UP_MACOS),                       Key_Delete,                             LALT(Key_Delete),
+                                           LGUI(Key_LeftArrow),                    Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LGUI(Key_RightArrow),
+   ___,                                    LGUI(Key_UpArrow),                      LALT(Key_LeftArrow),                    LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LALT(Key_RightArrow),                   LGUI(Key_DownArrow),
+   ___,                                    Key_Enter,                              Key_Space,                              ___,
+   ___),
+
+  [NAV_ALT_LINUX] =  KEYMAP_STACKED
+  (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   LCTRL(Key_N),                           LCTRL(Key_O),                           LCTRL(Key_S),                           LCTRL(Key_T),                           LCTRL(Key_Z),                           LALT(Key_F4),                           ___,
+   Key_Delete,                             LCTRL(Key_W),                           LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
+   LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    LCTRL(Key_H),                           LCTRL(Key_R),                           LALT(Key_RightArrow),                   LCTRL(Key_B),                           ___,
+   ___,                                    ___,                                    ___,                                    ___,
+   ___,
+
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    LCTRL(Key_Backspace),                   Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LCTRL(Key_Delete),
+                                           Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
+   ___,                                    LCTRL(Key_Home),                        LCTRL(Key_LeftArrow),                   LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LCTRL(Key_RightArrow),                  LCTRL(Key_End),
+   ___,                                    Key_Enter,                              Key_Space,                              ___,
+   ___),
+
+  [NAV_ALT_MACOS] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    LGUI(Key_N),                            LGUI(Key_O),                            LGUI(Key_S),                            LGUI(Key_T),                            LGUI(Key_Z),                            LGUI(Key_A),                            ___,
    Key_Delete,                             LGUI(Key_W),                            LGUI(Key_X),                            LGUI(Key_C),                            LGUI(Key_V),                            LGUI(Key_F),
