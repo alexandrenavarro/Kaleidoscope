@@ -145,7 +145,12 @@ enum {
        SET_OS_LINUX,
        SET_OS_MACOS,
        SHIFT_SHIFT,
+       SPACE_AMPERSAND_AMPERSAND_SPACE,
        SPACE_EQUALS_SPACE,
+       SPACE_EQUALS_EQUALS_SPACE,
+       SPACE_EXCLAMATION_MARK_EQUALS_SPACE,
+       SPACE_MINUS_SUPERIOR_SPACE,
+       SPACE_PIPE_PIPE_SPACE,
        U_CIRCUMFLEX,
        U_GRAVE,
      };
@@ -386,7 +391,7 @@ KEYMAPS(
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          LSHIFT(Key_LeftBracket),                M(U_CIRCUMFLEX),                        ___,
-                                           LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            M(I_CIRCUMFLEX),                        M(I_DIAERESIS),                         M(U_GRAVE),                               ___,
+                                           LeftParenthesis_sh_Bracket,             RightParenthesis_sh_Bracket,            M(I_CIRCUMFLEX),                        M(I_DIAERESIS),                         M(U_GRAVE),                             ___,
    ___,                                    Key_Period,                             Key_Slash,                              Key_Comma,                              Key_Period,                             LSHIFT(Key_M),                          ___,
    ___,                                    RALT(Key_6),                            M(SPACE_EQUALS_SPACE),                  ___,
    ___),
@@ -498,30 +503,30 @@ KEYMAPS(
 
   [NUMROW_LINUX] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_LeftBracket,                        Key_NonUsBackslashAndPipe,              M(SPACE_MINUS_SUPERIOR_SPACE),          M(SPACE_EQUALS_SPACE),                  M(SPACE_EQUALS_EQUALS_SPACE),           ___,
    LCTRL(Key_G),                           LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   ___,                                    ___,                                    ___,                                    ___,                                    Key_8,                                  ___,                                    ___,
+   ___,                                    Key_Backslash,                          LSHIFT(Key_Equals),                     ___,                                    Key_8,                                  Key_Equals,                             ___,
    Key_Backspace,                          ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_Equals,                             LSHIFT(Key_Equals),                     Key_Backslash,                          LSHIFT(Key_Period),                     Key_6,                                  ___,
-                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          ___,
-   ___,                                    Period_sh_Colon,                        Key_Slash,                              Key_Comma,                              Comma_sh_SemiColon,                     LSHIFT(Key_M),                          ___,
+   ___,                                    RALT(Key_0),                            M(SPACE_AMPERSAND_AMPERSAND_SPACE),     Key_Backslash,                          Apostrophe_sh_QuestionMark,             RALT(Key_7),                            ___,
+                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          Period_sh_Colon,
+   ___,                                    M(SPACE_PIPE_PIPE_SPACE),               M(SPACE_EXCLAMATION_MARK_EQUALS_SPACE), Key_Comma,                              Comma_sh_SemiColon,                     LSHIFT(Key_M),                          ___,
    ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
 
   [NUMROW_MACOS] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    Key_LeftBracket,                        Key_Backtick,                           M(SPACE_MINUS_SUPERIOR_SPACE),          Key_RightBracket,                       M(SPACE_EQUALS_EQUALS_SPACE),           ___,
    LGUI(Key_L),                            LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
-   ___,                                    ___,                                    ___,                                    ___,                                    LSHIFT(Key_Equals),                     ___,                                    ___,
+   ___,                                    RALT(Key_N),                            LSHIFT(RALT(Key_5)),                    LSHIFT(RALT(Key_Minus)),                LSHIFT(Key_Equals),                     M(SPACE_EQUALS_SPACE),                  ___,
    Key_Backspace,                          ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_Equals,                             LSHIFT(Key_Equals),                     Key_Backslash,                          LSHIFT(Key_Period),                     Key_6,                                  ___,
-                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          ___,
+   ___,                                    Key_NonUsBackslashAndPipe,              Key_1,                                  LSHIFT(Key_RightBracket),               Apostrophe_sh_QuestionMark,             Key_Backslash,                          ___,
+                                           LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          Period_sh_Colon,
    ___,                                    Period_sh_Colon,                        Key_Slash,                              Key_Comma,                              Comma_sh_SemiColon,                     LSHIFT(Key_M),                          ___,
    ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
@@ -818,9 +823,39 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
     }
     break;
 
+  case SPACE_AMPERSAND_AMPERSAND_SPACE:
+    if (keyToggledOn(event.state)) {
+      return MACRO(T(Space), T(1), T(1), T(Space));
+    }
+    break;
+
   case SPACE_EQUALS_SPACE:
     if (keyToggledOn(event.state)) {
       return MACRO(T(Space), T(Equals), T(Space));
+    }
+    break;
+
+  case SPACE_EQUALS_EQUALS_SPACE:
+    if (keyToggledOn(event.state)) {
+      return MACRO(T(Space), T(Equals), T(Equals), T(Space));
+    }
+    break;
+
+  case SPACE_EXCLAMATION_MARK_EQUALS_SPACE:
+    if (keyToggledOn(event.state)) {
+      return MACRO(T(Space), T(Slash), T(Equals), T(Space));
+    }
+    break;
+
+  case SPACE_MINUS_SUPERIOR_SPACE:
+    if (keyToggledOn(event.state)) {
+      return MACRO(T(Space), T(6), D(LeftShift), T(NonUsBackslashAndPipe), D(LeftShift), T(Space));
+    }
+    break;
+
+  case SPACE_PIPE_PIPE_SPACE:
+    if (keyToggledOn(event.state)) {
+      return MACRO(T(Space), D(RightAlt), T(6), T(6), D(RightAlt), T(Space));
     }
     break;
 
