@@ -1154,8 +1154,8 @@ KALEIDOSCOPE_INIT_PLUGINS(
 //   // TapDance
 //   TapDance,
 
-//   // Chord
-//   Chord,
+  // Chord
+  Chord,
 
   // The hardware test mode, which can be invoked by tapping Prog, LED and the
   // left Fn button at the same time.
@@ -1315,13 +1315,13 @@ void setup() {
     kaleidoscope::plugin::CharShift::KeyPair(LSHIFT(Key_Period), LSHIFT(Key_Period)),// #define Slash                                        CS(9)
   );
 
-//   CHORDS(
-// //     CHORD(Key_Q, Key_S), Key_Escape,
-// //     CHORD(Key_Q, Key_E), Key_Escape,
-// //     CHORD(Key_S, Key_N), Key_Escape,
+  CHORDS(
+//     CHORD(Key_Q, Key_S), Key_Escape,
+//     CHORD(Key_Q, Key_E), Key_Escape,
+//     CHORD(Key_S, Key_N), Key_Escape,
 //     CHORD(Key_S, Key_E), LALT(Key_Space),
-// //     CHORD(Key_E, Key_N), Key_Tab,
-//   )
+    CHORD(Key_E, Key_N), LALT(Key_Space),
+  )
 
   //  AutoShift for letter keys and number keys only:
 //   AutoShift.setEnabled(AutoShift.letterKeys() | AutoShift.symbolKeys());
