@@ -415,7 +415,7 @@ KEYMAPS(
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    LCTRL(Key_N),                           LCTRL(Key_S),                           LCTRL(Key_L),                           LCTRL(Key_T),                           LCTRL(Key_Z),                           LALT(Key_F4),                           ___,
    Key_Delete,                             LCTRL(Key_W),                           LCTRL(Key_X),                           LCTRL(Key_C),                           LCTRL(Key_V),                           LCTRL(Key_F),
-   LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    LCTRL(Key_R),                           LCTRL(Key_H),                           LALT(Key_RightArrow),                   LCTRL(Key_B),                           ___,
+   LCTRL(Key_KeypadDivide),                LALT(Key_LeftArrow),                    LCTRL(Key_R),                           LALT(Key_F7),                           LALT(Key_RightArrow),                   LCTRL(Key_B),                           ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
@@ -444,15 +444,15 @@ KEYMAPS(
   [NAV_MOUSE_LINUX] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    LCTRL(Key_O),                           LCTRL(Key_P),                           LCTRL(Key_L),                           LCTRL(Key_T),                           LCTRL(Key_F4),                          LCTRL(Key_A),                           ___,
-   Key_Insert,                             LCTRL(Key_Q),                           LCTRL(Key_K),                           LCTRL(Key_E),                           LCTRL(LSHIFT(Key_F10)),                 LALT(Key_F7),
+   Key_Insert,                             LCTRL(Key_Q),                           LCTRL(Key_K),                           LCTRL(Key_E),                           LCTRL(LSHIFT(Key_F10)),                 LCTRL(Key_H),
    LCTRL(Key_M),                           LALT(Key_LeftArrow),                    LCTRL(Key_D),                           LCTRL(Key_U),                           LALT(Key_RightArrow),                   LCTRL(Key_I),                           ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_mouseUpL,                           Key_mouseWarpNW,                        Key_PageDown,                           Key_PageUp,                             Key_mouseWarpNE,                        Key_mouseUpR,
-                                           ___,                                    Key_mouseL,                             Key_mouseDn,                            Key_mouseUp,                            Key_mouseR,                             ___,
-   ___,                                    Key_mouseDnL,                           Key_mouseWarpSW,                        Key_DownArrow,                          Key_UpArrow,                            Key_mouseWarpSE,                        Key_mouseDnR,
+   ___,                                    Key_mouseUpL,                           LCTRL(Key_PageUp),                      Key_PageDown,                           Key_PageUp,                             LCTRL(Key_PageDown),                    Key_mouseUpR,
+                                           Key_mouseBtnL,                          Key_mouseL,                             Key_mouseDn,                            Key_mouseUp,                            Key_mouseR,                             Key_mouseBtnR,
+   ___,                                    Key_mouseDnL,                           Key_mouseBtnL,                          Key_DownArrow,                          Key_UpArrow,                            Key_mouseBtnR,                          Key_mouseDnR,
    ___,                                    Key_mouseBtnM,                          Key_mouseBtnL,                          Key_mouseBtnR,
    ___),
 
@@ -480,9 +480,9 @@ KEYMAPS(
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-                                           Key_F6,                                 Key_F7,                                 Key_F8,                                 Key_F9,                                 Key_F10,                                Key_F11,
-   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+   ___,                                    LALT(Key_Backspace),                    Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LALT(Key_D),
+                                           LCTRL(Key_Q),                           Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LCTRL(Key_E),
+   ___,                                    LALT(Key_NonUsBackslashAndPipe),        LALT(Key_B),                            LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LALT(Key_F),                            LALT(LSHIFT(Key_NonUsBackslashAndPipe)),
    ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
 
@@ -503,16 +503,16 @@ KEYMAPS(
 
   [NUMROW_LINUX] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_LeftBracket,                        Key_NonUsBackslashAndPipe,              M(SPACE_MINUS_SUPERIOR_SPACE),          M(SPACE_EQUALS_SPACE),                  M(SPACE_EQUALS_EQUALS_SPACE),           ___,
+   ___,                                    Key_LeftBracket,                        M(SPACE_EQUALS_EQUALS_SPACE),           M(SPACE_MINUS_SUPERIOR_SPACE),          M(SPACE_EQUALS_SPACE),                  M(SPACE_EQUALS_EQUALS_SPACE),           ___,
    LCTRL(Key_G),                           LSHIFT(Key_1),                          LSHIFT(Key_2),                          LSHIFT(Key_3),                          LSHIFT(Key_4),                          LSHIFT(Key_5),
    ___,                                    Key_Backslash,                          LSHIFT(Key_Equals),                     ___,                                    Key_8,                                  Key_Equals,                             ___,
    Key_Backspace,                          ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    RALT(Key_0),                            M(SPACE_AMPERSAND_AMPERSAND_SPACE),     Key_Backslash,                          Apostrophe_sh_QuestionMark,             RALT(Key_7),                            ___,
+   ___,                                    RALT(Key_0),                            Key_1,                                  Key_Backslash,                          Apostrophe_sh_QuestionMark,             RALT(Key_7),                            ___,
                                            LSHIFT(Key_6),                          LSHIFT(Key_7),                          LSHIFT(Key_8),                          LSHIFT(Key_9),                          LSHIFT(Key_0),                          Period_sh_Colon,
-   ___,                                    M(SPACE_PIPE_PIPE_SPACE),               M(SPACE_EXCLAMATION_MARK_EQUALS_SPACE), Key_Comma,                              Comma_sh_SemiColon,                     LSHIFT(Key_M),                          ___,
+   ___,                                    RALT(Key_6),                            Key_Slash,                              Key_Comma,                              Comma_sh_SemiColon,                     LSHIFT(Key_M),                          ___,
    ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
 
