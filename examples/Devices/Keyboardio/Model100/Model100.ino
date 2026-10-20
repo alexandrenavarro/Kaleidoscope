@@ -204,7 +204,7 @@ enum {
   *
   */
 
-enum {ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, SYMBOL_LINUX, SYMBOL_MACOS, LETTER_VARIANT_LINUX, LETTER_VARIANT_MACOS, NAV_EDITOR_LINUX, NAV_EDITOR_MACOS, NAV_MOUSE_LINUX, NAV_MOUSE_MACOS, FUNCTION_LINUX, FUNCTION_MACOS, NUMROW_LINUX, NUMROW_MACOS}; // layers
+enum {ERGOL_ON_AZERTY_LINUX, ERGOL_ON_AZERTY_MACOS, SYMBOL_LINUX, SYMBOL_MACOS, LETTER_VARIANT_LINUX, LETTER_VARIANT_MACOS, NAV_EDITOR_LINUX, NAV_EDITOR_MACOS, NAV_TERMINAL_LINUX, NAV_TERMINAL_MACOS, FUNCTION_LINUX, FUNCTION_MACOS, NUMROW_LINUX, NUMROW_MACOS}; // layers
 
 
 /**
@@ -441,22 +441,22 @@ KEYMAPS(
    ___,                                    Key_Enter,                              Key_Space,                              ___,
    ___),
 
-  [NAV_MOUSE_LINUX] =  KEYMAP_STACKED
+  [NAV_TERMINAL_LINUX] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   LCTRL(Key_O),                           LCTRL(Key_P),                           LCTRL(Key_L),                           LCTRL(Key_T),                           LCTRL(Key_F4),                          LCTRL(Key_A),                           ___,
-   Key_Insert,                             LCTRL(Key_Q),                           LCTRL(Key_K),                           LCTRL(Key_E),                           LCTRL(LSHIFT(Key_F10)),                 LCTRL(Key_H),
-   LCTRL(Key_M),                           LALT(Key_LeftArrow),                    LCTRL(Key_D),                           LCTRL(Key_U),                           LALT(Key_RightArrow),                   LCTRL(Key_I),                           ___,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    Key_Delete,                             ___,
+   LCTRL(Key_Y),                           LCTRL(Key_K),                           LCTRL(Key_L),                           LCTRL(Key_M),                           LCTRL(LSHIFT(Key_F10)),                 Key_Backspace,
+   Key_Insert,                             LCTRL(Key_P),                           LCTRL(Key_D),                           LCTRL(Key_J),                           LCTRL(Key_I),                           LALT(Key_Backspace),                    ___,
    ___,                                    ___,                                    ___,                                    ___,
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    Key_mouseUpL,                           LCTRL(Key_PageUp),                      Key_PageDown,                           Key_PageUp,                             LCTRL(Key_PageDown),                    Key_mouseUpR,
-                                           Key_mouseBtnL,                          Key_mouseL,                             Key_mouseDn,                            Key_mouseUp,                            Key_mouseR,                             Key_mouseBtnR,
-   ___,                                    Key_mouseDnL,                           Key_mouseBtnL,                          Key_DownArrow,                          Key_UpArrow,                            Key_mouseBtnR,                          Key_mouseDnR,
-   ___,                                    Key_mouseBtnM,                          Key_mouseBtnL,                          Key_mouseBtnR,
+   ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
+                                           LCTRL(Key_Q),                           Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LCTRL(Key_E),
+   ___,                                    LALT(Key_NonUsBackslashAndPipe),        LALT(Key_B),                            Key_PageDown,                           Key_PageUp,                             LALT(Key_F),                            LALT(LSHIFT(Key_NonUsBackslashAndPipe)),
+   ___,                                    Key_Enter,                              ___,                                    ___,
    ___),
 
-  [NAV_MOUSE_MACOS] =  KEYMAP_STACKED
+  [NAV_TERMINAL_MACOS] =  KEYMAP_STACKED
   (___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    LGUI(Key_O),                            LGUI(Key_P),                            LGUI(Key_L),                            LGUI(Key_T),                            LGUI(Key_F4),                           LCTRL(Key_A),                           ___,
    Key_Insert,                             LGUI(Key_Q),                            LCTRL(Key_K),                           LGUI(Key_E),                            LGUI(LSHIFT(Key_F10)),                  LALT(Key_F7),
@@ -480,10 +480,10 @@ KEYMAPS(
    ___,
 
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
-   ___,                                    LALT(Key_Backspace),                    Key_Backspace,                          Key_PageDown,                           Key_PageUp,                             Key_Delete,                             LALT(Key_D),
-                                           LCTRL(Key_Q),                           Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         LCTRL(Key_E),
-   ___,                                    LALT(Key_NonUsBackslashAndPipe),        LALT(Key_B),                            LCTRL(Key_DownArrow),                   LCTRL(Key_UpArrow),                     LALT(Key_F),                            LALT(LSHIFT(Key_NonUsBackslashAndPipe)),
-   ___,                                    Key_Enter,                              ___,                                    ___,
+   ___,                                    Key_mouseUpL,                           LCTRL(Key_PageUp),                      Key_PageDown,                           Key_PageUp,                             LCTRL(Key_PageDown),                    Key_mouseUpR,
+                                           Key_mouseBtnL,                          Key_mouseL,                             Key_mouseDn,                            Key_mouseUp,                            Key_mouseR,                             Key_mouseBtnR,
+   ___,                                    Key_mouseDnL,                           Key_mouseBtnL,                          Key_DownArrow,                          Key_UpArrow,                            Key_mouseBtnR,                          Key_mouseDnR,
+   ___,                                    Key_mouseBtnM,                          Key_mouseBtnL,                          Key_mouseBtnR,
    ___),
 
   [FUNCTION_MACOS] =  KEYMAP_STACKED
@@ -1175,7 +1175,7 @@ void setup() {
 
 // On ERGOL_ON_AZERTY_LINUX layer
 // Thumb keys
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(0, 7), ShiftToLayer(NAV_MOUSE_LINUX)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(0, 7), ShiftToLayer(NAV_TERMINAL_LINUX)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 7), ShiftToLayer(NAV_EDITOR_LINUX)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(2, 7), ShiftToLayer(FUNCTION_LINUX)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(1, 8), ShiftToLayer(NUMROW_LINUX)),
@@ -1190,7 +1190,7 @@ void setup() {
 
 // On ERGOL_ON_AZERTY_MACOS layer
 // Thumb keys
-       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(0, 7), ShiftToLayer(NAV_MOUSE_MACOS)),
+       kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_LINUX, KeyAddr(0, 7), ShiftToLayer(NAV_TERMINAL_MACOS)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 7), ShiftToLayer(NAV_EDITOR_MACOS)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(2, 7), ShiftToLayer(FUNCTION_MACOS)),
        kaleidoscope::plugin::Qukey(ERGOL_ON_AZERTY_MACOS, KeyAddr(1, 8), ShiftToLayer(NUMROW_MACOS)),
@@ -1225,27 +1225,27 @@ void setup() {
        kaleidoscope::plugin::Qukey(NAV_EDITOR_MACOS, KeyAddr(1, 3), Key_LeftAlt),
        kaleidoscope::plugin::Qukey(NAV_EDITOR_MACOS, KeyAddr(3, 4), Key_LeftControl),
 
-// On NAV_MOUSE_LINUX layer
+// On NAV_TERMINAL_LINUX layer
 // Homerow
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_LINUX, KeyAddr(2, 1), Key_LeftGui),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_LINUX, KeyAddr(2, 2), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_LINUX, KeyAddr(2, 3), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_LINUX, KeyAddr(2, 4), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_LINUX, KeyAddr(3, 1), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_LINUX, KeyAddr(1, 2), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_LINUX, KeyAddr(1, 3), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_LINUX, KeyAddr(3, 4), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_LINUX, KeyAddr(2, 1), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_LINUX, KeyAddr(2, 2), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_LINUX, KeyAddr(2, 3), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_LINUX, KeyAddr(2, 4), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_LINUX, KeyAddr(3, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_LINUX, KeyAddr(1, 2), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_LINUX, KeyAddr(1, 3), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_LINUX, KeyAddr(3, 4), Key_LeftGui),
 
-// On NAV_MOUSE_MACOS layer
+// On NAV_TERMINAL_MACOS layer
 // Homerow
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_MACOS, KeyAddr(2, 1), Key_LeftControl),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_MACOS, KeyAddr(2, 2), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_MACOS, KeyAddr(2, 3), Key_LeftGui),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_MACOS, KeyAddr(2, 4), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_MACOS, KeyAddr(3, 1), Key_LeftShift),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_MACOS, KeyAddr(1, 2), Key_LeftGui),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_MACOS, KeyAddr(1, 3), Key_LeftAlt),
-       kaleidoscope::plugin::Qukey(NAV_MOUSE_MACOS, KeyAddr(3, 4), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_MACOS, KeyAddr(2, 1), Key_LeftControl),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_MACOS, KeyAddr(2, 2), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_MACOS, KeyAddr(2, 3), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_MACOS, KeyAddr(2, 4), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_MACOS, KeyAddr(3, 1), Key_LeftShift),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_MACOS, KeyAddr(1, 2), Key_LeftGui),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_MACOS, KeyAddr(1, 3), Key_LeftAlt),
+       kaleidoscope::plugin::Qukey(NAV_TERMINAL_MACOS, KeyAddr(3, 4), Key_LeftControl),
 
 // On FUNCTION_LINUX layer
 // Homerow
