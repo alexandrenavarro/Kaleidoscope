@@ -145,6 +145,8 @@ enum {
        SET_OS_LINUX,
        SET_OS_MACOS,
        SHIFT_SHIFT,
+       SHIFT_HOME_CTRL_X,
+       SHIFT_END_CTRL_X,
        SPACE_AMPERSAND_AMPERSAND_SPACE,
        SPACE_EQUALS_SPACE,
        SPACE_EQUALS_EQUALS_SPACE,
@@ -422,7 +424,7 @@ KEYMAPS(
    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,                                    ___,
    ___,                                    LCTRL(Key_Backspace),                   LCTRL(Key_PageUp),                      LCTRL(Key_W),                           LCTRL(Key_N),                           LCTRL(Key_PageDown),                    LCTRL(Key_Delete),
                                            Key_Home,                               Key_LeftArrow,                          Key_DownArrow,                          Key_UpArrow,                            Key_RightArrow,                         Key_End,
-   ___,                                    ___,                                    LCTRL(Key_LeftArrow),                   Key_PageDown,                           Key_PageUp,                             LCTRL(Key_RightArrow),                  ___,
+   ___,                                    M(SHIFT_HOME_CTRL_X),                   LCTRL(Key_LeftArrow),                   Key_PageDown,                           Key_PageUp,                             LCTRL(Key_RightArrow),                  M(SHIFT_END_CTRL_X),
    ___,                                    ___,                                    ___,                                    ___,
    ___),
 
@@ -820,6 +822,18 @@ const macro_t  *macroAction(uint8_t macro_id, KeyEvent &event) {
   case SHIFT_SHIFT:
     if (keyToggledOn(event.state)) {
       return (MACRO(T(LeftShift), T(LeftShift)));
+    }
+    break;
+
+  case SHIFT_HOME_CTRL_X:
+    if (keyToggledOn(event.state)) {
+      return (MACRO(D(LeftShift), T(Home), U(LeftShift), D(LeftControl), T(X), U(LeftControl)));
+    }
+    break;
+
+  case SHIFT_END_CTRL_X:
+    if (keyToggledOn(event.state)) {
+      return (MACRO(D(LeftShift), T(End), U(LeftShift), D(LeftControl), T(X), U(LeftControl)));
     }
     break;
 
